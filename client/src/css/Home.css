@@ -4,10 +4,10 @@
 
 .carrot-bg {
     position: absolute;
-    top: 3%;
-    right: -7%;
+    top: 0;
+    right: 0;
     z-index: -1;
-    height: 80%;
+    height: 55%;
 }
 
 .ellipsis-bg {
@@ -30,6 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10%;
 }
 
 .front-page-usada {
@@ -85,4 +86,161 @@
 .fp-idol {
     font-size: 15px;
     color: #C2C2C2;
+}
+
+.usada-front {
+    width: 70%;
+}
+
+.services-wrapper {
+    width: 100%;
+}
+
+.services-header {
+    display: flex;
+    align-items: flex-end;
+}
+
+.services-header-pekora {
+    display: flex;
+    align-items: flex-end;
+    padding-left: 20%;
+}
+
+.services-header-svg {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+}
+
+.services-title {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 3.3em;
+    color: #FFF;
+    margin-bottom: 0.5em;
+}
+
+.services-body {
+    padding: 3% 15%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFF;
+}
+
+.service {
+    width: 50%;
+    height: 200px;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.service-icon {
+    width: 130px;
+    height: 130px;
+    background-color: #91DAFF;
+    border-radius: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon-img {
+    width: 60%;
+    height: 60%;
+}
+
+.service-desc-body {
+    display: flex;
+    margin-left: 30px;
+    flex-direction: column;
+    width: 50%;
+}
+
+.service-title {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 1.5em;
+    color: #54B7E9;
+}
+
+.service-desc {
+    font-size: 0.7em;
+}
+
+.history-player {
+    width: 40%;
+}
+
+.history {
+    display: flex;
+    align-items: center;
+    padding: 5% 5%;
+}
+
+.history div {
+    padding: 0 3%;
+}
+
+.history-title {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 1.8em;
+    color: #54B7E9;
+    margin-bottom: 15px;
+}
+
+.history-subtitle {
+    font-family: 'MontSerrat', 'Segoe UI';
+    margin-bottom: 10px;
+}
+
+.history-desc {
+    font-size: 0.8em;
+    text-align: justify;
+}
+
+.thanks {
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2% 10%;
+    padding-bottom: 0;
+}
+
+.thanks-message {
+    padding-bottom: 3%;
+    line-height: 2em;
+}
+
+.tm-title {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    color: #54B7E9;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.tm-desc {
+    font-family: 'MontSerrat', 'Segoe UI';
+    
+}
+
+.visit-channel {
+    display: flex;
+    align-items: center;
+}
+
+.youtube-icon {
+    font-size: 2em;
+    margin-right: 10px;
+    color: #FF4A4A;
+}
+
+.usada-3d {
+    width: 100%;
+}
+
+.usada-3d-wrapper {
+    display: flex;
+    margin-right: 30px;
 }

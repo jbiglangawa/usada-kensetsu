@@ -1,4 +1,6 @@
 import React from 'react'
+import Youtube from 'react-youtube'
+import {AiFillYoutube} from 'react-icons/ai'
 import '../css/Home.css'
 
 const Home = props => {
@@ -19,6 +21,113 @@ const Home = props => {
                     <div className="fp-usada">Usada Pekora</div>
                     <div className="fp-ceo">Usada Constructions CEO</div>
                     <div className="fp-idol">Idol Bunny Head Engineer</div>
+                </div>
+            </div>
+
+
+            <div className="services-wrapper">
+                <div className="services-header">
+                    <img src={process.env.PUBLIC_URL + "/services-header.svg"} alt="services-header" className="services-header-svg" />
+                    <div className="services-header-pekora">
+                        <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" className="usada-front" />
+                        <div className="services-title">SERVICES</div>
+                    </div>
+                </div>
+
+                <div className="services-body">
+                    <div className="service">
+                        <div className="service-icon">
+                            <img src={process.env.PUBLIC_URL + "/mc-dia-pickaxe.png"} alt="mc-dia-pickaxe" className="service-icon-img" />
+                        </div>
+                        <div className="service-desc-body">
+                            <div className="service-title">QUALITY DESIGNS</div>
+                            <div className="service-desc">
+                                With CEO Pekora, all designs are carefully researched
+                                for reliable, durable and efficient builds
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="service">
+                        <div className="service-icon">
+                            <img src={process.env.PUBLIC_URL + "/mc-dia-boots.png"} alt="mc-dia-boots" className="service-icon-img" />
+                        </div>
+                        <div className="service-desc-body">
+                            <div className="service-title">HEYBRID REWARDS</div>
+                            <div className="service-desc">
+                                Low risk but highly rewarding, CEO Pekora will bestow you 
+                                legendary Heybrid rewards handmade
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="service">
+                        <div className="service-icon">
+                            <img src={process.env.PUBLIC_URL + "/mc-wither.png"} alt="mc-wither" className="service-icon-img" />
+                        </div>
+                        <div className="service-desc-body">
+                            <div className="service-title">PEST CONTROL</div>
+                            <div className="service-desc">
+                                CEO Pekora can exterminate monsters lurking to prevent 
+                                damages and injuries to everyone near the site
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="service">
+                        <div className="service-icon">
+                            <img src={process.env.PUBLIC_URL + "/mc-iron-ingot.png"} alt="mc-iron-ingot" className="service-icon-img" />
+                        </div>
+                        <div className="service-desc-body">
+                            <div className="service-title">UNLIMITED RESOURCES</div>
+                            <div className="service-desc">
+                                Low risk but highly rewarding, CEO Pekora will bestow you 
+                                legendary Heybrid rewards handmade
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="history">
+                <div className="left">
+                    <div className="history-title">OUR HISTORY</div>
+                    <div className="history-subtitle">USADA CONSTRUCTION WAS FOUNDED THIS 2019</div>
+                    <div className="history-desc">
+                        which is very recent but ever since Usada Cannon T3 MK II we have been getting 
+                        non-stop requests from our clients as time passes. We were able to annihilate a 
+                        whole base of pillagers and managed to be known as the the first Construction 
+                        company in Hololive. Please take a look at the first ever creation of Usada Construction
+                    </div>
+                </div>
+
+                <div className="right">
+                    <Youtube videoId={'DETMkvZ0G_Q'} containerClassName={'history-player'} />
+                </div>
+            </div>
+
+            <div className="news"></div>
+            
+            <div className="thanks">
+                <div className="usada-3d-wrapper">
+                    <img src={process.env.PUBLIC_URL + "/usada-3d.png"} alt="usada-3d" className="usada-3d" />
+                </div>
+                <div className="thanks-message">
+                    <div className="tm-title">Thank you for visiting peko~!</div>
+                    <div className="tm-desc">
+                        This is a non-profit fan made website for Usada Pekora. I hope you like it! <br />
+                        Special thanks to Usada Pekora Discord Fan Server and the artists who gave 
+                        permission for using their art. Please refer to credits for a complete list 
+                        of people who helped me build this website.<br /><br />
+                        Don't forget to subscribe to Pekora-chan!
+                    </div>
+
+                    <div className="visit-channel">
+                        <a href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ">
+                            <AiFillYoutube className="youtube-icon"/>
+                        </a> 
+                        Click here to visit her channel
+                    </div>
                 </div>
             </div>
         </div>
