@@ -1,0 +1,88 @@
+.home-wrapper {
+    min-height: 1080px;
+}
+
+.carrot-bg {
+    position: absolute;
+    top: 3%;
+    right: -7%;
+    z-index: -1;
+    height: 80%;
+}
+
+.ellipsis-bg {
+    z-index: -2;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.rabbit-bg {
+    height: 50%;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+    left: -5%;
+}
+
+.front-page-wrapper {
+    height:90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.front-page-usada {
+    height: 50rem;
+    max-height: 700px;
+}
+
+.front-page-quote-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    margin-bottom: 10px;
+}
+
+.front-page-title {
+    font-family: 'PekoraRegular', 'Segoe UI';
+}
+
+.fpq-we {
+    color: #43CC96;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 22px;
+}
+
+.fpq-build {
+    color: #E3A453;
+}
+
+.fpq-tomm {
+    color: #F8CC3D;
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+}
+
+.fpq-peko {
+    color: #0A84F1;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px;
+}
+
+.fp-usada {
+    font-size: 50px;
+}
+
+.fp-ceo {
+    font-size: 20px;
+    color: #C2C2C2;
+}
+
+.fp-idol {
+    font-size: 15px;
+    color: #C2C2C2;
+}

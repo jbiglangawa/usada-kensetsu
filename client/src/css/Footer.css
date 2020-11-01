@@ -1,0 +1,53 @@
+.contact-us {
+    background-color: #F9B707;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contact-us-message {
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.contact-us-button {
+    background-color: #FFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    color: #787878;
+}
+
+.footer {
+    background-color: #4B4B4B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 150px;
+}
+
+.footer-left {
+    margin-right: 30px;
+}
+
+.footer-right {
+    margin-left: 30px;
+}
+
+.footer-logo {
+    max-height: 80px;
+}
+
+.footer-text {
+    max-width: 300px;
+    font-size: 10px;
+    text-align: justify;
+}
+
+.footer-wrapper {
+    
+}
