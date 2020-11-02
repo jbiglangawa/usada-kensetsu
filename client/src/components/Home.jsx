@@ -125,8 +125,9 @@ const Home = props => {
                     <div className="visit-channel">
                         <a href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ">
                             <AiFillYoutube className="youtube-icon"/>
+                            Click here to visit her channel
                         </a> 
-                        Click here to visit her channel
+                        
                     </div>
                 </div>
             </div>

@@ -211,6 +211,7 @@
 .thanks-message {
     padding-bottom: 3%;
     line-height: 2em;
+    width: 60%;
 }
 
 .tm-title {
@@ -226,6 +227,11 @@
 }
 
 .visit-channel {
+    display: flex;
+    align-items: center;
+}
+
+.visit-channel a {
     display: flex;
     align-items: center;
 }

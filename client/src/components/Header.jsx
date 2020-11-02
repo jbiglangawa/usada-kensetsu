@@ -6,11 +6,12 @@ const Header = props => {
     
     return (
         <div className="header">
-            <img
-                alt="header-logo" 
-                src={process.env.PUBLIC_URL + "/header-logo.png"} 
-                className="header-logo" />
-
+            <Link to="/">
+                <img
+                    alt="header-logo" 
+                    src={process.env.PUBLIC_URL + "/header-logo.png"} 
+                    className="header-logo" />
+            </Link>
             <nav>
                 <ul>
                     <li><Link to="/">HOME</Link></li>

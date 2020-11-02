@@ -5,7 +5,9 @@ import Home from './components/Home'
 import Projects from './components/Projects'
 import OurTeam from './components/OurTeam'
 import Credits from './components/Credits'
+// import Admin from './components/Admin'
 import './App.css'
+import Project from './components/Project'
 
 const App = props => {
     return (
@@ -25,6 +27,12 @@ const App = props => {
                 <Route path="/credits">
                     <Credits />
                 </Route>
+                <Route path="/project/:projectId">
+                    <Project />
+                </Route>
+                {/* <Route path="/admin">
+                    <Admin />
+                </Route> */}
             </Switch>
 
             <Footer />

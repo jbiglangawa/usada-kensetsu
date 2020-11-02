@@ -20,6 +20,7 @@
     border: none;
     border-radius: 30px;
     color: #787878;
+    cursor: pointer;
 }
 
 .footer {
@@ -50,4 +51,12 @@
 
 .footer-wrapper {
     
+}
+
+.footer-right a {
+    color: #787878;
+}
+
+.footer {
+    color: #787878;
 }
