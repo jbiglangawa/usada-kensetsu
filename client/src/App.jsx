@@ -27,6 +27,9 @@ const App = props => {
                 <Route path="/credits">
                     <Credits />
                 </Route>
+                <Route path="/project/:projectId/showByDefault/:showByDefault">
+                    <Project />
+                </Route>
                 <Route path="/project/:projectId">
                     <Project />
                 </Route>

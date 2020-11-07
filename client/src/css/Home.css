@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10%;
+    margin-bottom: 6%;
 }
 
 .front-page-usada {
@@ -166,6 +166,45 @@
 
 .service-desc {
     font-size: 0.7em;
+}
+
+
+.featured-wrapper {
+    background-image: url('../assets/pekodam-cover.png');
+    height: 75vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    font-family: 'AutoBusBold', 'Segoe UI';
+}
+
+.featured-header-text {
+    font-size: 4em;
+    color: #54B7E9;
+    text-align: right;
+    padding-right: 7%;
+    padding-top: 5%;
+}
+
+.featured-header-link {
+    color: #C2C2C2;
+    text-decoration: underline;
+    padding-right: 7%;
+    padding-top: 17%;
+    font-size: 1.4em;
+}
+
+.featured-header-link:hover {
+    color: #787878;
+}
+
+.ph-title {
+    color: #FFF;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 2.5em;
 }
 
 .history-player {

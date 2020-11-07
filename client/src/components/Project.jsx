@@ -8,10 +8,10 @@ import '../css/Project.css'
 
 
 const Project = props => {
+    const {projectId, showByDefault} = useParams()
     const [projectData, setProjectData] = useState()
     const [noProjectInd, setNoProjectInd] = useState(false)
-    const {projectId} = useParams()
-
+    
     useEffect(() => {
         if(projectId && !projectData) {
             fetch(`/projects/getProject/${projectId}`)
@@ -25,8 +25,6 @@ const Project = props => {
                 });
         }
     }, [projectId, projectData])
-
-    
     
     return (
         <div className="project-page">
@@ -34,7 +32,7 @@ const Project = props => {
                 <div className="project-page-wrapper">
                     <Link to="/projects" className="pp-back">
                         <BiArrowBack />
-                        <div className="pp-back-label">Back to project</div>
+                        <div className="pp-back-label">Back to projects</div>
                     </Link>
 
                     <div className="pp-title-wrapper">
@@ -45,7 +43,7 @@ const Project = props => {
                     {projectData.cubical_url ?
                         <div className="segment">
                             <div className="segment-title">Replica of structure:</div>
-                            <CubicalSegment url={projectData.cubical_url} />
+                            <CubicalSegment url={projectData.cubical_url} showByDefault={showByDefault} />
                         </div>
                         :
                         null

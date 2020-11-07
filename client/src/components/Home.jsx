@@ -1,6 +1,7 @@
 import React from 'react'
 import Youtube from 'react-youtube'
-import {AiFillYoutube} from 'react-icons/ai'
+import {AiFillYoutube, AiOutlineRight} from 'react-icons/ai'
+import {Link} from 'react-router-dom'
 import '../css/Home.css'
 
 const Home = props => {
@@ -86,6 +87,19 @@ const Home = props => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="featured">
+                <div className="featured-wrapper">
+                    <div className="featured-header-text">
+                        WITNESS THE<br/>
+                        PEKODAM<br />
+                        IN ACTION
+                    </div>
+                    <Link to="/project/3/showByDefault/true" className="featured-header-link">
+                        Visit the PekoDam<AiOutlineRight />
+                    </Link>
                 </div>
             </div>
 

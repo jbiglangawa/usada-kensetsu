@@ -9,7 +9,7 @@ const ProjectCell = props => {
     return (
         <div className="project">
             <Link to={`/project/${dataParsed.id}`}>
-                <img className="project-thumbnail" src={dataParsed.thumbnail} />
+                <img className="project-thumbnail" src={dataParsed.thumbnail} alt=""/>
 
                 <div className="project-title-wrapper">
                     <div className="project-name">{dataParsed.name}</div>

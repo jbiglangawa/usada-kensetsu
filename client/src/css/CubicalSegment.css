@@ -3,6 +3,12 @@
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+    font-size: 1.3em;
+    color: #F9B707;
+}
+
+#cubical-info {
+    color: #F9B707;
 }
 
 .show-cubical-wrapper:hover {
@@ -11,6 +17,7 @@
 
 .show-cubical-label {
     padding-left: 10px;
+    padding-right: 5px;
 }
 
 .hide-cubical-wrapper {

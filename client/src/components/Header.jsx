@@ -27,7 +27,7 @@ const Header = props => {
             <div className="orange-highlight" />
 
             <Alert color="info" isOpen={alertVisible} toggle={() => setAlertVisible(false)} style={{marginBottom: 0}}>
-                This is the first version of this website deployed 07/11/2020 5:00PM. I will develop additional fixes and functionalities. Please look forward to it! 
+                This is the first version of this website deployed 07/11/2020 11:59PM. Additional fixes and functionalities will be deployed soon. Please look forward to it! 
             </Alert>
         </div>
     )
