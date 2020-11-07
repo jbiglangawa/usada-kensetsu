@@ -99,7 +99,9 @@ const Project = props => {
                     
                 </div>
             : noProjectInd ?
-                <div>Project not found</div>
+                <div className="project-not-found">
+                    Project not found
+                </div>
 
             :
                 <div className="loading">
