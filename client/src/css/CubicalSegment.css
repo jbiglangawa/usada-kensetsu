@@ -1,0 +1,39 @@
+.show-cubical-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.show-cubical-wrapper:hover {
+    text-decoration: underline;
+}
+
+.show-cubical-label {
+    padding-left: 10px;
+}
+
+.hide-cubical-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.hide-cubical-wrapper:hover {
+    text-decoration: underline;
+}
+
+.hide-cubical-label {
+    padding-left: 10px;
+}
+
+.cubical-spinner {
+    width: 1rem !important;
+    height: 1rem !important;
+    margin-left: 10px;
+}
+
+.header-tools-wrapper {
+    display: flex;
+}

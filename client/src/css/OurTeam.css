@@ -1,0 +1,24 @@
+.ourteam-header {
+    background-image: url('../assets/our_team_header.png');
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ourteam-wrapper {
+    min-height: 80vh;
+}
+
+.ot-title {
+    color: #FFF;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 2.5em;
+}
+
+.ourteam-body {
+    padding: 5% 20%;
+}

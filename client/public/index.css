@@ -32,3 +32,18 @@ a {
   font-family: 'PekoraRegular';
   src: local('PekoraRegular'), url(fonts/PekoraRegular.otf) format('truetype');
 }
+
+.loading {
+  width: 100%;
+  min-height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loading-text {
+  font-family: "PekoraRegular", "Segoe UI";
+  font-style: italic;
+  padding-top: 20px;
+}

@@ -1,9 +1,16 @@
-var https = require('https');
 var express = require('express');
 var router = express.Router();
+var https = require('https');
+
+var projectsList;
+const url = "https://api.npoint.io/2a8d6a140c92bbc11d01";
+const failedResponse = '{"success" : "false", "error" : "unknown"}'
 
 async function getProjectsList() {
-    let url = "https://api.npoint.io/2a8d6a140c92bbc11d01";
+    if(projectsList) {
+        console.log('projectsList already fetched from site')
+        return;
+    }
 
     let promise = new Promise((resolve, reject) => {
         https.get(url, (res) => {
@@ -17,10 +24,10 @@ async function getProjectsList() {
                 try {
                     const json = JSON.parse(body);
                     if(json.success && json.success === 'true') {
-                        console.log('Fetching JSON Successful!')
-                        resolve(body)
+                        projectsList = body;
+                        resolve(body);
                     }else {
-                        reject('{"success" : "false", "error" : "unknown"}')
+                        reject(failedResponse);
                     }
                 } catch (error) {
                     console.error(error.message);
@@ -36,20 +43,41 @@ async function getProjectsList() {
     return await promise;
 }
 
+function getProjectById(projectId) {
+    if(projectsList) {
+        const parsedProjectsList = JSON.parse(projectsList);
+        const filtered = parsedProjectsList.ProjectsList.filter(element => element.id === projectId);
+        return filtered;
+    }
+}
 
-/* GET users listing. */
 router.get('/getProjectsList', function(req, res, next) {
-    let promise = getProjectsList();
-
-    promise.then(function successHandler(result) {
-        console.log("success: " + result)
-        res.send(result);
-    },function errorHandler(result) {
-        console.log("error: " + result) 
-        res.send(result);
-    });
+    if(!projectsList) {
+        let promise = getProjectsList();
+        promise.then(result => {
+            res.send(result);
+        }, result => {
+            res.send(result);
+        });
+    }else {
+        res.send(projectsList);
+    }
 });
 
 
+router.get('/getProject/:projectId', function(req, res, next) {
+    let {projectId} = req.params;
+    
+    if(!projectsList) {
+        let promise = getProjectsList();
+        promise.then(result => {
+            res.send(getProjectById(projectId))
+        }, result => {
+            res.send(result);
+        });
+    }else {
+        res.send(getProjectById(projectId))
+    }
+});
 
 module.exports = router;

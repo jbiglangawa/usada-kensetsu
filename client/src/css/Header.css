@@ -26,3 +26,8 @@ nav ul li a {
     text-decoration: none;
     font-family: 'Montserrat', 'Segoe UI';
 }
+
+.orange-highlight {
+    height: 3px;
+    background-color: #F9B707;
+}

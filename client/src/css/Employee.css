@@ -1,0 +1,39 @@
+.employee-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 3%;
+}
+
+.employee-thumbnail-wrapper {
+    width: 200px;
+    height: 200px;
+}
+
+.employee-thumbnail {
+    width: 200px;
+    height: 200px;
+}
+
+.employee-details {
+    padding-left: 20px;
+}
+
+.employee-details a {
+    color: #787878;
+    font-size: 1.8em;
+}
+
+.e-name {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 2em;
+    color: #54B7E9;
+}
+
+.e-role {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 1.5em;
+}
+
+.e-description {
+    font-size: 0.9em;
+}

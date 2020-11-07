@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import Project from './Project'
-import ProjectsListJSON from '../assets/projectslist.json'
+import {Spinner} from 'reactstrap';
+import ProjectCell from './ProjectCell'
 import '../css/Projects.css'
 
 const Projects = props => {
     const [projectsList, setProjectsList] = useState()
+    const [noProjectInd, setNoProjectInd] = useState(false)
 
     useEffect(() => {
         if(!projectsList) {
-            console.log(ProjectsListJSON)
-            setProjectsList(ProjectsListJSON.ProjectsList)
+            fetch(`/projects/getProjectsList`)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        if(data.ProjectsList.length > 0) {
+                            setProjectsList(data.ProjectsList)
+                        }else {
+                            setNoProjectInd(true)
+                        }
+                    }
+                })
         }
-    })
+    }, [projectsList, setProjectsList])
 
     return (
         <div className="projects-wrapper">
@@ -21,9 +31,15 @@ const Projects = props => {
 
             <div className="projects-grid">
                 {projectsList ? 
-                    projectsList.map((data, index) => <Project data={JSON.stringify(data)} key={index} />) 
-                    : 
+                    projectsList.map((data, index) => <ProjectCell data={JSON.stringify(data)} key={index} />) 
+                : 
+                noProjectInd ?
                     <div>No projects at the moment</div>
+                :
+                    <div className="loading">
+                        <Spinner color="secondary" />
+                        <div className="loading-text">Loading...</div>
+                    </div>
                 }
             </div>
         </div>
