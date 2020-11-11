@@ -25,8 +25,23 @@
     left: -5%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    .rabbit-bg {
+        animation: App-logo-spin infinite 40s linear;
+    }
+}
+  
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
 .front-page-wrapper {
-    height:90%;
+    height:90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,8 +49,9 @@
 }
 
 .front-page-usada {
-    height: 50rem;
+    height: 80vh;
     max-height: 700px;
+    z-index: 2;
 }
 
 .front-page-quote-wrapper {
@@ -47,6 +63,9 @@
 
 .front-page-title {
     font-family: 'PekoraRegular', 'Segoe UI';
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
 }
 
 .fpq-we {
@@ -105,6 +124,7 @@
     display: flex;
     align-items: flex-end;
     padding-left: 20%;
+    width: 70%;
 }
 
 .services-header-svg {
@@ -139,7 +159,7 @@
 .service-icon {
     width: 130px;
     height: 130px;
-    background-color: #91DAFF;
+    background-color: #34C7F8;
     border-radius: 300px;
     display: flex;
     align-items: center;
@@ -161,11 +181,10 @@
 .service-title {
     font-family: 'AutoBusBold', 'Segoe UI';
     font-size: 1.5em;
-    color: #54B7E9;
+    color: #34C7F8;
 }
 
 .service-desc {
-    font-size: 0.7em;
 }
 
 
@@ -183,17 +202,16 @@
 
 .featured-header-text {
     font-size: 4em;
-    color: #54B7E9;
+    color: #34C7F8;
     text-align: right;
     padding-right: 7%;
-    padding-top: 5%;
+    padding-top: 1.1em;
 }
 
 .featured-header-link {
     color: #C2C2C2;
     text-decoration: underline;
     padding-right: 7%;
-    padding-top: 17%;
     font-size: 1.4em;
 }
 
@@ -223,18 +241,18 @@
 
 .history-title {
     font-family: 'AutoBusBold', 'Segoe UI';
-    font-size: 1.8em;
-    color: #54B7E9;
+    font-size: 2.5em;
+    color: #34C7F8;
     margin-bottom: 15px;
 }
 
 .history-subtitle {
     font-family: 'MontSerrat', 'Segoe UI';
     margin-bottom: 10px;
+    font-size: 1.3em;
 }
 
 .history-desc {
-    font-size: 0.8em;
     text-align: justify;
 }
 
@@ -255,7 +273,7 @@
 
 .tm-title {
     font-family: 'AutoBusBold', 'Segoe UI';
-    color: #54B7E9;
+    color: #34C7F8;
     font-size: 2em;
     margin-bottom: 30px;
 }

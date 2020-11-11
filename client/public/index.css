@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #787878 !important;
   background-color: #F9F9F9 !important;
+  /* min-width: 1024px; */
+  /* min-height: 768px; */
 }
 
 code {
@@ -46,4 +48,10 @@ a {
   font-family: "PekoraRegular", "Segoe UI";
   font-style: italic;
   padding-top: 20px;
+}
+
+@media only screen and (max-width: 1280px) {
+  html {
+    /* font-size: 14px; */
+  }
 }

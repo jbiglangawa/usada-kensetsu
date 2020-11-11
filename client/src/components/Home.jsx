@@ -15,13 +15,15 @@ const Home = props => {
                 <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
                 <div className="front-page-title">
                     <div className="front-page-quote-wrapper">
-                        <div className="fpq-we">"We&nbsp;<div className="fpq-build">build</div></div> 
+                        <div className="fpq-we">"We&nbsp;<div className="fpq-build">build</div></div>
                         <div className="fpq-tomm">tomorrow</div>
                         <div className="fpq-peko">for you peko"</div>
                     </div>
                     <div className="fp-usada">Usada Pekora</div>
                     <div className="fp-ceo">Usada Constructions CEO</div>
                     <div className="fp-idol">Idol Bunny Head Engineer</div>
+
+                    <button className="fp-join-us-button">JOIN US</button>
                 </div>
             </div>
 
@@ -57,7 +59,7 @@ const Home = props => {
                             <div className="service-title">HEYBRID REWARDS</div>
                             <div className="service-desc">
                                 Low risk but highly rewarding, CEO Pekora will bestow you 
-                                legendary Heybrid rewards handmade
+                                legendary Heybrid rewards handmade.
                             </div>
                         </div>
                     </div>
@@ -96,7 +98,7 @@ const Home = props => {
                         WITNESS THE<br/>
                         PEKODAM<br />
                         IN ACTION
-                    </div>
+                    </div><br/><br/>
                     <Link to="/project/3/showByDefault/true" className="featured-header-link">
                         Visit the PekoDam<AiOutlineRight />
                     </Link>
@@ -106,7 +108,7 @@ const Home = props => {
             <div className="history">
                 <div className="left">
                     <div className="history-title">OUR HISTORY</div>
-                    <div className="history-subtitle">USADA CONSTRUCTION WAS FOUNDED THIS 2019</div>
+                    <div className="history-subtitle">USADA CONSTRUCTION WAS FOUNDED THIS 2019...</div>
                     <div className="history-desc">
                         which is very recent but ever since Usada Cannon T3 MK II we have been getting 
                         non-stop requests from our clients as time passes. We were able to annihilate a 

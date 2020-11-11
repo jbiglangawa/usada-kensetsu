@@ -9,6 +9,7 @@ import Credits from './components/Credits'
 import './App.css'
 import Project from './components/Project'
 
+
 const App = props => {
     return (
         <Router>
@@ -36,6 +37,10 @@ const App = props => {
                 {/* <Route path="/admin">
                     <Admin />
                 </Route> */}
+                <Route path="/testingPath">
+                    <div style={{height: "300vh"}}>
+                    </div>
+                </Route>
             </Switch>
 
             <Footer />

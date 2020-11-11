@@ -41,11 +41,11 @@
 
 .footer-logo {
     max-height: 80px;
+    margin-bottom: 10px;
 }
 
 .footer-text {
     max-width: 300px;
-    font-size: 10px;
     text-align: justify;
 }
 

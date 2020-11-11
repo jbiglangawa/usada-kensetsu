@@ -1,34 +1,63 @@
-import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import {Link, useLocation} from 'react-router-dom'
 import {Alert} from 'reactstrap'
+import useScrollPosition from '@react-hook/window-scroll'
+import {useSpring, animated} from 'react-spring'
 import '../css/Header.css'
 
 const Header = props => {
     const [alertVisible, setAlertVisible] = useState(true)
-    
+    const [isBelowFold, setIsBelowFold] = useState(false)
+    const scrollYPosition = useScrollPosition(60)
+    const routePath = useLocation()
+
+    const headerGradientColor = 'linear-gradient(90deg, rgba(255,203,111,1) 0%, rgba(47,213,150,1) 21%, rgba(12,193,245,1) 54%, rgba(111, 209, 255, 1) 92%)'
+    const headerTransparentColor = 'linear-gradient(90deg, rgba(255,203,111,0) 0%, rgba(47,213,150,0) 21%, rgba(12,193,245,0) 54%, rgba(111, 209, 255, 0) 92%)'
+
+    const headerColor = useSpring(isBelowFold ?  
+            {background: headerGradientColor, height: '10vh', borderBottomStyle: 'solid'} :
+            {background: headerTransparentColor, height: '90vh', borderBottomStyle: 'none'})
+    const logo = useSpring(isBelowFold ? {top: '5%', left: '15%'} : {top: '1%', left: '50%', width: '150px', marginLeft: '-75px'})
+    const navPosition = useSpring(isBelowFold ? {color: '#FFF', bottom: '35%'} : {color: '#787878', bottom: '0%'})
+
+    useEffect(() => {
+        if(routePath.pathname === "/") {
+            if(scrollYPosition > 100) {
+                if(!isBelowFold) {
+                    setIsBelowFold(true)
+                }
+            } else {
+                if(isBelowFold) {
+                    setIsBelowFold(false)
+                }
+            }
+        }else {
+            if(!isBelowFold) {
+                setIsBelowFold(true)
+            }
+        }
+    }, [scrollYPosition, routePath])
+
     return (
-        <div className="header-wrapper">
-            <div className="header">
-                <Link to="/">
-                    <img
-                        alt="header-logo" 
-                        src={process.env.PUBLIC_URL + "/header-logo.png"} 
-                        className="header-logo" />
-                </Link>
-                <nav>
+        <div className="header-wrapper" style={isBelowFold ? {height: '10vh', zIndex: "3"} : {height: '0', zIndex: "1"}}>
+            <animated.div className="header" style={headerColor}>
+                <animated.div className="a-logo-wrapper" style={logo}>
+                    <Link to="/" className="header-wrapper-img">
+                        <img
+                            alt="header-logo" 
+                            src={process.env.PUBLIC_URL + "/header-logo.png"} 
+                            className="header-logo" />
+                    </Link>
+                </animated.div>
+                <animated.nav style={navPosition}>
                     <ul>
                         <li><Link to="/">HOME</Link></li>
                         <li><Link to="/projects">PROJECTS</Link></li>
                         <li><Link to="/our-team">OUR TEAM</Link></li>
                         <li><Link to="/credits">CREDITS</Link></li>
                     </ul>
-                </nav>
-            </div>
-            <div className="orange-highlight" />
-
-            <Alert color="info" isOpen={alertVisible} toggle={() => setAlertVisible(false)} style={{marginBottom: 0}}>
-                This is the first version of this website deployed 07/11/2020 11:59PM. Additional fixes and functionalities will be deployed soon. Please look forward to it! 
-            </Alert>
+                </animated.nav>
+            </animated.div>
         </div>
     )
 }
