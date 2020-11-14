@@ -3,6 +3,7 @@ import Youtube from 'react-youtube'
 import {AiFillYoutube, AiOutlineRight} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 import '../css/Home.css'
+import LiveSubscribersCount from './LiveSubscribersCount'
 
 const Home = props => {
     return (
@@ -123,6 +124,8 @@ const Home = props => {
             </div>
 
             <div className="news"></div>
+
+            <LiveSubscribersCount></LiveSubscribersCount>
             
             <div className="thanks">
                 <div className="usada-3d-wrapper">

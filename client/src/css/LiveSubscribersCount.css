@@ -1,0 +1,93 @@
+.subscribers-count-container{
+    display: flex;
+    height: 90vh;
+    width: 100%;
+    align-content: center;
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+    margin: 16px;
+    position: relative;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    background-color: #baf6ff;
+}
+
+.count-container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.count{
+    font-size: 6em;
+    color: #0495c5;
+    z-index: 1;
+}
+
+.title{
+    color: #efc8a7;
+    font-size: 5em;
+    padding-top: 16px;
+    padding-left: 5%;
+    text-transform: uppercase;
+    align-self: flex-start;
+    top: 0;
+    position: absolute;
+}
+
+.employee-count-text{
+    border-bottom: 5px solid #ffa953;
+}
+
+.bunny-icon{
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+.rabbit-shape{
+    align-self: flex-end;
+    position: absolute;
+}
+
+.rabbit-shape.rabbit-shape-small{
+    top: 20%;
+}
+
+.rabbit-shape.rabbit-shape-large{
+    bottom: 13%;
+}
+
+.rabbit-shape.center{
+    height: 35%;
+}
+
+.carrot{
+    position: absolute;
+}
+
+.subscribe-button{
+    position: absolute;
+    text-align: center;
+    left: -10%;
+    bottom: 10%;
+}
+
+.subscribe-button .subscribe-text{
+    position: absolute;
+    left: 52%;
+    top: 57%;
+    font-size: 2.5em;
+    z-index: 1;
+    color: white;
+    text-transform: uppercase;
+}
+
+.subscribe-button .carrot{
+    position: relative;
+    width: 70%;
+    padding-left: 25%;
+    padding-top: 10%;
+}
