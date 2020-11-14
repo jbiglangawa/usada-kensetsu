@@ -4,6 +4,7 @@ import ReactContactForm from 'react-mail-form'
 import {Modal, ModalHeader, ModalBody} from 'reactstrap'
 import {TwitterTimelineEmbed} from 'react-twitter-embed'
 import '../css/Footer.css'
+import ExternalLink from './ExternalLink'
 
 const Footer = props => {
     const [modal, setModal] = useState(false)
@@ -31,9 +32,9 @@ const Footer = props => {
                         hololive or Usada Pekora. Please subscribe to Usada Pekora on youtube for more 
                         Minecraft chaos.
                     </div>
-                    <a href="https://twitter.com/usadapekora"><AiFillYoutube />Pekora Ch. 兎田ぺこら</a>
+                    <ExternalLink href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ"><AiFillYoutube />Pekora Ch. 兎田ぺこら</ExternalLink>
                     <br />
-                    <a href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ"><AiOutlineTwitter />@usadapekora</a>
+                    <ExternalLink href="https://twitter.com/usadapekora"><AiOutlineTwitter />@usadapekora</ExternalLink>
                 </div>
 
                 <div className="footer-right">
