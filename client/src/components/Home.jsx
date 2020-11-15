@@ -1,18 +1,24 @@
 import React from 'react'
 import Youtube from 'react-youtube'
-import {AiFillYoutube, AiOutlineRight} from 'react-icons/ai'
-import {Link} from 'react-router-dom'
+import { AiFillYoutube, AiOutlineRight } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 import '../css/Home.css'
+import ElementTooltip from './ElementTooltip'
+import ExternalLink from './ExternalLink'
+import { FiExternalLink } from 'react-icons/fi'
 
-const Home = props => {
+const Home = () => {
     return (
         <div className="home-wrapper">
-            <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg"/>
-            <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg"/>
-            <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg"/>
-            
+            <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg" />
+            <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg" />
+            <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg" />
+
             <div className="front-page-wrapper">
-                <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
+                <ElementTooltip id="PekoraFrontPage" tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336<FiExternalLink /></ExternalLink>}>
+                    <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
+                </ElementTooltip>
+
                 <div className="front-page-title">
                     <div className="front-page-quote-wrapper">
                         <div className="fpq-we">"We&nbsp;<div className="fpq-build">build</div></div>
@@ -31,8 +37,12 @@ const Home = props => {
             <div className="services-wrapper">
                 <div className="services-header">
                     <img src={process.env.PUBLIC_URL + "/services-header.svg"} alt="services-header" className="services-header-svg" />
+
                     <div className="services-header-pekora">
-                        <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" className="usada-front" />
+                        <ElementTooltip id="UsadaFront" tooltipChildren={<ExternalLink href="https://virtualyoutuber.fandom.com/wiki/Usada_Pekora">https://virtualyoutuber.fandom.com/wiki/Usada_Pekora <FiExternalLink /></ExternalLink>}>
+                            <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" className="usada-front" />
+                        </ElementTooltip>
+
                         <div className="services-title">SERVICES</div>
                     </div>
                 </div>
@@ -58,7 +68,7 @@ const Home = props => {
                         <div className="service-desc-body">
                             <div className="service-title">HEYBRID REWARDS</div>
                             <div className="service-desc">
-                                Low risk but highly rewarding, CEO Pekora will bestow you 
+                                Low risk but highly rewarding, CEO Pekora will bestow you
                                 legendary Heybrid rewards handmade.
                             </div>
                         </div>
@@ -71,7 +81,7 @@ const Home = props => {
                         <div className="service-desc-body">
                             <div className="service-title">PEST CONTROL</div>
                             <div className="service-desc">
-                                CEO Pekora can exterminate monsters lurking to prevent 
+                                CEO Pekora can exterminate monsters lurking to prevent
                                 damages and injuries to everyone near the site
                             </div>
                         </div>
@@ -84,7 +94,7 @@ const Home = props => {
                         <div className="service-desc-body">
                             <div className="service-title">UNLIMITED RESOURCES</div>
                             <div className="service-desc">
-                                Low risk but highly rewarding, CEO Pekora will bestow you 
+                                Low risk but highly rewarding, CEO Pekora will bestow you
                                 legendary Heybrid rewards handmade
                             </div>
                         </div>
@@ -93,16 +103,19 @@ const Home = props => {
             </div>
 
             <div className="featured">
-                <div className="featured-wrapper">
-                    <div className="featured-header-text">
-                        WITNESS THE<br/>
+                <ElementTooltip placement='top-start' tooltipChildren={<ExternalLink href="https://twitter.com/RASaaya/">Visit Saaya's Twitter <FiExternalLink /></ExternalLink>} id="PekoDam">
+                    <div className="featured-wrapper">
+                        <div className="featured-header-text">
+                            WITNESS THE<br />
                         PEKODAM<br />
                         IN ACTION
-                    </div><br/><br/>
-                    <Link to="/project/3/showByDefault/true" className="featured-header-link">
-                        Visit the PekoDam<AiOutlineRight />
-                    </Link>
-                </div>
+                    </div><br /><br />
+                        <Link to="/project/3/showByDefault/true" className="featured-header-link">
+                            Visit the PekoDam<AiOutlineRight />
+                        </Link>
+                    </div>
+                </ElementTooltip>
+
             </div>
 
             <div className="history">
@@ -110,9 +123,9 @@ const Home = props => {
                     <div className="history-title">OUR HISTORY</div>
                     <div className="history-subtitle">USADA CONSTRUCTION WAS FOUNDED THIS 2019...</div>
                     <div className="history-desc">
-                        which is very recent but ever since Usada Cannon T3 MK II we have been getting 
-                        non-stop requests from our clients as time passes. We were able to annihilate a 
-                        whole base of pillagers and managed to be known as the the first Construction 
+                        which is very recent but ever since Usada Cannon T3 MK II we have been getting
+                        non-stop requests from our clients as time passes. We were able to annihilate a
+                        whole base of pillagers and managed to be known as the the first Construction
                         company in Hololive. Please take a look at the first ever creation of Usada Construction
                     </div>
                 </div>
@@ -123,7 +136,7 @@ const Home = props => {
             </div>
 
             <div className="news"></div>
-            
+
             <div className="thanks">
                 <div className="usada-3d-wrapper">
                     <img src={process.env.PUBLIC_URL + "/usada-3d.png"} alt="usada-3d" className="usada-3d" />
@@ -132,18 +145,18 @@ const Home = props => {
                     <div className="tm-title">Thank you for visiting peko~!</div>
                     <div className="tm-desc">
                         This is a non-profit fan made website for Usada Pekora. I hope you like it! <br />
-                        Special thanks to Usada Pekora Discord Fan Server and the artists who gave 
-                        permission for using their art. Please refer to credits for a complete list 
+                        Special thanks to Usada Pekora Discord Fan Server and the artists who gave
+                        permission for using their art. Please refer to credits for a complete list
                         of people who helped me build this website.<br /><br />
                         Don't forget to subscribe to Pekora-chan!
                     </div>
 
                     <div className="visit-channel">
                         <a href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ">
-                            <AiFillYoutube className="youtube-icon"/>
+                            <AiFillYoutube className="youtube-icon" />
                             Click here to visit her channel
-                        </a> 
-                        
+                        </a>
+
                     </div>
                 </div>
             </div>
