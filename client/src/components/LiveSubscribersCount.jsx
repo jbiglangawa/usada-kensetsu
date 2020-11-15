@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { getSubscribersCount } from '../services/youtube.service';
 import socketIOClient from "socket.io-client";
 import '../css/LiveSubscribersCount.css';
@@ -7,46 +7,84 @@ import RabbitShape from '../assets/svg/rabbit-shape.svg'
 import Small from '../assets/svg/small.svg';
 import Large from '../assets/svg/large.svg';
 import Carrot from '../assets/svg/carrot.svg';
+import { useSpring, animated } from 'react-spring'
+import useScrollPosition from '@react-hook/window-scroll'
+
 
 const LiveSubscribersCount = () => {
 
-    const [count, setCount] = useState('');
+    
+    const [shouldAnimate, setShouldAnimate] = useState(false);
+    const [count, setCount] = useState(0);
+
+    const useSlideAnimationOnScroll = (to, from) => {
+        return useSpring(shouldAnimate  ? {
+            transform: `translateX(${to}%)`,
+            visibility: 'visible',
+            from: {
+                transform: `translateX(${from || 200}%)`
+            },
+        } : {visibility: 'hidden'});
+    }
+
+    // This generates an error
+    // const counterAnimator = useSpring({ number: count ? count : 0, from: { number: 0 } })
+
+
+    const scrollYPosition = useScrollPosition(60);
+    const elementRef = useRef(null);
+
+    useEffect(() => {
+        const scrollTop = elementRef.current.getBoundingClientRect().top;
+        if (scrollTop < 500) {
+            setShouldAnimate(true);
+        }
+
+    }, [scrollYPosition])
+
     useEffect(() => {
 
         //Update current count from server's memory
         (async () => {
             const currentCount = await getSubscribersCount();
-            setCount(currentCount.toLocaleString());
+            setCount(currentCount);
         })();
 
         //Subscribe for live-ish updates
-        const socket = socketIOClient(document.location.host);
+        const socket = socketIOClient(process.env.PUBLIC_URL);
         socket.on("updateSubscribersCount", data => {
-            setCount(data.toLocaleString());
+            console.log("recieved", data);
+            setCount(data);
         });
 
         //Disconnect from socket when component is unmount
         return () => {
             socket.disconnect();
         }
-    })
+    }, [])
 
     return (
-        <div className="subscribers-count-container">
-            <img className="rabbit-shape rabbit-shape-small" src={Small}></img>
-            <img className="rabbit-shape rabbit-shape-center" src={RabbitShape}></img>
-            <img className="rabbit-shape rabbit-shape-large" src={Large}></img>
-            <div className="title">Current Nousagi <span className="employee-count-text">Employee Count</span></div>
+        <div ref={elementRef} className="subscribers-count-container">
+            <animated.img src={Carrot} style={useSlideAnimationOnScroll(400, 700)} className="carrot carrot-opaque carrot-small carrot-1"></animated.img>
+            <animated.img src={Carrot} style={useSlideAnimationOnScroll(100, 700)} className="carrot carrot-opaque carrot-small carrot-2"></animated.img>
+            <animated.img src={Carrot} style={useSlideAnimationOnScroll(-350, 700)} className="carrot carrot-opaque carrot-small carrot-3"></animated.img>
+            <animated.img src={Carrot} style={useSlideAnimationOnScroll(100, 700)} className="carrot carrot-opaque carrot-small carrot-4"></animated.img>
+            <animated.img src={Carrot} style={useSlideAnimationOnScroll(300, 700)} className="carrot carrot-opaque carrot-small carrot-5"></animated.img>
+
+            <animated.img style={useSlideAnimationOnScroll(0)} className="rabbit-shape rabbit-shape-small" src={Small}></animated.img>
+            <animated.img style={useSlideAnimationOnScroll(0)} className="rabbit-shape rabbit-shape-center" src={RabbitShape}></animated.img>
+            <animated.img style={useSlideAnimationOnScroll(0)} className="rabbit-shape rabbit-shape-large" src={Large}></animated.img>
+            <animated.div style={useSlideAnimationOnScroll(0)} className="title">Current Nousagi <span className="employee-count-text">Employee Count</span></animated.div>
             <div className="count-container">
-                <span className="count">{count}</span>
-                <img className="bunny-icon" src={BunnyIcon}></img>
+                {/* <animated.span style={{...useSlideAnimationOnScroll(0, 700), ...counterAnimator}} className="count">{counterAnimator.number.interpolate(count => count && count.toLocaleString())}</animated.span> */}
+                {/* For some reason, the toLocaleString is not executed when updated via socket, gotta check re-render times */}
+                <animated.span style={useSlideAnimationOnScroll(0, 700)} className="count">{count.toLocaleString()}</animated.span>
+                <animated.img style={useSlideAnimationOnScroll(0, 700)} className="bunny-icon" src={BunnyIcon}></animated.img>
             </div>
-            <div className="subscribe-button">
+            <animated.div style={useSlideAnimationOnScroll(-70)} className="subscribe-button">
                 <span className="subscribe-text">Subscribe</span>
                 <img src={Carrot} className="carrot carrot-subscribe"></img>
-            </div>
-
-            {/* <img src="https://user-images.githubusercontent.com/36124096/99149933-14dace80-26cc-11eb-8dac-72db65beaf2a.png"></img> */}
+            </animated.div>
         </div>
     )
 
