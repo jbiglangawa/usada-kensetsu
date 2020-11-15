@@ -54,9 +54,7 @@ app.use(function(err, req, res, next) {
 });
 
 const startSocket = (io) => {
-  io.on('connection', socket => {
-    require('./controllers/youtube').startSocket(socket);
-  })
+  require('./controllers/youtube').startSocket(io);
 }
 
 module.exports = { app, startSocket };

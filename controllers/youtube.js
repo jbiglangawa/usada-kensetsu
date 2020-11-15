@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 const apiKey = require('../youtube.config.json').apiKey;
-let socket;
+let io;
 let currentCount = 0;
 
 const getSubscribersCount = async () => {
@@ -11,7 +11,7 @@ const getSubscribersCount = async () => {
 
 const updateCount = async () => {
   const data = await getSubscribersCount();
-  currentCount = data.items[0].statistics.subscriberCount;
+  currentCount = parseInt(data.items[0].statistics.subscriberCount);
 }
 
 const getCurrentCount = () => currentCount
@@ -19,19 +19,27 @@ const getCurrentCount = () => currentCount
 updateCount();
 
 setInterval(async () => {
-  if(socket){
-    try {
-      const data = await getSubscribersCount();
-      currentCount = data.items[0].statistics.subscriberCount;
-    } finally {
-      console.log("emitting...", currentCount);
-      socket.emit("updateSubscribersCount", currentCount);
+  if(io){
+    const clientsCount = io.engine.clientsCount;
+    console.log(`${clientsCount} clients connected`);
+    if(clientsCount > 0){
+      try {
+        await updateCount();
+      } finally {
+        console.log("emitting...", currentCount);
+        io.sockets.emit("updateSubscribersCount", currentCount);
+      }
+    } else {
+      console.log("Socket asleep, no clients connected");
     }
+  } else {
+    console.log("Socket is not connected yet");
   }
-}, 20000);
+}, 10000);
 
-const startSocket = (instance) => {
-  socket = instance;
+const startSocket = (ioInstance) => {
+  io = ioInstance;
+  console.log("Socket IO Connected"); 
 }
   
 module.exports = {startSocket, getCurrentCount};

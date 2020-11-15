@@ -6,7 +6,6 @@
     align-items: center; 
     justify-content: center; 
     flex-direction: column; 
-    margin: 16px;
     position: relative;
     font-family: 'AutoBusBold', 'Segoe UI';
     background-color: #baf6ff;
@@ -81,7 +80,6 @@
 .subscribe-button{
     position: absolute;
     text-align: center;
-    /* left: -10%; */
     will-change: right;
     bottom: 13%;
 }

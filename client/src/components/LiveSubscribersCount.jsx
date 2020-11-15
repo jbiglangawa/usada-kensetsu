@@ -16,6 +16,7 @@ const LiveSubscribersCount = () => {
     
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [count, setCount] = useState(0);
+    const [prevCount, setPrevCount] = useState(0);
 
     const useSlideAnimationOnScroll = (to, from) => {
         return useSpring(shouldAnimate  ? {
@@ -27,10 +28,7 @@ const LiveSubscribersCount = () => {
         } : {visibility: 'hidden'});
     }
 
-    // This generates an error
-    // const counterAnimator = useSpring({ number: count ? count : 0, from: { number: 0 } })
-
-
+    const counterAnimator = useSpring({ number: count || 0, from: { number: prevCount } })
     const scrollYPosition = useScrollPosition(60);
     const elementRef = useRef(null);
 
@@ -46,15 +44,19 @@ const LiveSubscribersCount = () => {
 
         //Update current count from server's memory
         (async () => {
-            const currentCount = await getSubscribersCount();
-            setCount(currentCount);
+            const {count} = await getSubscribersCount();
+            setCount(count);
         })();
 
         //Subscribe for live-ish updates
         const socket = socketIOClient(process.env.PUBLIC_URL);
+
         socket.on("updateSubscribersCount", data => {
-            console.log("recieved", data);
-            setCount(data);
+            setCount(prev => {
+                setPrevCount(prev)
+                return data;
+            }
+            );
         });
 
         //Disconnect from socket when component is unmount
@@ -76,9 +78,7 @@ const LiveSubscribersCount = () => {
             <animated.img style={useSlideAnimationOnScroll(0)} className="rabbit-shape rabbit-shape-large" src={Large}></animated.img>
             <animated.div style={useSlideAnimationOnScroll(0)} className="title">Current Nousagi <span className="employee-count-text">Employee Count</span></animated.div>
             <div className="count-container">
-                {/* <animated.span style={{...useSlideAnimationOnScroll(0, 700), ...counterAnimator}} className="count">{counterAnimator.number.interpolate(count => count && count.toLocaleString())}</animated.span> */}
-                {/* For some reason, the toLocaleString is not executed when updated via socket, gotta check re-render times */}
-                <animated.span style={useSlideAnimationOnScroll(0, 700)} className="count">{count.toLocaleString()}</animated.span>
+                <animated.span style={{...useSlideAnimationOnScroll(0, 700), ...counterAnimator}} className="count">{counterAnimator.number.interpolate(count => count.toLocaleString())}</animated.span>
                 <animated.img style={useSlideAnimationOnScroll(0, 700)} className="bunny-icon" src={BunnyIcon}></animated.img>
             </div>
             <animated.div style={useSlideAnimationOnScroll(-70)} className="subscribe-button">
