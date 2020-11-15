@@ -1,10 +1,27 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Youtube from 'react-youtube'
 import {AiFillYoutube, AiOutlineRight} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
+import useScrollPosition from '@react-hook/window-scroll'
+import {useSpring, animated} from 'react-spring'
 import '../css/Home.css'
 
 const Home = props => {
+    const [isBelowFold, setIsBelowFold] = useState(false)
+    const scrollYPosition = useScrollPosition(60)
+
+    const joinUs = useSpring(isBelowFold ? 
+        {position: 'fixed', padding: '1em 1.1em', bottom: '10%', right: '5%', fontSize: '1.3em'} : 
+        {position: 'absolute', padding: '1em 3em', bottom: '18%', right: '14%', fontSize: '1.5em'})
+
+    useEffect(() => {
+        if(scrollYPosition > 100) {
+            setIsBelowFold(true)
+        } else {
+            setIsBelowFold(false)
+        }
+    }, [scrollYPosition])
+    
     return (
         <div className="home-wrapper">
             <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg"/>
@@ -23,7 +40,9 @@ const Home = props => {
                     <div className="fp-ceo">Usada Constructions CEO</div>
                     <div className="fp-idol">Idol Bunny Head Engineer</div>
 
-                    <button className="fp-join-us-button">JOIN US</button>
+                    <animated.div className="fp-join-us-wrapper" style={joinUs}>
+                        <button className="fp-join-us-button">{isBelowFold ? <>JOIN</> : <>JOIN US</>}</button>
+                    </animated.div>
                 </div>
             </div>
 

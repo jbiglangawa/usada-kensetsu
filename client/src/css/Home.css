@@ -307,3 +307,27 @@
     display: flex;
     margin-right: 30px;
 }
+
+.fp-join-us-button {
+    background-color: #F8CC3D;
+    color: #E3A453;
+    border-radius: 100px;
+    padding: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+.fp-join-us-button:hover {
+    background-color: #F6E2A0;
+}
+
+.fp-join-us-wrapper {
+    margin-top: 20px;
+    position: absolute;
+    bottom: 18%;
+    right: 14%;
+}
+
+.fp-join-us-button:focus {
+    outline: none;
+}
