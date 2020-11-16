@@ -15,7 +15,7 @@ const Home = () => {
             <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg" />
 
             <div className="front-page-wrapper">
-                <ElementTooltip id="PekoraFrontPage" tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336<FiExternalLink /></ExternalLink>}>
+                <ElementTooltip id="PekoraFrontPage" style={{zIndex: 2}} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
                     <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
                 </ElementTooltip>
 
@@ -39,9 +39,7 @@ const Home = () => {
                     <img src={process.env.PUBLIC_URL + "/services-header.svg"} alt="services-header" className="services-header-svg" />
 
                     <div className="services-header-pekora">
-                        <ElementTooltip id="UsadaFront" tooltipChildren={<ExternalLink href="https://virtualyoutuber.fandom.com/wiki/Usada_Pekora">https://virtualyoutuber.fandom.com/wiki/Usada_Pekora <FiExternalLink /></ExternalLink>}>
-                            <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" className="usada-front" />
-                        </ElementTooltip>
+                        <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" className="usada-front" />
 
                         <div className="services-title">SERVICES</div>
                     </div>
@@ -103,19 +101,16 @@ const Home = () => {
             </div>
 
             <div className="featured">
-                <ElementTooltip placement='top-start' tooltipChildren={<ExternalLink href="https://twitter.com/RASaaya/">Visit Saaya's Twitter <FiExternalLink /></ExternalLink>} id="PekoDam">
-                    <div className="featured-wrapper">
-                        <div className="featured-header-text">
-                            WITNESS THE<br />
-                        PEKODAM<br />
-                        IN ACTION
-                    </div><br /><br />
-                        <Link to="/project/3/showByDefault/true" className="featured-header-link">
-                            Visit the PekoDam<AiOutlineRight />
-                        </Link>
-                    </div>
-                </ElementTooltip>
-
+                <div className="featured-wrapper">
+                    <div className="featured-header-text">
+                        WITNESS THE<br />
+                    PEKODAM<br />
+                    IN ACTION
+                </div><br /><br />
+                    <Link to="/project/3/showByDefault/true" className="featured-header-link">
+                        Visit the PekoDam<AiOutlineRight />
+                    </Link>
+                </div>
             </div>
 
             <div className="history">

@@ -3,9 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import useScrollPosition from '@react-hook/window-scroll'
 import { useSpring, animated } from 'react-spring'
 import '../css/Header.css'
-import ElementTooltip from './ElementTooltip'
-import ExternalLink from './ExternalLink'
-import { FiExternalLink } from 'react-icons/fi'
 
 const Header = () => {
     const [isBelowFold, setIsBelowFold] = useState(false)
@@ -44,12 +41,10 @@ const Header = () => {
             <animated.div className="header" style={headerColor}>
                 <animated.div className="a-logo-wrapper" style={logo}>
                     <Link to="/" className="header-wrapper-img">
-                        <ElementTooltip style={{height:'100%'}} id="logo" tooltipChildren={<ExternalLink href="https://www.reddit.com/r/Hololive/comments/jfzqus/i_redesigned_usada_kensetsu_logo_and_added/">https://www.reddit.com/r/Hololive/comments/jfzqus/i_redesigned_usada_kensetsu_logo_and_added/ <FiExternalLink /></ExternalLink>}>
-                            <img
-                                alt="header-logo"
-                                src={process.env.PUBLIC_URL + "/header-logo.png"}
-                                className="header-logo" />
-                        </ElementTooltip>
+                        <img
+                            alt="header-logo"
+                            src={process.env.PUBLIC_URL + "/header-logo.png"}
+                            className="header-logo" />
                     </Link>
                 </animated.div>
                 <animated.nav style={navPosition}>

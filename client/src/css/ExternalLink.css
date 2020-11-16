@@ -1,0 +1,11 @@
+.external-link {
+    color: #FFF;
+}
+
+.external-link:hover {
+    color: #F9B707;
+}
+
+.link-icon {
+    margin-left: 5px;
+}
