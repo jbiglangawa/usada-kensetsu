@@ -11,7 +11,7 @@ const getSubscribersCount = async () => {
 
 const updateCount = async () => {
   const data = await getSubscribersCount();
-  currentCount = parseInt(data.items[0].statistics.subscriberCount);
+  return parseInt(data.items[0].statistics.subscriberCount);
 }
 
 const getCurrentCount = () => currentCount
@@ -22,12 +22,16 @@ setInterval(async () => {
   if(io){
     const clientsCount = io.engine.clientsCount;
     console.log(`${clientsCount} clients connected`);
+    let newCount;
     if(clientsCount > 0){
       try {
-        await updateCount();
+        newCount = await updateCount();
       } finally {
-        console.log("emitting...", currentCount);
-        io.sockets.emit("updateSubscribersCount", currentCount);
+        if(newCount !== currentCount){
+          currentCount = newCount;
+          console.log("emitting...", currentCount);
+          io.sockets.emit("updateSubscribersCount", currentCount);
+        }
       }
     } else {
       console.log("Socket asleep, no clients connected");

@@ -78,7 +78,7 @@ const LiveSubscribersCount = () => {
             <animated.img style={useSlideAnimationOnScroll(0)} className="rabbit-shape rabbit-shape-large" src={Large}></animated.img>
             <animated.div style={useSlideAnimationOnScroll(0)} className="title">Current Nousagi <span className="employee-count-text">Employee Count</span></animated.div>
             <div className="count-container">
-                <animated.span style={{...useSlideAnimationOnScroll(0, 700), ...counterAnimator}} className="count">{counterAnimator.number.interpolate(count => count.toLocaleString())}</animated.span>
+                <animated.span style={{...useSlideAnimationOnScroll(0, 700), ...counterAnimator}} className="count">{counterAnimator.number.interpolate(count => Math.round(count).toLocaleString())}</animated.span>
                 <animated.img style={useSlideAnimationOnScroll(0, 700)} className="bunny-icon" src={BunnyIcon}></animated.img>
             </div>
             <animated.div style={useSlideAnimationOnScroll(-70)} className="subscribe-button">
