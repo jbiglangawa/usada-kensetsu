@@ -125,7 +125,7 @@ const Home = props => {
 
             <div className="news"></div>
 
-            <LiveSubscribersCount></LiveSubscribersCount>
+            <LiveSubscribersCount />
             
             <div className="thanks">
                 <div className="usada-3d-wrapper">

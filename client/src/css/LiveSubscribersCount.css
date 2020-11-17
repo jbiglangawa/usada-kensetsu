@@ -9,6 +9,7 @@
     position: relative;
     font-family: 'AutoBusBold', 'Segoe UI';
     background-color: #baf6ff;
+    overflow: hidden;
 }
 
 .count-container{
@@ -62,14 +63,11 @@
 .rabbit-shape.rabbit-shape-large{
     bottom: 13%;
     will-change: right;
-
-
 }
 
 .rabbit-shape.rabbit-shape-center{
     height: 38%;
     will-change: right;
-
 }
 
 .carrot{
