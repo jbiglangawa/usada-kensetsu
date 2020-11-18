@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import {AiOutlineTwitter, AiFillYoutube} from 'react-icons/ai'
 import ReactContactForm from 'react-mail-form'
 import {Modal, ModalHeader, ModalBody} from 'reactstrap'
+import {TwitterTimelineEmbed} from 'react-twitter-embed'
 import '../css/Footer.css'
+import ExternalLink from './ExternalLink'
 
 const Footer = props => {
     const [modal, setModal] = useState(false)
@@ -20,21 +22,33 @@ const Footer = props => {
                         alt="footer-logo" 
                         src={process.env.PUBLIC_URL + "/header-logo.png"} 
                         className="footer-logo" />
-                        <div className="footer-text">
-                            Usada Construction provides quality content and will give you ultimate
-                            satisfaction. We accept challenging tasks and finish them accordingly. We 
-                            focus on projects that gives unlimited supply of materials peko.
-                        </div>
-                </div>
-
-                <div className="footer-right">
+                    <div className="footer-text">
+                        Usada Construction provides quality content and will give you ultimate
+                        satisfaction. We accept challenging tasks and finish them accordingly. We 
+                        focus on projects that gives unlimited supply of materials peko.
+                    </div>
                     <div className="footer-text">
                         This is a non-profit fan made website. This website is not affiliated with 
                         hololive or Usada Pekora. Please subscribe to Usada Pekora on youtube for more 
                         Minecraft chaos.
                     </div>
-                    <a href="https://twitter.com/usadapekora"><AiOutlineTwitter /></a>
-                    <a href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ"><AiFillYoutube /></a>
+                    <ExternalLink href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ" excludeIcon><AiFillYoutube />Pekora Ch. 兎田ぺこら</ExternalLink>
+                    <br />
+                    <ExternalLink href="https://twitter.com/usadapekora" excludeIcon><AiOutlineTwitter />@usadapekora</ExternalLink>
+                </div>
+
+                <div className="footer-right">
+                    <div className="footer-text">
+                        Messages from CEO
+                    </div>
+                    <TwitterTimelineEmbed
+                        sourceType="profile"
+                        screenName="usadapekora"
+                        options={{
+                            align: 'center',
+                            height: '400px'
+                        }}
+                    />
                 </div>
             </div>
             
