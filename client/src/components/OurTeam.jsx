@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {Spinner} from 'reactstrap';
+import {Fade, Spinner} from 'reactstrap';
 import Employee from './Employee'
 import '../css/OurTeam.css'
+import FadeInView from './FadeInView';
 
 const OurTeam = props => {
     const [teamList, setTeamList] = useState()
@@ -24,7 +25,7 @@ const OurTeam = props => {
 
             <div className="ourteam-body">
                 {teamList ? 
-                    teamList.map(employee => <Employee data={JSON.stringify(employee)} />)
+                    teamList.map(employee => <FadeInView><Employee data={JSON.stringify(employee) } /></FadeInView>)
                 :
                     <div className="loading">
                         <Spinner color="secondary" />
