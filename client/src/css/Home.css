@@ -1,13 +1,15 @@
 .home-wrapper {
     min-height: 1080px;
+    position: relative;
+    overflow: hidden;
 }
 
 .carrot-bg {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -8%;
     z-index: -1;
-    height: 55%;
+    height: 20%;
 }
 
 .ellipsis-bg {
@@ -18,16 +20,20 @@
 }
 
 .rabbit-bg {
-    height: 50%;
-    bottom: 0;
+    height: 15%;
+    top: 10%;
     position: absolute;
     z-index: -1;
     left: -5%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
+    .carrot-bg {
+        animation: App-logo-spin-reverse infinite 40s linear;
+    }
+
     .rabbit-bg {
-        animation: App-logo-spin infinite 40s linear;
+        animation: App-logo-spin infinite 36s linear;
     }
 }
   
@@ -37,6 +43,15 @@
     }
     to {
       transform: rotate(360deg);
+    }
+}
+
+@keyframes App-logo-spin-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
     }
 }
 
