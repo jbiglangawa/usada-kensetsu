@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {Link, useParams} from 'react-router-dom'
-import {Spinner} from 'reactstrap';
-import {BiArrowBack} from 'react-icons/bi'
+import { Link, useParams } from 'react-router-dom'
+import { Spinner } from 'reactstrap';
+import { BiArrowBack } from 'react-icons/bi'
+import { Helmet } from 'react-helmet'
 import CubicalSegment from './CubicalSegment'
 import Source from './Source'
 import '../css/Project.css'
@@ -30,6 +31,14 @@ const Project = props => {
         <div className="project-page">
             {projectId && projectData ?
                 <div className="project-page-wrapper">
+                    <Helmet>
+                        <title>{projectData.name} - Usada Constructions🥕</title>
+                        <meta property="og:title" content={projectData.name + " - Usada Constructions🥕"} />
+                        <meta property="og:image" content="%PUBLIC_URL%/meta.png" />
+                        <meta property="twitter:title" content={projectData.name + " - Usada Constructions🥕"} />
+                        <meta property="twitter:image" content={projectData.thumbnail} />
+                    </Helmet>
+
                     <Link to="/projects" className="pp-back">
                         <BiArrowBack />
                         <div className="pp-back-label">Back to projects</div>

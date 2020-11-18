@@ -2,15 +2,20 @@ import React from 'react'
 import Youtube from 'react-youtube'
 import { AiFillYoutube, AiOutlineRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import '../css/Home.css'
+import { Helmet } from 'react-helmet'
 import LiveSubscribersCount from './LiveSubscribersCount'
 import ElementTooltip from './ElementTooltip'
 import ExternalLink from './ExternalLink'
-import { FiExternalLink } from 'react-icons/fi'
+import '../css/Home.css'
 
 const Home = () => {
     return (
         <div className="home-wrapper">
+            <Helmet>
+                <title>Home - Usada Constructions🥕</title>
+                <meta property="og:title" content={"Home - Usada Constructions🥕"} />
+                <meta property="twitter:title" content={"Home - Usada Constructions🥕"} />
+            </Helmet>
             <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg" />
             <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg" />
             <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg" />
