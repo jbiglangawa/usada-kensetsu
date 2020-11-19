@@ -1,53 +1,35 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './components/Home'
-import Projects from './components/Projects'
-import OurTeam from './components/OurTeam'
-import Credits from './components/Credits'
-// import Admin from './components/Admin'
 import './App.css'
-import Project from './components/Project'
-import ScrollToTop from './components/ScrollToTop'
+import Desktop from './components/breakpoints/Desktop'
+import Mobile from './components/breakpoints/Mobile'
+import SideMenu from './components/SideMenu'
+import Routes from './components/Routes'
+import { useState } from 'react'
+import { ButtonToggle } from 'reactstrap'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 
-const App = props => {
+const App = () => {
+
+    const [sidebarOpen, toggleSidebar] = useState(false);
+
     return (
         <Router>
-            <Header />
+            <Mobile>
+                <div style={{ zIndex: 10, position: 'absolute' }}>
+                    <ButtonToggle value={sidebarOpen} onClick={() => toggleSidebar(prevState => !prevState)}><GiHamburgerMenu size="1.5em"></GiHamburgerMenu></ButtonToggle>
+                </div>
+                <SideMenu open={sidebarOpen}>
+                    <Routes></Routes>
+                </SideMenu>
+            </Mobile>
 
-            <Switch>
-                <ScrollToTop>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/projects">
-                        <Projects />
-                    </Route>
-                    <Route path="/our-team">
-                        <OurTeam />
-                    </Route>
-                    <Route path="/credits">
-                        <Credits />
-                    </Route>
-                    <Route path="/project/:projectId/showByDefault/:showByDefault">
-                        <Project />
-                    </Route>
-                    <Route path="/project/:projectId">
-                        <Project />
-                    </Route>
-                    {/* <Route path="/admin">
-                    <Admin />
-                </Route> */}
-                    <Route path="/testingPath">
-                        <div style={{ height: "300vh" }}>
-                        </div>
-                    </Route>
-                </ScrollToTop>
+            <Desktop>
+                <Header />
+                <Routes></Routes>
+            </Desktop>
 
-            </Switch>
-
-            <Footer />
         </Router>
     )
 }

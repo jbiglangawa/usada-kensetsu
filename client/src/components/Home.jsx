@@ -6,17 +6,17 @@ import '../css/Home.css'
 import LiveSubscribersCount from './LiveSubscribersCount'
 import ElementTooltip from './ElementTooltip'
 import ExternalLink from './ExternalLink'
-import { FiExternalLink } from 'react-icons/fi'
 
 const Home = () => {
     return (
+
         <div className="home-wrapper">
             <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg" />
             <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg" />
             <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg" />
 
             <div className="front-page-wrapper">
-                <ElementTooltip id="PekoraFrontPage" style={{zIndex: 2}} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
+                <ElementTooltip id="PekoraFrontPage" style={{ zIndex: 2 }} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
                     <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
                 </ElementTooltip>
 
