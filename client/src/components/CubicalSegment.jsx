@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import {Spinner, UncontrolledTooltip} from 'reactstrap';
 import {FiEye, FiEyeOff, FiInfo} from 'react-icons/fi'
 import Iframe from 'react-iframe'
+import ExternalLink from './ExternalLink'
 import '../css/CubicalSegment.css'
 
-const CubicalSegment = props => {
-    const {url, showByDefault} = props
+const CubicalSegment = ({data, showByDefault}) => {
     const [hiddenCubicalInd, setHiddenCubicalInd] = useState(showByDefault ? !(showByDefault === 'true') : true)
     const [cubicalLoadingInd, setCubicalLoadingInd] = useState(false)
+    const dataParsed = JSON.parse(data)
     
     const onShowCubical = () => {
         setHiddenCubicalInd(false)
@@ -47,11 +48,13 @@ const CubicalSegment = props => {
                 }
             </div>
 
-            {!hiddenCubicalInd ?
-                    <div className="iframe-container">
-                        <Iframe url={url} className="cubical-container" onLoad={() => setCubicalLoadingInd(false)}/>
-                    </div>
-                :null
+            {!hiddenCubicalInd &&
+                <>
+                <div className="iframe-container">
+                    <Iframe url={dataParsed.link} className="cubical-container" onLoad={() => setCubicalLoadingInd(false)}/>
+                </div>
+                <div><i>Model imitated by <ExternalLink href={dataParsed.creator_source} style={{color: '#787878'}}>Saaya</ExternalLink></i></div>
+                </>
             }
         </>
     )

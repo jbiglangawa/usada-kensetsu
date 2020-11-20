@@ -40,10 +40,10 @@ const Project = props => {
                         <div className="pp-date">{projectData.date}</div>
                     </div>
 
-                    {projectData.cubical_url ?
+                    {projectData.cubical ?
                         <div className="segment">
                             <div className="segment-title">Replica of structure:</div>
-                            <CubicalSegment url={projectData.cubical_url} showByDefault={showByDefault} />
+                            <CubicalSegment data={JSON.stringify(projectData.cubical)} showByDefault={showByDefault} />
                         </div>
                         :
                         null

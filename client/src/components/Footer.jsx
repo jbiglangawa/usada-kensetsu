@@ -32,9 +32,9 @@ const Footer = props => {
                         hololive or Usada Pekora. Please subscribe to Usada Pekora on youtube for more 
                         Minecraft chaos.
                     </div>
-                    <ExternalLink href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ"><AiFillYoutube />Pekora Ch. 兎田ぺこら</ExternalLink>
+                    <ExternalLink href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ" excludeIcon><AiFillYoutube />Pekora Ch. 兎田ぺこら</ExternalLink>
                     <br />
-                    <ExternalLink href="https://twitter.com/usadapekora"><AiOutlineTwitter />@usadapekora</ExternalLink>
+                    <ExternalLink href="https://twitter.com/usadapekora" excludeIcon><AiOutlineTwitter />@usadapekora</ExternalLink>
                 </div>
 
                 <div className="footer-right">
