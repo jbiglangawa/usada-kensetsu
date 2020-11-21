@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.5.3",
     "framer-motion": "^2.9.4",
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-animated-css": "^1.2.1",
     "react-burger-menu": "^2.9.0",

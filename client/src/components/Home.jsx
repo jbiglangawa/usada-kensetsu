@@ -2,15 +2,19 @@ import React from 'react'
 import Youtube from 'react-youtube'
 import { AiFillYoutube, AiOutlineRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import '../css/Home.css'
+import '../css/Home.scss'
 import LiveSubscribersCount from './LiveSubscribersCount'
 import ElementTooltip from './ElementTooltip'
 import ExternalLink from './ExternalLink'
+import classNames from 'classnames';
+import { mobileBreakPoint } from '../helpers/responsive'
+import { useMediaQuery } from 'react-responsive';
 
 const Home = () => {
+    const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
     return (
 
-        <div className="home-wrapper">
+        <div className={classNames("home-wrapper", { mobile: isMobile })}>
             <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg" />
             <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg" />
             <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg" />
@@ -40,7 +44,9 @@ const Home = () => {
                     <img src={process.env.PUBLIC_URL + "/services-header.svg"} alt="services-header" className="services-header-svg" />
 
                     <div className="services-header-pekora">
-                        <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" className="usada-front" />
+                        <div className="usada-front">
+                            <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" />
+                        </div>
 
                         <div className="services-title">SERVICES</div>
                     </div>
@@ -127,7 +133,7 @@ const Home = () => {
                 </div>
 
                 <div className="right">
-                    <Youtube videoId={'DETMkvZ0G_Q'} containerClassName={'history-player'} />
+                    <Youtube videoId={'DETMkvZ0G_Q'} containerClassName='history-player' className="history-video"/>
                 </div>
             </div>
 

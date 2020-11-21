@@ -28,12 +28,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 150px;
+    padding: 5% 15%;
     height: 100%;
+    flex-flow: row wrap;
 }
 
 .footer-left {
-    width: 50%;
+    padding: 5%;
+    flex: 60%;
+    align-self: center;
 }
 
 .footer-left a {
@@ -46,7 +49,7 @@
 }
 
 .footer-right {
-    width: 40%;
+    flex: 40%;
 }
 
 .footer-logo {
@@ -55,13 +58,9 @@
 }
 
 .footer-text {
-    max-width: 300px;
     text-align: justify;
     margin-bottom: 20px;
-}
-
-.footer-wrapper {
-    
+    white-space: break-word;
 }
 
 .footer-right a {
