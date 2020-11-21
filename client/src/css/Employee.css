@@ -1,21 +1,23 @@
 .employee-wrapper {
     display: flex;
-    flex-direction: row;
-    padding: 3%;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 3% 10%;
 }
 
-.employee-thumbnail-wrapper {
-    width: 200px;
-    height: 200px;
-}
-
-.employee-thumbnail {
-    width: 200px;
-    height: 200px;
-}
 
 .employee-details {
     padding-left: 20px;
+    flex: 75%;
+}
+
+.thumbnail-wrapper{
+    text-align: center;
+    flex: 25%;
+}
+
+.employee-thumbnail{
+    height: 60%;
 }
 
 .employee-details a {
@@ -32,7 +34,4 @@
 .e-role {
     font-family: 'AutoBusBold', 'Segoe UI';
     font-size: 1.5em;
-}
-
-.e-description {
 }
