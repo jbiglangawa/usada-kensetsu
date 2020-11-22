@@ -2,14 +2,20 @@ import React from 'react'
 import { FaDiscord, FaDeviantart, FaFacebook } from 'react-icons/fa'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import { SiPixiv } from 'react-icons/si'
+import { Helmet } from 'react-helmet'
 import ExternalLink from './ExternalLink'
-import '../css/Credits.css'
 import ElementTooltip from './ElementTooltip'
 import FadeInView from './FadeInView'
+import '../css/Credits.css'
 
 const Credits = () => {
     return (
         <div className="credits-wrapper">
+            <Helmet>
+                <title>Credits - Usada Constructions🥕</title>
+                <meta property="og:title" content={"Credits - Usada Constructions🥕"} />
+                <meta property="twitter:title" content={"Credits - Usada Constructions🥕"} />
+            </Helmet>
             <div className="credits-header">
                 <div className="credits-title">CREDITS</div>
             </div>

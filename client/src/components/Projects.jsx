@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import {Spinner} from 'reactstrap';
+import { Spinner } from 'reactstrap';
+import { Helmet } from 'react-helmet'
 import ProjectCell from './ProjectCell'
 import '../css/Projects.css'
 
@@ -25,6 +26,11 @@ const Projects = props => {
 
     return (
         <div className="projects-wrapper">
+            <Helmet>
+                <title>Projects - Usada Constructions🥕</title>
+                <meta property="og:title" content={"Projects - Usada Constructions🥕"} />
+                <meta property="twitter:title" content={"Projects - Usada Constructions🥕"} />
+            </Helmet>
             <div className="projects-header">
                 <div className="ph-title">PROJECTS</div>
             </div>
