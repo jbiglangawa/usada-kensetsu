@@ -141,8 +141,8 @@ const Home = () => {
 
             <div className="news"></div>
 
-            <LiveSubscribersCount></LiveSubscribersCount>
-
+            <LiveSubscribersCount/>
+            
             <FadeInView>
 
                 <div className="thanks">
