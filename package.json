@@ -13,7 +13,8 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.6",
-    "react-intersection-observer": "^8.30.3"
+    "socket.io": "^3.0.1"
   }
 }
