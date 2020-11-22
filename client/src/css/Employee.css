@@ -17,7 +17,7 @@
 }
 
 .employee-thumbnail{
-    height: 60%;
+    max-width: 75vw;
 }
 
 .employee-details a {

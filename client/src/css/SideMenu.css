@@ -1,0 +1,40 @@
+
+  .side-menu-header{
+      width: 100%;
+      background-color: white;
+      position: fixed;
+      top: 0;
+      height: 6vh;
+      z-index: 900;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+  }
+
+  .sidebar{
+    padding-top: 10vh;
+    backdrop-filter: blur(30px);
+    opacity: 0.9;
+  }
+
+  .sidebar .item{
+      text-align: left!important;
+      margin-left: 3%;
+  }
+
+  .sidebar .item a{
+    color: gray;
+}
+
+.sidebar .item.active a{
+    color: #fcb85b;
+}
+
+  .mobile-header-logo{
+      object-fit: contain;
+      flex: 90%;
+  }
+
+  .mobile-menu-button{
+      flex: 10%;
+  }
