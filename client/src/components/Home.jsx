@@ -3,18 +3,24 @@ import Youtube from 'react-youtube'
 import { AiFillYoutube, AiOutlineRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import '../css/Home.scss'
-import LiveSubscribersCount from './LiveSubscribersCount'
-import ElementTooltip from './ElementTooltip'
-import ExternalLink from './ExternalLink'
 import classNames from 'classnames';
 import { mobileBreakPoint } from '../helpers/responsive'
 import { useMediaQuery } from 'react-responsive';
+import { Helmet } from 'react-helmet'
+import LiveSubscribersCount from './LiveSubscribersCount'
+import ElementTooltip from './ElementTooltip'
+import ExternalLink from './ExternalLink'
+import '../css/Home.css'
 
 const Home = () => {
     const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
     return (
-
         <div className={classNames("home-wrapper", { mobile: isMobile })}>
+            <Helmet>
+                <title>Home - Usada Constructions🥕</title>
+                <meta property="og:title" content={"Home - Usada Constructions🥕"} />
+                <meta property="twitter:title" content={"Home - Usada Constructions🥕"} />
+            </Helmet>
             <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg" />
             <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg" />
             <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg" />
