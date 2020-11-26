@@ -12,6 +12,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    will-change: right;
 
     & .carrot{
         flex: 30%;
@@ -42,6 +43,7 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
+    will-change: right;
 
     & .carrot-2 {
         flex: 60%;
@@ -93,7 +95,8 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-end;
-    
+        will-change: right;
+
     & .count-container{
         background: url('../assets/svg/rabbit-shape.svg');
         background-size: contain;
@@ -131,6 +134,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-start; 
+    will-change: right;
 
     & .subscribe-button {
         background: url('../assets/svg/carrot.svg');
@@ -174,6 +178,7 @@
     flex-flow: row nowrap;
     justify-content: flex-end;
     margin-bottom: 2%; 
+    will-change: right;
 
     & .carrot-1{
         flex: 1;
