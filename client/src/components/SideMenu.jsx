@@ -5,6 +5,12 @@ import { ButtonToggle } from 'reactstrap';
 import { Sidebar, Menu, Ref, Segment } from 'semantic-ui-react';
 import '../css/SideMenu.css';
 
+const MenuItemStyle = {
+    display: 'inline-block',
+    height: '100%',
+    width: '100%'
+}
+
 const SideMenu = ({ children }) => {
     const segmentRef = useRef();
     const [visible, setVisible] = useState(false);
@@ -36,17 +42,17 @@ const SideMenu = ({ children }) => {
                 width='wide'
                 className="sidebar"
             >
-                <Menu.Item active={isLocationActive('/')} onClick={() => setVisible(false)}>
-                    <Link to='/'>HOME</Link>
+                <Menu.Item as="div" active={isLocationActive('/')} onClick={() => setVisible(false)}>
+                    <Link style={MenuItemStyle} to='/'>HOME</Link>
                 </Menu.Item>
-                <Menu.Item active={isLocationActive('/projects')}  onClick={() => setVisible(false)}>
-                    <Link to='/projects'>PROJECTS</Link>
+                <Menu.Item as="div" active={isLocationActive('/projects')}  onClick={() => setVisible(false)}>
+                    <Link style={MenuItemStyle} to='/projects'>PROJECTS</Link>
                 </Menu.Item>
-                <Menu.Item active={isLocationActive('/our-team')} onClick={() => setVisible(false)}>
-                    <Link to='/our-team'>OUR TEAM</Link>
+                <Menu.Item as="div" active={isLocationActive('/our-team')} onClick={() => setVisible(false)}>
+                    <Link style={MenuItemStyle} to='/our-team'>OUR TEAM</Link>
                 </Menu.Item>
-                <Menu.Item active={isLocationActive('/credits')} onClick={() => setVisible(false)}>
-                    <Link to='/credits'>CREDITS</Link>
+                <Menu.Item as="div" active={isLocationActive('/credits')} onClick={() => setVisible(false)}>
+                    <Link style={MenuItemStyle} to='/credits'>CREDITS</Link>
                 </Menu.Item>
 
             </Sidebar>
