@@ -18,6 +18,7 @@
 
 .ui.segment{
     overflow: hidden!important;
+    padding: 0!important;
 }
 
 .pushable:not(body) {

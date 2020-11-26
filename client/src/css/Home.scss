@@ -111,7 +111,7 @@
         flex: 1;
         flex-grow: 1.5;
         text-align: end;
-
+        z-index: 1;
         & img{
             height: 60vh;
         }
@@ -124,6 +124,7 @@
         margin-bottom: 0.5em;
         flex: 1;
         text-align: left;
+        z-index: 1;
     }
     .services-wrapper {
         width: 100%;
@@ -148,7 +149,7 @@
     }
     
     .services-header-svg {
-        z-index: -1;
+        z-index: 0;
         position: absolute;
         width: 100%;
     }
@@ -331,6 +332,8 @@
 
 // Mobile styles
 .home-wrapper.mobile{
+    padding-top: 10vh;
+    
     & .front-page-usada{
         height: 60vh;
     }

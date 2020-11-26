@@ -10,7 +10,6 @@ import { Helmet } from 'react-helmet'
 import LiveSubscribersCount from './LiveSubscribersCount'
 import ElementTooltip from './ElementTooltip'
 import ExternalLink from './ExternalLink'
-import '../css/Home.css'
 
 const Home = () => {
     const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
