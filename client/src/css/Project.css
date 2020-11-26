@@ -66,7 +66,7 @@
 .iframe-container {
     position: relative;
     overflow: hidden;
-    width: 80%;
+    width: 80vw;
     padding-top: 43.5%;
     background-color: #C2C2C2;
 }
@@ -102,7 +102,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 }
 
 .project-not-found {
