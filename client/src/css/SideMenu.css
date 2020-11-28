@@ -30,9 +30,16 @@
     color: #fcb85b;
 }
 
-  .mobile-header-logo{
-      object-fit: contain;
+  .mobile-header-logo-container{
       flex: 90%;
+      text-align: center;
+  }
+
+  .mobile-header-logo{
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+    margin-right: 10%;
   }
 
   .mobile-menu-button{
