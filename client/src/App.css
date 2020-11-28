@@ -17,12 +17,15 @@
 }
 
 .ui.segment{
-    overflow: hidden!important;
-    padding: 0!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    border: none !important;
+
 }
 
 .pushable:not(body) {
     transform: none;
+    border: none!important;
   }
   
   .pushable:not(body) > .ui.sidebar,
