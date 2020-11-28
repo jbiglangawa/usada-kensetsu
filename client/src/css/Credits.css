@@ -40,12 +40,13 @@
 .credits-thumbnail-wrapper {
     flex: 1;
     margin: 0 5%;
+    text-align: center;
 }
 
 .usada-credits {
-    max-height: 80vh;
-    height: auto;
+    max-height: 65vh;
     width: auto;
+    max-width: 100vw;
 }
 
 .credits-opening-remarks {
@@ -65,7 +66,7 @@
     padding: 10% 20%;
     background-color: #F9F9F9;
     word-wrap: break-word;
-    width: 100%;
+    width: 100vw;
 }
 
 .credits-body a {
