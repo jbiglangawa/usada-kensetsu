@@ -7,11 +7,6 @@ import ExternalLink from '../../ExternalLink';
 
 export default class ContributorCard extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.props = props;
-    }
-
     render() {
         return (
             <div className="mb-5 d-flex justify-content-center align-items-center">

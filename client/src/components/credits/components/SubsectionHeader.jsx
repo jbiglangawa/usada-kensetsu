@@ -2,11 +2,6 @@ import React from 'react';
 
 export default class SubsectionHeader extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.props = props;
-    }
-
     render() {
         return (
             <div className="container">

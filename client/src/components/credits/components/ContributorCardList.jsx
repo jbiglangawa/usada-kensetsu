@@ -3,12 +3,6 @@ import ContributorCard from './ContributorCard';
 
 export default class ContributorCardList extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.props = props;
-    }
-
     render() {
         return (
             <div className="container-fluid pb-3">

@@ -3,12 +3,6 @@ import AssetCard from './AssetCard';
 
 export default class AssetCardList extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.props = props;
-    }
-
     render() {
         return (
             <div className="container pb-5">
