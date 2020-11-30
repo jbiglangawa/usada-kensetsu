@@ -1,0 +1,56 @@
+.pekoraCard {
+    border-color: #0A84F1;
+}
+
+.pekoraCardsm {
+    border-color: #0A84F1;
+    max-width: 250px;
+}
+
+.subsectionTitle {
+    margin-bottom: 0px;
+    font-family: "Calibri";
+    color: "#54B7E9"
+}
+
+.subsectionDivider {
+    height: "3px";
+    width: "100px";
+    background-color: "#E3A453";
+    margin-bottom: 1rem;
+}
+
+.subsectionSubtitle {
+    font-family: "Segoe UI";
+    text-align: center;
+}
+
+.pekoreCardImageHolder {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 175px;
+}
+
+.specialThanksContainer {
+    height: 100px;
+}
+
+.socialLinkIcon {
+    color: "#787878";
+}
+
+.sectionSeparator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9F9F9;
+    height: 30vh;
+}
+
+.sectionSeparatorTitle {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-weight: bold;
+    font-size: 3em;
+    color: #54B7E9;
+}

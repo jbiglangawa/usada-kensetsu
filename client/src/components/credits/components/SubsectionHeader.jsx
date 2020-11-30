@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from "../Credits.module.css";
 
 export default class SubsectionHeader extends React.Component {
 
@@ -6,11 +7,11 @@ export default class SubsectionHeader extends React.Component {
         return (
             <div className="container">
                 <div className="pt-5 pb-5 d-flex justify-content-center align-items-center flex-column">
-                    <h2 className="mb-0" style={{ fontFamily: "Calibri", color: "#54B7E9" }}>
+                    <h2 className={classes.subsectionTitle}>
                         {this.props.title}
                     </h2>
-                    <div className="mb-1" style={{ height: "3px", width: "100px", backgroundColor: "#E3A453" }}></div>
-                    <p style={{fontFamily: "Segoe UI"}} className="text-center">
+                    <div className={classes.subsectionDivider}></div>
+                    <p className={classes.subsectionSubtitle}>
                         {this.props.subtitle}
                     </p>
                 </div>

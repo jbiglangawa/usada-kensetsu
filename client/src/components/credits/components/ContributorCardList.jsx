@@ -7,8 +7,9 @@ export default class ContributorCardList extends React.Component {
         return (
             <div className="container-fluid pb-3">
                 <div className="d-flex justify-content-around align-items-center flex-wrap">
-                    {this.props.contributors.map((contributor) =>
+                    {this.props.contributors.map((contributor, index) =>
                         <ContributorCard
+                            key={index}
                             {...contributor}
                         />
                     )}

@@ -7,8 +7,8 @@ export default class AssetCardList extends React.Component {
         return (
             <div className="container pb-5">
                 <div className="row">
-                    {this.props.assets.map((asset) =>
-                        <div className="col-md-4">
+                    {this.props.assets.map((asset, index) =>
+                        <div className="col-md-4" key={index}>
                             <AssetCard
                                 {...asset}
                             />
