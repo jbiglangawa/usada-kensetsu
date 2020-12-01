@@ -1,0 +1,189 @@
+.ju-modal-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ju-modal-header {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 1.5em;
+    color: #54B7E9;
+    align-self: center;
+}
+
+.jum-account-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.jum-account-thumbnail {
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    margin-right: 10px;
+}
+
+.jum-account-name-wrapper {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    white-space: nowrap;
+    margin-right: 20px;
+}
+
+.jum-account-name {
+    font-size: 1.3em;
+    color: #54B7E9;
+}
+
+.jum-apply-button {
+    border-style: none;
+    background-color: #D5F6FF;
+    outline: none;
+    border-radius: 100px;
+    padding: 0.3em 1em;
+    color: #8ED9FF;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    /* font-size: 1.5em; */
+    white-space: nowrap;
+}
+
+.jum-apply-button svg {
+    color: #49CAEE;
+}
+
+.jum-apply-button:hover {
+    background-color: #E2F9FF;
+}
+
+.jum-apply-button:disabled {
+    background-color: #E4F1F5;
+    color: #B6C1C6;
+}
+
+.jum-apply-button:disabled svg {
+    color: #B6C1C6;
+}
+
+.jum-apply-button:focus {
+    outline: none;
+}
+
+.jum-description {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.jum-footer-note {
+    font-size: 0.8em;
+    color: #C2C2C2;
+    font-style: italic;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.jum-generate-button {
+    border-style: none;
+    background-color: #D5F6FF;
+    outline: none;
+    border-radius: 100px;
+    padding: 0.3em 1em;
+    color: #8ED9FF;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+.jum-generate-button svg {
+    color: #49CAEE;
+}
+
+.jum-generate-button:hover {
+    background-color: #E2F9FF;
+}
+
+.jum-generate-button:disabled {
+    background-color: #E4F1F5;
+    color: #B6C1C6;
+}
+
+.jum-generate-button:disabled svg {
+    color: #B6C1C6;
+}
+
+.jum-signed-in-header {
+    color: #49CAEE;
+    margin-bottom: 3px;
+}
+
+.jum-si-acc-wrapper {
+    display: flex;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    margin-bottom: 10px;
+}
+
+.jum-sia-thumbnail {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    margin-right: 5px;
+}
+
+.jum-sia-name {
+    font-size: 1em;
+    color: #54B7E9;
+    white-space: nowrap;
+}
+
+.jum-sia-logout-button {
+    background-color: #FFF;
+    border-style: none;
+    color: #e75a5a;
+    padding: 0;
+}
+
+.jum-sia-logout-button:hover {
+    color: #e39696;
+}
+
+.jum-sign-in-button {
+    background-color: #FFF;
+    border-style: none;
+    border-bottom: 2px solid #FFF;
+    outline: none;
+}
+
+.jum-sign-in-button:hover {
+    border-bottom: 2px solid #49CAEE;
+    outline: none;
+}
+
+.jum-sign-in-button:hover:disabled {
+    border-bottom: 2px solid #FFF;
+}
+
+.jum-sign-in-button:focus {
+    outline: none;
+}
+
+.jum-signed-in-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#pekocardInfo {
+    font-size: 0.7em;
+    margin-bottom: 8px;
+}
+
+.jum-authenticating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jum-authenticating i {
+    margin-left: 10px;
+}

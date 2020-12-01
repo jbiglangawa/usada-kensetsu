@@ -4,12 +4,17 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+
+
+// Routes
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const projectsRouter = require('./routes/projects');
 const employeesRouter = require('./routes/employees');
-const youtubeRouter = require('./routes/youtube')
+const youtubeRouter = require('./routes/youtube');
+const twitterRouter = require('./routes/twitter');
+
 
 const app = express();
 
@@ -25,12 +30,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/projects', projectsRouter);
-app.use('/employees', employeesRouter)
-app.use('/youtube', youtubeRouter)
+app.use('/employees', employeesRouter);
+app.use('/youtube', youtubeRouter);
+app.use('/twitter', twitterRouter);
 
 
 app.get('*', (req, res) => {
@@ -53,8 +60,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+
+
+
 const startSocket = (io) => {
   require('./controllers/youtube').startSocket(io);
+  require('./controllers/twitter').startSocket(io);
 }
 
 module.exports = { app, startSocket };

@@ -1,20 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { getSubscribersCount } from '../services/youtube.service';
-import socketIOClient from "socket.io-client";
 import '../css/LiveSubscribersCount.css';
 import BunnyIcon from '../assets/svg/bunny-icon.svg'
 import RabbitShape from '../assets/svg/rabbit-shape.svg'
 import Small from '../assets/svg/small.svg';
 import Large from '../assets/svg/large.svg';
 import Carrot from '../assets/svg/carrot.svg';
-import { useSpring, animated, config } from 'react-spring'
+import { useSpring, animated } from 'react-spring'
 import useScrollPosition from '@react-hook/window-scroll'
-import { Spring } from 'react-spring/renderprops';
 
 
-const LiveSubscribersCount = () => {
-
-    
+const LiveSubscribersCount = ({socket}) => {
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [count, setCount] = useState(0);
     const [prevCount, setPrevCount] = useState(0);
@@ -46,29 +42,23 @@ const LiveSubscribersCount = () => {
     }, [scrollYPosition])
 
     useEffect(() => {
-
         //Update current count from server's memory
         (async () => {
             const {count} = await getSubscribersCount();
             setCount(count);
         })();
 
-        //Subscribe for live-ish updates
-        const socket = socketIOClient(process.env.PUBLIC_URL);
-
-        socket.on("updateSubscribersCount", data => {
-            setCount(prev => {
-                setPrevCount(prev)
-                return data;
-            }
-            );
-        });
-
-        //Disconnect from socket when component is unmount
-        return () => {
-            socket.disconnect();
+        if(socket) {
+            socket.on("updateSubscribersCount", data => {
+                setCount(prev => {
+                    setPrevCount(prev)
+                    return data;
+                    }
+                );
+            })
         }
-    }, [])
+
+    }, [socket])
     
 
     return (

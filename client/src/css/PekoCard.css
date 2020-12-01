@@ -1,0 +1,165 @@
+.peko-card-default {
+    height: 400px;
+    width: 280.32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 2%;
+    position: relative;
+}
+
+.peko-card-photo {
+    height: 120px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.peko-wrapper {
+    position: static;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    margin-top: 115px;
+}
+
+.peko-role {
+    color: #60BFEF;
+}
+
+.peko-name {
+    font-size: 25px;
+    text-align: center;
+}
+
+.peko-id {
+    margin-top: 8px;
+    font-family: 'Segoe UI';
+}
+
+.peko-id span {
+    color: #60BFEF;
+}
+
+.peko-username {
+    margin-left: 3px;
+    color: #60BFEF;
+}
+
+.peko-rabbit-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.peko-footer-wrapper {
+    font-size: 13px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.peko-back-wrapper {
+    position: static;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    margin-top: 30px;
+}
+
+.peko-qr-code {
+    height: 165px;
+    width: 165px;
+
+}
+
+
+
+.large-card-default {
+    width: 906.24px;
+    height: 1297.92px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.large-card-photo {
+    height: 380px;
+    width: 380px;
+    border-radius: 11px;
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+}
+
+.large-wrapper {
+    position: static;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-family: 'AutoBusBold', 'Segoe UI';
+}
+
+.large-role {
+    color: #60BFEF;
+    font-size: 45px;
+}
+
+.large-name {
+    font-size: 100px;
+    text-align: center;
+}
+
+.large-id {
+    font-size: 45px;
+    margin-top: 20px;
+    font-family: 'Segoe UI';
+}
+
+.large-id span {
+    color: #60BFEF;
+}
+
+.large-username {
+    margin-left: 3px;
+    color: #60BFEF;
+}
+
+.large-rabbit-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.large-footer-wrapper {
+    font-size: 45px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.large-back-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-family: 'AutoBusBold', 'Segoe UI';
+}
+
+.large-qr-code {
+    height: 530px;
+    width: 530px;
+    margin-top: 95px;
+}

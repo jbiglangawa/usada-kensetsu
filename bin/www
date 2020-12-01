@@ -6,8 +6,14 @@
 
 const {app, startSocket} = require('../app');
 const debug = require('debug')('usada-kensetsu:server');
-const http = require('http');
+const fs = require('fs');
+const https = require('https');
 const socketIo = require("socket.io");
+// NOTE: These are Self-signed certificates. This is for development purposes only. System should use an SSL from firebase
+var privateKey  = fs.readFileSync('sslCert/41300864_localhost.key', 'utf8');
+var certificate = fs.readFileSync('sslCert/41300864_localhost.cert', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate};
 
 /**
  * Get port from environment and store in Express.
@@ -20,7 +26,8 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-const server = http.createServer(app);
+// const server = http.createServer(app);
+const server = https.createServer(credentials, app);
 const io = socketIo(server);
 
 startSocket(io); 

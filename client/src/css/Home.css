@@ -338,7 +338,7 @@
 
 .fp-join-us-wrapper {
     margin-top: 20px;
-    position: absolute;
+    position: fixed;
     bottom: 18%;
     right: 14%;
 }
