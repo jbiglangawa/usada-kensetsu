@@ -10,13 +10,13 @@
 .subsectionTitle {
     margin-bottom: 0px;
     font-family: "Calibri";
-    color: "#54B7E9"
+    color: #54B7E9
 }
 
 .subsectionDivider {
-    height: "3px";
-    width: "100px";
-    background-color: "#E3A453";
+    height: 3px;
+    width: 100px;
+    background-color: #E3A453;
     margin-bottom: 1rem;
 }
 
