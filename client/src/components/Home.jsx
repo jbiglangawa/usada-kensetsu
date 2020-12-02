@@ -2,15 +2,19 @@ import React from 'react'
 import Youtube from 'react-youtube'
 import { AiFillYoutube, AiOutlineRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import '../css/Home.scss'
+import classNames from 'classnames';
+import { mobileBreakPoint } from '../helpers/responsive'
+import { useMediaQuery } from 'react-responsive';
 import { Helmet } from 'react-helmet'
 import LiveSubscribersCount from './LiveSubscribersCount'
 import ElementTooltip from './ElementTooltip'
 import ExternalLink from './ExternalLink'
-import '../css/Home.css'
 
 const Home = () => {
+    const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
     return (
-        <div className="home-wrapper">
+        <div className={classNames("home-wrapper", { mobile: isMobile })}>
             <Helmet>
                 <title>Home - Usada Constructions🥕</title>
                 <meta property="og:title" content={"Home - Usada Constructions🥕"} />
@@ -21,7 +25,7 @@ const Home = () => {
             <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg" />
 
             <div className="front-page-wrapper">
-                <ElementTooltip id="PekoraFrontPage" style={{zIndex: 2}} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
+                <ElementTooltip id="PekoraFrontPage" style={{ zIndex: 2 }} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
                     <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
                 </ElementTooltip>
 
@@ -45,7 +49,9 @@ const Home = () => {
                     <img src={process.env.PUBLIC_URL + "/services-header.svg"} alt="services-header" className="services-header-svg" />
 
                     <div className="services-header-pekora">
-                        <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" className="usada-front" />
+                        <div className="usada-front">
+                            <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" />
+                        </div>
 
                         <div className="services-title">SERVICES</div>
                     </div>
@@ -132,7 +138,7 @@ const Home = () => {
                 </div>
 
                 <div className="right">
-                    <Youtube videoId={'DETMkvZ0G_Q'} containerClassName={'history-player'} />
+                    <Youtube videoId={'DETMkvZ0G_Q'} containerClassName='history-player' className="history-video"/>
                 </div>
             </div>
 

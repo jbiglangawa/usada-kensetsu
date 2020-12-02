@@ -1,0 +1,217 @@
+.subscribers-count-container{
+    display: flex;
+    height: auto;
+    width: 100%;
+    flex-flow: column nowrap; 
+    font-family: 'AutoBusBold', 'Segoe UI';
+    background-color: #baf6ff;
+}
+
+.row-1{
+    margin-top: 2%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    will-change: right;
+
+    & .carrot{
+        flex: 30%;
+        margin-bottom: 2%;
+        height: 5vh;
+        justify-self: flex-start;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-right: 20%;
+        & img{
+            height: 100%;
+        }
+    }
+
+    & .title{
+        color: #efc8a7;
+        font-size: 4vw;
+        padding-left: 5%;
+        text-transform: uppercase;
+        flex: 70%;
+    }
+}
+
+.row-2{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    will-change: right;
+
+    & .carrot-2 {
+        flex: 60%;
+        justify-content: center;
+        align-items: center;
+        max-width: 10vw;
+        justify-self: flex-start;
+        margin-right: 25%;
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    & .carrot-3 {
+        flex: 20%;
+        margin-top: 1%;
+        margin-bottom: -0.5%;
+        max-width: 15vw;
+        margin-right: 10%;
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    & .rabbit-shape-small {
+        flex: 20%;
+        display: flex;
+        justify-content: flex-end;
+        text-align: end;
+        will-change: right;
+        align-self: flex-end;
+        align-items: flex-end;
+        margin-bottom: 2vh;
+        max-width: 20vw;
+        text-align: right;
+
+        & img{
+            width: 100%;
+        }
+    }
+}
+
+.row-3{
+    z-index: 3;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+        will-change: right;
+
+    & .count-container{
+        background: url('../assets/svg/rabbit-shape.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right; 
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        min-height: 20vw;
+        max-height: 20vw;
+        width: 100vw;
+        text-align: center;
+
+        & .bunny-icon{
+            width: 5vw;
+            height: auto;
+            margin-left: 20px;
+            z-index: 1;
+        }
+
+        & .count{
+            font-size: 7vw;
+            color: #0495c5;
+            z-index: 1;
+            will-change: right;
+            justify-self: flex-start;
+        }
+    }
+}
+
+.row-4{
+    z-index: 3;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start; 
+    will-change: right;
+
+    & .subscribe-button {
+        background: url('../assets/svg/carrot.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        flex: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: 100%;
+        max-width: 100%;
+        align-self: stretch;
+
+        & .subscribe-text{
+            color: white;
+            text-transform: uppercase;
+            font-size: 2vw;
+        }
+    }
+
+    & .rabbit-shape{
+        height: 100%;
+        flex: 60%;
+        display: flex;
+        justify-content: flex-end;
+        text-align: end;
+        will-change: right;
+        align-self: flex-end;
+        padding-top: 2vh;
+        & img{
+            width: 100%;
+        }
+    }
+    
+}
+
+.row-5{
+    display: flex;
+    align-items: flex-start;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    margin-bottom: 2%; 
+    will-change: right;
+
+    & .carrot-1{
+        flex: 1;
+        height: 3vh;
+        margin-top: 2%;
+        padding-left: 30%;
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    & .carrot-2{
+        flex: 1;
+        height: 5vh;
+        margin-top: -1%;
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+}
+
+.employee-count-text{
+    border-bottom: 5px solid #ffa953;
+}
+
+
+.carrot{
+    will-change: right;
+}
+
+.carrot-opaque{
+    opacity: 0.7;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaDiscord, FaDeviantart, FaFacebook } from 'react-icons/fa'
+import { FiExternalLink } from 'react-icons/fi'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import { SiPixiv } from 'react-icons/si'
 import { Helmet } from 'react-helmet'
@@ -20,24 +21,28 @@ const Credits = props => {
             </div>
 
             <div className="credits-opening-remarks">
-                <div className="cor-message">
-                    <div className="cor-message-header">Thank you for helping out peko~!</div>
-                    <div className="cor-message-body">
-                        Hi, this is SwingSpringer, the creator of this fan-made website. Thank you for the people who 
-                        helped me build this website. I do not own any of the art I have used in this website, but I 
-                        got permission from all of the artists. I listed down all of the people that helped me and the 
-                        sources of each image that I used. For people who visited this website, you can visit the artists 
-                        that I will list down below and give them a follow or a comment. 
+                <div className="credits-thanks-header">
+                    <div className="cor-message">
+                        <div className="cor-message-header">Thank you for helping out peko~!</div>
+                        <div className="cor-message-body">
+                            Hi, this is SwingSpringer, the creator of this fan-made website. Thank you for the people who
+                            helped me build this website. I do not own any of the art I have used in this website, but I
+                            got permission from all of the artists. I listed down all of the people that helped me and the
+                            sources of each image that I used. For people who visited this website, you can visit the artists
+                            that I will list down below and give them a follow or a comment.
                         <br /><br />
                         In case you're looking at this Usada Pekora, please enjoy this website.
                     </div>
+                    </div>
+
+                    <div className="credits-thumbnail-wrapper">
+                        <ElementTooltip id="PekoraUsadaCredits" tooltipChildren={<ExternalLink href="https://www.pixiv.net/en/artworks/85356859">https://www.pixiv.net/en/artworks/85356859</ExternalLink>}>
+                            <img src={process.env.PUBLIC_URL + "/usada-credits.jpg"} alt="usada-credits" className="usada-credits" />
+                        </ElementTooltip>
+                    </div>
+
                 </div>
 
-                <div className="credits-thumbnail-wrapper">
-                        <ElementTooltip id="PekoraUsadaCredits" tooltipChildren={<ExternalLink href="https://www.pixiv.net/en/artworks/85356859">https://www.pixiv.net/en/artworks/85356859</ExternalLink>}>
-                        <img src={process.env.PUBLIC_URL + "/usada-credits.jpg"} alt="usada-credits" className="usada-credits" />
-                    </ElementTooltip>
-                </div>
 
                 <div className="credits-body">
                     Thank you for the following artists who have given me permission to use their art. Please do give them a visit<br />
@@ -48,7 +53,7 @@ const Credits = props => {
                     <br />
                     <b>Okeyneto</b><br />
                     Thanks for the wonderful logo!<br />
-                    <img alt="logo-display" src={process.env.PUBLIC_URL + "/header-logo.png"} height={100}/><br />
+                    <img alt="logo-display" src={process.env.PUBLIC_URL + "/header-logo.png"} height={100} /><br />
                     Art Logo: <ExternalLink href="https://www.reddit.com/r/Hololive/comments/jfzqus/i_redesigned_usada_kensetsu_logo_and_added/">https://www.reddit.com/r/Hololive/comments/jfzqus/i_redesigned_usada_kensetsu_logo_and_added/</ExternalLink><br />
                     <ExternalLink href="https://www.facebook.com/OKN2Designs/" excludeIcon><FaFacebook /></ExternalLink>
                     <ExternalLink href="https://twitter.com/okeyneto1" excludeIcon><AiOutlineTwitter /></ExternalLink><br />
@@ -93,7 +98,7 @@ const Credits = props => {
                     <ExternalLink href="https://virtualyoutuber.fandom.com/wiki/Moona_Hoshinova">Moona Hoshinova </ExternalLink><br />
                     <br />
                     <br />
-                    And lastly, thank you for my fellow Nousagi's in Usada Construction EN Division who helped me by giving out their ideas for the content of the website.<br /> 
+                    And lastly, thank you for my fellow Nousagi's in Usada Construction EN Division who helped me by giving out their ideas for the content of the website.<br />
                     Kurori<br />
                     Lucia Hunter<br />
                     Toasty Okonomiyaki<br />
