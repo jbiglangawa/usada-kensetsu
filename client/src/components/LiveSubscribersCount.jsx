@@ -70,14 +70,14 @@ const LiveSubscribersCount = () => {
     return (
         <div ref={elementRef} className="subscribers-count-container">
             <div className="row-1">
-                <animated.div style={useSlideAnimationOnScroll(150)}  className="title">
+                <animated.div style={useSlideAnimationOnScroll(150)} className="title">
                     Current Nousagi <span className="employee-count-text">Employee Count</span>
                 </animated.div>
-                <animated.div style={useSlideAnimationOnScroll(0)}  class="carrot">
+                <animated.div style={useSlideAnimationOnScroll(0)} className="carrot">
                     <img src={Carrot} className="carrot-opaque carrot-small"></img>
                 </animated.div>
             </div>
-            <animated.div style={useSlideAnimationOnScroll(0)}  className="row-2">
+            <animated.div style={useSlideAnimationOnScroll(0)} className="row-2">
                 <div className="carrot-2">
                     <img src={Carrot} className="carrot carrot-opaque carrot-small carrot-2"></img>
                 </div>
@@ -88,7 +88,7 @@ const LiveSubscribersCount = () => {
                     <img  src={Small}></img>
                 </div>
             </animated.div>
-            <animated.div  style={useSlideAnimationOnScroll(200)}  className="row-3">
+            <animated.div  style={useSlideAnimationOnScroll(200)} className="row-3">
                 <div className="count-container">
                     <animated.span style={counterAnimator} className="count">{counterAnimator.number.interpolate(count => Math.round(count).toLocaleString())}</animated.span>
                     <img className="bunny-icon" src={BunnyIcon}></img>
@@ -106,9 +106,9 @@ const LiveSubscribersCount = () => {
 
             </animated.div>
 
-            <animated.div  style={useSlideAnimationOnScroll(0)}  className="row-5">
+            <animated.div  style={useSlideAnimationOnScroll(0)} className="row-5">
                 <div className="carrot-1">
-                    <img src={Carrot}  className="carrot carrot-opaque"></img>
+                    <img src={Carrot} className="carrot carrot-opaque"></img>
                 </div>
 
                 <div className="carrot-2">
