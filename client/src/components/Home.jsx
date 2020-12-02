@@ -9,9 +9,9 @@ import ElementTooltip from './ElementTooltip'
 import ExternalLink from './ExternalLink'
 import JoinUsModal from './JoinUsModal'
 import socketIOClient from "socket.io-client";
-import '../css/Home.css'
 import GeneratePekoCardModal from './GeneratePekoCardModal'
-
+import { Helmet } from 'react-helmet'
+import '../css/Home.css'
 
 const Home = () => {
     const [isBelowFold, setIsBelowFold] = useState(false)
@@ -60,6 +60,12 @@ const Home = () => {
             {user &&
                 <GeneratePekoCardModal isModalOpen={isPekoCardModalOpen} toggleModal={togglePekoCardModal} loggedInUser={user} />
             }
+
+            <Helmet>
+                <title>Home - Usada Constructions🥕</title>
+                <meta property="og:title" content={"Home - Usada Constructions🥕"} />
+                <meta property="twitter:title" content={"Home - Usada Constructions🥕"} />
+            </Helmet>
 
             <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg"/>
             <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg"/>
