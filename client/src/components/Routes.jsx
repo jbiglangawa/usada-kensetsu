@@ -4,7 +4,7 @@ import ScrollToTop from "./ScrollToTop";
 import Home from './Home'
 import Projects from './Projects'
 import OurTeam from './OurTeam'
-import Credits from './Credits'
+import Credits from './credits/Credits'
 import Project from './Project'
 import Footer from "./Footer";
 
