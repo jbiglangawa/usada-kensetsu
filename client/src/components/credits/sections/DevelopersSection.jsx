@@ -1,6 +1,7 @@
 import React from 'react';
 import ContributorCardList from '../components/ContributorCardList';
 import SubsectionHeader from '../components/SubsectionHeader';
+import { developers } from '../CreditsData';
 
 const DevelopersSection = () => {
 
@@ -11,73 +12,7 @@ const DevelopersSection = () => {
                 subtitle="{{ General Developer Description Here }}"
             />
             <ContributorCardList
-                contributors={[
-                    {
-                        name: "SwingSpringer",
-                        mainSocialUsername: "@SwingSpringer",
-                        mainSocialLink: "#",
-                        links: {
-                            twitter: "#",
-                            youtube: "#",
-                            pixiv: "#",
-                            discord: "#",
-                            facebook: "#",
-                            deviantart: "#"
-                        }
-                    },
-                    {
-                        name: "SwingSpringer",
-                        mainSocialUsername: "@SwingSpringer",
-                        mainSocialLink: "#",
-                        links: {
-                            twitter: "#",
-                            youtube: "#",
-                            pixiv: "#",
-                            discord: "#",
-                            facebook: "#",
-                            deviantart: "#"
-                        }
-                    },
-                    {
-                        name: "SwingSpringer",
-                        mainSocialUsername: "@SwingSpringer",
-                        mainSocialLink: "#",
-                        links: {
-                            twitter: "#",
-                            youtube: "#",
-                            pixiv: "#",
-                            discord: "#",
-                            facebook: "#",
-                            deviantart: "#"
-                        }
-                    },
-                    {
-                        name: "SwingSpringer",
-                        mainSocialUsername: "@SwingSpringer",
-                        mainSocialLink: "#",
-                        links: {
-                            twitter: "#",
-                            youtube: "#",
-                            pixiv: "#",
-                            discord: "#",
-                            facebook: "#",
-                            deviantart: "#"
-                        }
-                    },
-                    {
-                        name: "SwingSpringer",
-                        mainSocialUsername: "@SwingSpringer",
-                        mainSocialLink: "#",
-                        links: {
-                            twitter: "#",
-                            youtube: "#",
-                            pixiv: "#",
-                            discord: "#",
-                            facebook: "#",
-                            deviantart: "#"
-                        }
-                    },
-                ]}
+                contributors={developers}
             />
             <div className="w-100">
                 <hr />
