@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Spinner } from 'reactstrap';
 import { Helmet } from 'react-helmet'
 import ProjectCell from './ProjectCell'
+import LoadingScreen from './LoadingScreen'
 import '../css/Projects.css'
 
 const Projects = props => {
@@ -9,20 +10,27 @@ const Projects = props => {
     const [noProjectInd, setNoProjectInd] = useState(false)
 
     useEffect(() => {
-        if(!projectsList) {
-            fetch(`/projects/getProjectsList`)
-                .then(response => response.json())
-                .then(data => {
-                    if(data.success) {
-                        if(data.ProjectsList.length > 0) {
-                            setProjectsList(data.ProjectsList)
-                        }else {
-                            setNoProjectInd(true)
-                        }
-                    }
-                })
-        }
+        // if(!projectsList) {
+        //     fetch(`/projects/getProjectsList`)
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             if(data.success) {
+        //                 if(data.ProjectsList.length > 0) {
+        //                     setProjectsList(data.ProjectsList)
+        //                 }else {
+        //                     setNoProjectInd(true)
+        //                 }
+        //             }
+        //         })
+        // }
     }, [projectsList, setProjectsList])
+
+    let showable_projects;
+    if (projectsList) {
+        showable_projects = projectsList.map((data, index) => <ProjectCell data={JSON.stringify(data)} key={index} />)
+    } else if (noProjectInd) {
+        showable_projects = <div>No projects at the moment</div>
+    }
 
     return (
         <div className="projects-wrapper">
@@ -35,19 +43,15 @@ const Projects = props => {
                 <div className="ph-title">PROJECTS</div>
             </div>
 
-            <div className="projects-grid">
-                {projectsList ? 
-                    projectsList.map((data, index) => <ProjectCell data={JSON.stringify(data)} key={index} />) 
-                : 
-                noProjectInd ?
-                    <div>No projects at the moment</div>
-                :
-                    <div className="loading">
-                        <Spinner color="secondary" />
-                        <div className="loading-text">Loading...</div>
+            {showable_projects ?
+                (
+                    <div className="projects-grid">
+                        {showable_projects}
                     </div>
-                }
-            </div>
+                )
+                :
+                <LoadingScreen />
+            }
         </div>
     )
 }
