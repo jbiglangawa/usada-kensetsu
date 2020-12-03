@@ -203,14 +203,18 @@
 
 .rollup {
     opacity: 1;
-    animation: fadeOut 1s forwards;
+    animation: fadeOut 1s linear forwards;
+    display: block;
 }
 
 @keyframes fadeOut {
     0% {
         opacity: 1;
     }
-    100% {
+    95% {
         opacity: 0;
+    }
+    100% {
+        display: none;
     }
 }
