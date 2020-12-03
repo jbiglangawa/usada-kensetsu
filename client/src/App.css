@@ -15,3 +15,21 @@
     height: 20px;
     width: 20px;
 }
+
+.ui.segment{
+    overflow: hidden !important;
+    padding: 0 !important;
+    border: none !important;
+
+}
+
+.pushable:not(body) {
+    transform: none;
+    border: none!important;
+  }
+  
+  .pushable:not(body) > .ui.sidebar,
+  .pushable:not(body) > .fixed,
+  .pushable:not(body) > .pusher:after {
+    position: fixed;
+  }

@@ -41,7 +41,7 @@ const ContributorCard = (props) => {
                     }
                 </div>
                 {props.links &&
-                    <div className="card-footer bg-transparent d-flex justify-content-center credits-body">
+                    <div className={"card-footer " + classes.pekoCardFooter}>
                         {props.links.twitter &&
                             <div className="m-0 px-1">
                                 <ExternalLink className={classes.socialLinkIcon} href={props.links.twitter} excludeIcon><AiOutlineTwitter /></ExternalLink>

@@ -4,7 +4,7 @@
 
 .pekoraCardsm {
     border-color: #0A84F1;
-    max-width: 250px;
+    width: 250px;
 }
 
 .subsectionTitle {
@@ -28,7 +28,7 @@
 .pekoreCardImageHolder {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    max-width: 175px;
+    width: 175px;
 }
 
 .specialThanksContainer {
@@ -53,6 +53,19 @@
     font-weight: bold;
     font-size: 3em;
     color: #54B7E9;
+}
+
+.pekoCardFooter a {
+    color: #787878;
+}
+
+.pekoCardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: transparent !important;
+    font-size: x-large;
 }
 
 @media only screen and (max-width: 522px) {
