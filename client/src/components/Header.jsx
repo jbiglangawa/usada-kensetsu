@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import useScrollPosition from '@react-hook/window-scroll'
 import { useSpring, animated } from 'react-spring'
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { useTranslation } from 'react-i18next';
 import '../css/Header.css'
 
 const Header = () => {
@@ -36,6 +38,13 @@ const Header = () => {
         }
     }, [scrollYPosition, routePath])
 
+    const [t, i18n] = useTranslation(["header"])
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng)
+    }
+
     return (
         <div className="header-wrapper" style={isBelowFold ? { height: '10vh', zIndex: "3" } : { height: '0', zIndex: "1" }}>
             <animated.div className="header" style={headerColor}>
@@ -49,10 +58,24 @@ const Header = () => {
                 </animated.div>
                 <animated.nav style={navPosition}>
                     <ul>
-                        <li><Link to="/">HOME</Link></li>
-                        <li><Link to="/projects">PROJECTS</Link></li>
-                        <li><Link to="/our-team">OUR TEAM</Link></li>
-                        <li><Link to="/credits">CREDITS</Link></li>
+                        <li><Link to="/">{t("HOME")}</Link></li>
+                        <li><Link to="/projects">{t("PROJECTS")}</Link></li>
+                        <li><Link to="/our-team">{t("OUR TEAM")}</Link></li>
+                        <li><Link to="/credits">{t("CREDITS")}</Link></li>
+                        <li>
+                            <div>
+                                {t("LANGUAGE:")}
+                                <ButtonDropdown isOpen={isOpen} toggle={toggle}>
+                                    <DropdownToggle caret size="sm">
+                                        {i18n.language === "en" ? "ENGLISH" : "日本人"}
+                                    </DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem value="en" onClick={(e) => changeLanguage(e.target.value)}>ENGLISH</DropdownItem>
+                                        <DropdownItem value="jp" onClick={(e) => changeLanguage(e.target.value)}>日本人</DropdownItem>
+                                    </DropdownMenu>
+                                </ButtonDropdown>
+                            </div>
+                        </li>
                     </ul>
                 </animated.nav>
             </animated.div>

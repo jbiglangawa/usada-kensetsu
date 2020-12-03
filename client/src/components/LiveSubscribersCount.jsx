@@ -9,12 +9,13 @@ import Large from '../assets/svg/large.svg';
 import Carrot from '../assets/svg/carrot.svg';
 import { useSpring, animated, config } from 'react-spring'
 import useScrollPosition from '@react-hook/window-scroll'
+import { Trans, useTranslation } from 'react-i18next'
 import { Spring } from 'react-spring/renderprops';
 
 
 const LiveSubscribersCount = () => {
 
-    
+    const [t] = useTranslation("home")
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [count, setCount] = useState(0);
     const [prevCount, setPrevCount] = useState(0);
@@ -82,13 +83,13 @@ const LiveSubscribersCount = () => {
             <animated.img style={useSlideAnimationOnScroll(0, 0, 100)} className="rabbit-shape rabbit-shape-small" src={Small}></animated.img>
             <animated.img style={useSlideAnimationOnScroll(0, 0, 200)} className="rabbit-shape rabbit-shape-center" src={RabbitShape}></animated.img>
             <animated.img style={useSlideAnimationOnScroll(0, 0, 150)} className="rabbit-shape rabbit-shape-large" src={Large}></animated.img>
-            <animated.div style={useSlideAnimationOnScroll(0)} className="title">Current Nousagi <span className="employee-count-text">Employee Count</span></animated.div>
+            <animated.div style={useSlideAnimationOnScroll(0)} className="title"><Trans t={t}>Current Nousagi <span className="employee-count-text">Employee Count</span></Trans></animated.div>
             <animated.div className="count-container">
                 <animated.span style={{...useSlideAnimationOnScroll(0, 1500, 200), ...counterAnimator}} className="count">{counterAnimator.number.interpolate(count => Math.round(count).toLocaleString())}</animated.span>
                 <animated.img style={useSlideAnimationOnScroll(0, 4000, 200)} className="bunny-icon" src={BunnyIcon}></animated.img>
             </animated.div>
             <animated.div style={useSlideAnimationOnScroll(-70)} className="subscribe-button">
-                <span className="subscribe-text">Subscribe</span>
+                <span className="subscribe-text">{t("Subscribe")}</span>
                 <img src={Carrot} className="carrot carrot-subscribe"></img>
             </animated.div>
         </div>
