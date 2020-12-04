@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Spinner } from 'reactstrap';
 import { BiArrowBack } from 'react-icons/bi'
 import { Helmet } from 'react-helmet'
 import CubicalSegment from './CubicalSegment'
@@ -9,6 +8,7 @@ import '../css/Project.scss'
 import classNames from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 import { mobileBreakPoint } from '../helpers/responsive'
+import LoadingScreen from './LoadingScreen';
 
 const Project = () => {
     const {projectId, showByDefault} = useParams()
@@ -112,12 +112,8 @@ const Project = () => {
                 <div className="project-not-found">
                     Project not found
                 </div>
-
             :
-                <div className="loading">
-                    <Spinner color="secondary" />
-                    <div className="loading-text">Loading...</div>
-                </div>
+            <LoadingScreen />
             }
         </div>
     )
