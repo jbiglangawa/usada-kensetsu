@@ -15,7 +15,7 @@ const LoadingScreen = () => {
             </div>
             <div>
                 <a href="https://codepen.io/katydecorah/pen/uIEFy" className="text-decoration-none" target="_blank" rel="noreferrer">
-                    https://codepen.io/katydecorah/pen/uIEFy
+                    Bunny Animation Source
                     <span className="ml-2">
                         <FiExternalLink />
                     </span>
