@@ -108,7 +108,9 @@ const Home = () => {
             <div className="featured">
                 <div className="featured-wrapper">
                     <div className="featured-header-text">
-                        <Trans t={t}>"WITNESS THE PEKODAM IN ACTION"</Trans>
+                        <Trans i18nKey="home:featured pekodam">
+                            WITNESS THE <br />PEKODAM<br />IN ACTION
+                        </Trans>
                     </div>
                     <br /><br />
                     <Link to="/project/3/showByDefault/true" className="featured-header-link">

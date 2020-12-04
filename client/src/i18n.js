@@ -1,18 +1,18 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-import header_en from '../public/locales/header.json'
-import home_en from '../public/locales/en/home.json';
-import projects_en from '../public/locales/en/projects.json'
-import footer_en from '../public/locales/en/footer.json'
-import commons_en from '../public/locales/en/commons.json'
+import header_en from './locales/en/header.json'
+import home_en from './locales/en/home.json';
+import projects_en from './locales/en/projects.json'
+import footer_en from './locales/en/footer.json'
+import commons_en from './locales/en/commons.json'
 // import credits_en from './locales/en/credits.json'
 
-import header_jp from '../public/locales/jp/header.json';
-import home_jp from '../public/locales/jp/home.json';
-import projects_jp from '../public/locales/jp/projects.json'
-import footer_jp from '../public/locales/jp/footer.json'
-import commons_jp from '../public/locales/jp/commons.json'
+import header_jp from './locales/jp/header.json';
+import home_jp from './locales/jp/home.json';
+import projects_jp from './locales/jp/projects.json'
+import footer_jp from './locales/jp/footer.json'
+import commons_jp from './locales/jp/commons.json'
 // import credits_jp from './locales/jp/credits.json'
 
 
