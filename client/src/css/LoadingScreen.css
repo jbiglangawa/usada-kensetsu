@@ -1,6 +1,6 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css);
 .loading-grid {
-    background: #f8cc3d;
+    background: #fff8ef;
     padding: 2%;
     min-height: 50vh;
     max-height: 100vh;
@@ -101,6 +101,48 @@
     box-shadow: -0.5em 0em 0 -0.1em white;
 }
 
+.clouds {
+    background: white;
+    width: 2em;
+    height: 2em;
+    border-radius: 100% 100% 0 0;
+    position: relative;
+    top: -5em;
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    animation: cloudy 1s infinite linear forwards;
+    box-shadow: 5em 2em 0 -0.3em white, -2em 2em 0 0 white;
+}
+
+.clouds:before,
+.clouds:after {
+    content: '';
+    position: absolute;
+    box-shadow: 5em 2em 0 -0.3em white, -2em 2em 0 white;
+}
+
+.clouds:before {
+    width: 1.25em;
+    height: 1.25em;
+    border-radius: 100% 100% 0 100%;
+    background: white;
+    left: -30%;
+    bottom: 0;
+}
+
+.clouds:after {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 100% 100% 100% 0;
+    background: white;
+    right: -30%;
+    bottom: 0;
+}
+
 .loading-text-animation-label {
     margin-top: 10px;
     color: white;
@@ -140,5 +182,30 @@
     }
     40% {
         box-shadow: 4em 0.4em 0 -0.35em #54B7E9, 0.5em 2em 0 white, 4em 1.75em 0 -0.3em white, 4.2em 1.75em 0 -0.2em white, 4.4em 1.9em 0 -0.2em white;
+    }
+}
+
+@keyframes cloudy {
+    40% {
+        filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=75);
+        opacity: 0.75;
+        -moz-transform: translate(-3em, 0);
+        -ms-transform: translate(-3em, 0);
+        -webkit-transform: translate(-3em, 0);
+        transform: translate(-3em, 0);
+    }
+    55% {
+        filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+        -moz-transform: translate(-4em, 0);
+        -ms-transform: translate(-4em, 0);
+        -webkit-transform: translate(-4em, 0);
+        transform: translate(-4em, 0);
+    }
+    90% {
+        -moz-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
     }
 }

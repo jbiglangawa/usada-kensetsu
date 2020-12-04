@@ -9,6 +9,7 @@ const LoadingScreen = () => {
                 <div className="loadingScreenBase">
                     <div className="loadingScreenWrapper">
                         <div className='rabbit'></div>
+                        <div class='clouds'></div>
                     </div>
                 </div>
                 <div className="loading-text-animation-label">Loading...</div>
