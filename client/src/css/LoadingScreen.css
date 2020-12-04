@@ -1,7 +1,7 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css);
 .loading-grid {
-    background: #c7c7c7;
-    padding: 8%;
+    background: #f8cc3d;
+    padding: 2%;
     min-height: 50vh;
     max-height: 100vh;
 }
@@ -57,7 +57,7 @@
     background: #ffffff;
     border-radius: 70% 90% 60% 50%;
     position: relative;
-    box-shadow: -0.2em 1em 0 -0.75em #4B4B4B;
+    box-shadow: -0.2em 1em 0 -0.75em #54B7E9;
     -moz-transform: rotate(0deg) translate(-2em, 0);
     -ms-transform: rotate(0deg) translate(-2em, 0);
     -webkit-transform: rotate(0deg) translate(-2em, 0);
@@ -103,7 +103,7 @@
 
 .loading-text-animation-label {
     margin-top: 10px;
-    color: #F9B707;
+    color: white;
     font-size: large;
     font-weight: bold;
 }
@@ -114,14 +114,14 @@
         -ms-transform: rotate(-10deg) translate(1em, -2em);
         -webkit-transform: rotate(-10deg) translate(1em, -2em);
         transform: rotate(-10deg) translate(1em, -2em);
-        box-shadow: -0.2em 3em 0 -1em #b78e81;
+        box-shadow: -0.2em 3em 0 -1em #54B7E9;
     }
     40% {
         -moz-transform: rotate(10deg) translate(3em, -4em);
         -ms-transform: rotate(10deg) translate(3em, -4em);
         -webkit-transform: rotate(10deg) translate(3em, -4em);
         transform: rotate(10deg) translate(3em, -4em);
-        box-shadow: -0.2em 3.25em 0 -1.1em #b78e81;
+        box-shadow: -0.2em 3.25em 0 -1.1em #54B7E9;
     }
     60%,
     75% {
@@ -129,7 +129,7 @@
         -ms-transform: rotate(0) translate(4em, 0);
         -webkit-transform: rotate(0) translate(4em, 0);
         transform: rotate(0) translate(4em, 0);
-        box-shadow: -0.2em 1em 0 -0.75em #b78e81;
+        box-shadow: -0.2em 1em 0 -0.75em #54B7E9;
     }
 }
 
