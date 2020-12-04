@@ -1,8 +1,8 @@
 import React from 'react'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
 import Youtube from 'react-youtube'
+import { Spinner } from 'reactstrap'
 import '../css/Source.css'
-import LoadingScreen from './LoadingScreen'
 
 const YOUTUBE = 1, TWITTER = 2
 
@@ -53,7 +53,8 @@ const Source = props => {
                                     tweetId={getTwitterID(url)}
                                     placeholder={
                                         <div className="twitter-placeholder">
-                                            <LoadingScreen />
+                                            <Spinner />
+                                            <div className="tweet-loading-text">Loading tweet...</div>
                                         </div>
                                     }
                                     options={{
