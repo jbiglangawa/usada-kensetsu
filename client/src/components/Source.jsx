@@ -1,7 +1,7 @@
 import React from 'react'
-import {TwitterTweetEmbed} from 'react-twitter-embed'
+import { TwitterTweetEmbed } from 'react-twitter-embed'
 import Youtube from 'react-youtube'
-import {Spinner} from 'reactstrap'
+import { Spinner } from 'reactstrap'
 import { useTranslation } from 'react-i18next'
 import '../css/Source.css'
 
@@ -9,10 +9,10 @@ const YOUTUBE = 1, TWITTER = 2
 
 const getSourceType = url => {
     let sourceType;
-    
-    if(url.includes("youtube")) {
+
+    if (url.includes("youtube")) {
         sourceType = YOUTUBE
-    } else if(url.includes("twitter")) {
+    } else if (url.includes("twitter")) {
         sourceType = TWITTER
     }
 
@@ -22,7 +22,7 @@ const getSourceType = url => {
 const getYoutubeID = url => {
     var videoId = url.split('v=')[1];
     var ampersandPosition = videoId.indexOf('&');
-    if(ampersandPosition !== -1) {
+    if (ampersandPosition !== -1) {
         videoId = videoId.substring(0, ampersandPosition);
     }
     return videoId
@@ -36,7 +36,7 @@ const getTwitterID = url => {
 
 const Source = props => {
     const [t] = useTranslation("commons")
-    const {url} = props
+    const { url } = props
     const sourceType = getSourceType(url)
 
     return (
@@ -45,18 +45,18 @@ const Source = props => {
                 <>
                     {sourceType === YOUTUBE ?
                         <div className="youtube-wrapper">
-                            <Youtube videoId={getYoutubeID(url)} 
-                                className="source-player" 
+                            <Youtube videoId={getYoutubeID(url)}
+                                className="source-player"
                                 containerClassName={'source-player'} />
                         </div>
-                    :sourceType === TWITTER ?
+                    : sourceType === TWITTER ?
                         <div className="twitter-wrapper">
                             <TwitterTweetEmbed
                                 tweetId={getTwitterID(url)}
                                 placeholder={
                                     <div className="twitter-placeholder">
                                         <Spinner />
-                                        <div className="tweet-loading-text">{t("Loading tweet")}</div>
+                                        <div className="tweet-loading-text">t("Loading tweet")...</div>
                                     </div>
                                 }
                                 options={{
@@ -64,11 +64,11 @@ const Source = props => {
                                 }}
                             />
                         </div>
-                    :
+                        :
                         null
                     }
                 </>
-            :
+                :
                 null
             }
         </div>

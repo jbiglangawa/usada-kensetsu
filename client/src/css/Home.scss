@@ -1,0 +1,363 @@
+.home-wrapper {
+    min-height: 1080px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+
+    .carrot-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        height: 55%;
+    }
+    
+    .ellipsis-bg {
+        z-index: -2;
+        position: absolute;
+        width: 100%;
+        top: 0;
+    }
+    .rabbit-bg {
+        height: 50%;
+        bottom: 0;
+        position: absolute;
+        z-index: -1;
+        left: -5%;
+    }
+    
+    @media (prefers-reduced-motion: no-preference) {
+        .rabbit-bg {
+            animation: App-logo-spin infinite 40s linear;
+        }
+    }
+      
+    @keyframes App-logo-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+    }
+    
+    .front-page-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6%;
+        flex-wrap: wrap;
+    }
+    
+    .front-page-usada {
+        height: 80vh;
+        z-index: 2;
+    }
+  
+    .front-page-quote-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 220px;
+        margin-bottom: 10px;
+    }
+    
+    .front-page-title {
+        font-family: 'PekoraRegular', 'Segoe UI';
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fpq-we {
+        color: #43CC96;
+        display: flex;
+        justify-content: flex-start;
+        font-size: 22px;
+    }
+    
+    .fpq-build {
+        color: #E3A453;
+    }
+    
+    .fpq-tomm {
+        color: #F8CC3D;
+        display: flex;
+        justify-content: center;
+        font-size: 45px;
+    }
+    
+    .fpq-peko {
+        color: #0A84F1;
+        display: flex;
+        justify-content: flex-end;
+        font-size: 30px;
+    }
+    
+    .fp-usada {
+        font-size: 50px;
+    }
+    
+    .fp-ceo {
+        font-size: 20px;
+        color: #C2C2C2;
+    }
+    
+    .fp-idol {
+        font-size: 15px;
+        color: #C2C2C2;
+    }
+
+    .usada-front{
+        flex: 1;
+        flex-grow: 1.5;
+        text-align: end;
+        z-index: 1;
+        & img{
+            height: 60vh;
+        }
+    }
+    
+    .services-title {
+        font-family: 'AutoBusBold', 'Segoe UI';
+        font-size: 3.3em;
+        color: #FFF;
+        margin-bottom: 0.5em;
+        flex: 1;
+        text-align: left;
+        z-index: 1;
+    }
+    .services-wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .services-header {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+
+    .services-header-pekora {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex: 1;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    .services-header-svg {
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+    }
+    
+    .services-body {
+        padding: 3%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #FFF;
+        justify-content: center;
+    }
+    
+    .service {
+        flex: 25%;
+        padding: 2%;
+        margin: 0 10%;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    
+    .service-icon {
+        width: 130px;
+        height: 130px;
+        background-color: #34C7F8;
+        border-radius: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .service-icon-img {
+        width: 60%;
+        height: 60%;
+    }
+    
+    .service-desc-body {
+        display: flex;
+        margin-left: 30px;
+        flex-direction: column;
+        width: 50%;
+    }
+    
+    .service-title {
+        font-family: 'AutoBusBold', 'Segoe UI';
+        font-size: 1.5em;
+        color: #34C7F8;
+    }
+    
+    .featured-wrapper {
+        background-image: url('../assets/pekodam-cover.png');
+        height: 75vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        font-family: 'AutoBusBold', 'Segoe UI';
+    }
+    
+    .featured-header-text {
+        font-size: 4em;
+        color: #34C7F8;
+        text-align: right;
+        padding-right: 7%;
+        padding-top: 1.1em;
+    }
+    
+    .featured-header-link {
+        color: #C2C2C2;
+        text-decoration: underline;
+        padding-right: 7%;
+        font-size: 1.4em;
+    }
+    
+    .featured-header-link:hover {
+        color: #787878;
+    }
+    
+    .ph-title {
+        color: #FFF;
+        font-family: 'AutoBusBold', 'Segoe UI';
+        font-size: 2.5em;
+    }
+    
+    
+    .history {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 5%;
+
+        & .left, .right{
+            flex: 1;
+        }
+
+        & .left{
+            & .history-title {
+                font-family: 'AutoBusBold', 'Segoe UI';
+                font-size: 2.5em;
+                color: #34C7F8;
+                margin-bottom: 15px;
+            }
+
+            & .history-subtitle {
+                font-family: 'MontSerrat', 'Segoe UI';
+                margin-bottom: 10px;
+                font-size: 1.3em;
+            }
+            
+            & .history-desc {
+                text-align: justify;
+            }
+        }
+
+        & .right{
+            & .history-video {
+                max-width: 80vw;
+            }
+        }
+
+        & div {
+            padding: 3%;
+        }
+
+       
+    }
+    
+    
+    .thanks {
+        background-color: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2% 10%;
+        padding-bottom: 0;
+        flex-flow: row wrap;
+        
+        & .thanks-message {
+            padding: 3%;
+            line-height: 2em;
+            flex: 2;
+        }
+
+        & .usada-3d-wrapper {
+            flex: 1;
+        }
+        
+    }
+    .tm-title {
+        font-family: 'AutoBusBold', 'Segoe UI';
+        color: #34C7F8;
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    
+    .tm-desc {
+        font-family: 'MontSerrat', 'Segoe UI';
+        
+    }
+    
+    .visit-channel {
+        display: flex;
+        align-items: center;
+    }
+    
+    .visit-channel a {
+        display: flex;
+        align-items: center;
+    }
+    
+    .youtube-icon {
+        font-size: 2em;
+        margin-right: 10px;
+        color: #FF4A4A;
+    }
+ 
+}
+
+// Mobile styles
+.home-wrapper.mobile{
+    padding-top: 10vh;
+    
+    & .front-page-usada{
+        height: 60vh;
+    }
+
+    & .front-page-title{
+        line-height: 2em;
+    }
+
+    & .services-title{
+        text-align: center;
+        font-size: 2em;
+    }
+
+    & .usada-front{
+        & img{
+            height: 40vh;
+        }
+    }
+
+    & .usada-3d-wrapper{
+        & img{
+            width: 80vw;
+        }
+    }
+
+}
+

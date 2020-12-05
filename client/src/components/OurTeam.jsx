@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner } from 'reactstrap'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 import Employee from './Employee'
 import '../css/OurTeam.css'
+import LoadingScreen from './LoadingScreen'
 
 const OurTeam = props => {
     const [t, i18n] = useTranslation(["header", "commons"])
@@ -11,7 +11,7 @@ const OurTeam = props => {
     const [teamList, setTeamList] = useState()
 
     useEffect(() => {
-        if(!teamList) {
+        if (!teamList) {
             fetch(`/employees/getEmployeesList`)
                 .then(response => response.json())
                 .then(data => {
@@ -32,12 +32,11 @@ const OurTeam = props => {
             </div>
 
             <div className="ourteam-body">
-                {teamList ? 
+                {teamList ?
                     teamList[currentLanguage].map(employee => <Employee data={JSON.stringify(employee)} />)
-                :
-                    <div className="loading">
-                        <Spinner color="secondary" />
-                        <div className="loading-text">{t("commons:Loading")}</div>
+                    :
+                    <div className="w-100">
+                        <LoadingScreen />
                     </div>
                 }
             </div>
