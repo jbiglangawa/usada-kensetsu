@@ -43,8 +43,8 @@ const CubicalSegment = ({data, showByDefault}) => {
                     </>
                 :
                     <div className="hide-cubical-wrapper">
-                        <div className="hide-cubical-label" onClick={onHideCubical}>  Hide Cubical <FiEyeOff /></div>
-                        <div className="hide-cubical-label" onClick={() => isMobile ? toggleFullscreen(true) : window.open(dataParsed.link)}> Go Fullscreen <AiOutlineExpand/></div>
+                        <div className="hide-cubical-label" onClick={onHideCubical}> {!isMobile && 'Hide Cubical'} <FiEyeOff size={isMobile ? 30 : 15} /></div>
+                        <div className="hide-cubical-label" onClick={() => isMobile ? toggleFullscreen(true) : window.open(dataParsed.link)}> {!isMobile && 'Go Fullscreen'} <AiOutlineExpand size={isMobile ? 30 : 15}/></div>
                         
                         {cubicalLoadingInd ? 
                             <Spinner color="secondary" className="cubical-spinner"/> 
