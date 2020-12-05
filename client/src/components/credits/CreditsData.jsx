@@ -188,3 +188,91 @@ export const translators = [
         }
     },
 ]
+
+export const assets = [
+    {
+        assetType: "Fonts",
+        assetList: [
+            {
+                name: "Pekora-Bold",
+                url: "https://blogfonts.com/pekora-bolditalic.font?textfont=Construct"
+            },
+            {
+                name: "Montserrat",
+                url: "https://fonts.google.com/specimen/Montserrat"
+            },
+            {
+                name: "AutoBusBold",
+                url: "https://www.fontspace.com/autobus-bold-font-f27736"
+            },
+        ]
+    },
+    {
+        assetType: "Images",
+        assetList: [
+            {
+                name: "Projects Header Image",
+                url: "https://www.pexels.com/photo/architect-architecture-beach-bridge-262347/"
+            },
+            {
+                name: "Our team Header Image",
+                url: "https://fictionalcompanies.fandom.com/wiki/Majima_Construction"
+            },
+            {
+                name: "Pekora Services Header",
+                url: "https://www.animecharactersdatabase.com/characters.php?id=100652"
+            },
+            {
+                name: "Pekora 👌-pose",
+                url: "https://static.miraheze.org/hololivewiki/4/4c/Usada_Pekora_-_3D_Model_01-2.png"
+            },
+            {
+                name: "Moona avatar",
+                url: "https://static.wikia.nocookie.net/virtualyoutuber/images/9/94/Moona_Hoshinova_Portrait.jpg/revision/latest/scale-to-width-down/310?cb=20200411161426"
+            },
+            {
+                name: "Yagoo avatar",
+                url: "https://pbs.twimg.com/profile_images/1186979284319006720/gH6xdlYB_400x400.jpg"
+            },
+            {
+                name: "Diamond pickaxe",
+                url: "https://www.pinterest.ph/pin/760686193294170345/"
+            },
+            {
+                name: "Diamond boots",
+                url: "https://www.pinterest.ph/pin/840836192916052392/"
+            },
+            {
+                name: "Iron ingot",
+                url: "https://minecraft.gamepedia.com/Iron_Ingot"
+            },
+            {
+                name: "Wither",
+                url: "https://minecraft.gamepedia.com/Wither"
+            },
+        ]
+    },
+    {
+        assetType: "Informations",
+        assetList: [
+            {
+                name: (
+                    <span>Usada Pekora description in <b>Our Team</b></span>
+                ),
+                url: "https://virtualyoutuber.fandom.com/wiki/Usada_Pekora"
+            },
+            {
+                name: (
+                    <span>Moona Hoshinova description in <b>Our Team</b></span>
+                ),
+                url: "https://virtualyoutuber.fandom.com/wiki/Moona_Hoshinova"
+            },
+            {
+                name: (
+                    <span>Yagoo's description in <b>Our Team</b></span>
+                ),
+                url: "https://hololive.wiki/wiki/YAGOO"
+            },
+        ]
+    },
+]
