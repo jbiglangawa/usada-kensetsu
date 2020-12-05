@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+// Check for NODE_ENV environment variable if existing. If it exists,
+// there's a high chance the app is hosted in Heroku. If it doesnt, load .env variables
+if(!process.env.NODE_ENV || process.env.NODE_ENV !== "development") {
+  console.log("NODE_ENV is null, the current configuration is development. Reading configuration from .env...")
+  require('dotenv').config()
+}
 
 /**
  * Module dependencies.
@@ -9,11 +15,12 @@ const debug = require('debug')('usada-kensetsu:server');
 const fs = require('fs');
 const https = require('https');
 const socketIo = require("socket.io");
-// NOTE: These are Self-signed certificates. This is for development purposes only. System should use an SSL from firebase
-var privateKey  = fs.readFileSync('sslCert/41300864_localhost.key', 'utf8');
-var certificate = fs.readFileSync('sslCert/41300864_localhost.cert', 'utf8');
 
-var credentials = {key: privateKey, cert: certificate};
+// NOTE: These are Self-signed certificates. This is for development purposes only
+const privateKey  = fs.readFileSync('ssl/41300864_localhost.key', 'utf8');
+const certificate = fs.readFileSync('ssl/41300864_localhost.cert', 'utf8');
+
+const credentials = {key: privateKey, cert: certificate};
 
 /**
  * Get port from environment and store in Express.
@@ -24,13 +31,21 @@ app.set('port', port);
 
 /**
  * Create HTTP server.
+ * If production environment, http server is to be loaded
+ * Else, need to inject Self signed certificate to enable local testing
  */
 
-// const server = http.createServer(app);
-const server = https.createServer(credentials, app);
+let server;
+if(process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
+  server = http.createServer(app);
+} else {
+  server = https.createServer(credentials, app);
+}
+
+
 const io = socketIo(server);
 
-startSocket(io); 
+startSocket(io);
 
 /**
  * Listen on provided port, on all network interfaces.

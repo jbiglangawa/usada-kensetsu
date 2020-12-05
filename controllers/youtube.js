@@ -1,11 +1,10 @@
 const fetch = require('node-fetch');
-const apiKey = require('../youtube.config.json').apiKey;
 let io;
 let currentCount = 0;
 
 const getSubscribersCount = async () => {
   console.log("Refreshing Pekora's subscribers count...")
-  const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC1DCedRgGHBdm81E1llLhOQ&key=${apiKey}`);
+  const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC1DCedRgGHBdm81E1llLhOQ&key=${process.env.YOUTUBE_API_KEY}`);
   return response.json();
 }
 

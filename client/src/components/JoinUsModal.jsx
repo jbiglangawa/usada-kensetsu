@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { AiOutlineTwitter } from 'react-icons/ai'
+import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
+import { FcGoogle } from 'react-icons/fc'
 import { Modal, ModalBody, ModalHeader, ModalFooter, Spinner } from 'reactstrap'
 import NewWindow from 'react-new-window'
 import { Link } from 'react-router-dom'
 import '../css/JoinUsModal.css'
+import { use } from 'passport'
+import { FaFacebook } from 'react-icons/fa'
 
 
 const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, setLoggedInUser}) => {
@@ -27,10 +30,12 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
         left: (window.innerWidth / 2) - (600 / 2)
     }
 
-    const openAuthPopup = () => {
-        setIsAuthenticating(true)
-        const API_URL = 'https://127.0.0.1:5000'
-        setURL(`${API_URL}/twitter/twitterAuth?socketId=${socket.id}`)
+    const openAuthPopup = api => {
+        if(!isAuthenticating) {
+            setIsAuthenticating(true)
+            const API_URL = process.env.REACT_APP_API_URL || window.location.href
+            setURL(`${API_URL}/auth/${api}Auth?socketId=${socket.id}`)
+        }
     }
 
     const onUnloadAuthPopup = () => {
@@ -46,30 +51,22 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
         setIsAuthenticating(false)
     }
 
-    const authenticateTwitter = () => {
-        if(!isAuthenticating) {
-            openAuthPopup()
-        }
-    }
-    
     const logoutUser = callback => {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
-        }
-        fetch(`/twitter/logoutUser`, requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                if(callback) {
-                    callback()
+        fetch(`/auth/logoutUser`)
+            .then(response => {
+                if (response.ok) {
+                    if(callback) {
+                        callback()
+                    }else {
+                        setUser(null)
+                    }
                 }
-                
-                setUser(null)
             })
     }
     
     const generateIdCallback = () => {
+        delete user.$$_4CCSST
+        delete user.$_Aces_TOEe3t
         setLoggedInUser(JSON.stringify(user))
         togglePekoCardModal()
         toggleModal()
@@ -88,7 +85,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
 
     useEffect(() => {
         if(isModalOpen) {
-            socket.on("twitterUser", user => {
+            socket.on("user", user => {
                 closeAuthPopup()
                 setUser(user)
             });
@@ -103,34 +100,21 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
 
             <ModalBody>
                 <div className="jum-description">
-                    To claim your PekoCard, you are need to login using twitter. You 
-                    will be given the PekoCard according to your Twitter account. Following the 
-                    Usada Construction Bot is not required, but if you do you will be displayed 
-                    in <Link to="/our-team">Our Team</Link>. 
-                </div>
-                <div className="jum-footer-note">
-                    Disclaimer: We will be fetching only the following data from your twitter: 
-                    Twitter ID, Name, Username, and Thumbnail. The said data will be used to ONLY
-                    generate your PekoCard. Logging out will revoke the permission you gave to this
-                    website.
-                </div>
-
-                <div className="jum-account-wrapper">
-                    <img className="jum-account-thumbnail" src={"https://pbs.twimg.com/profile_images/1327633358940114947/4_h2FqUG_400x400.jpg"} alt=""/>
-                    <div className="jum-account-name-wrapper">
-                        <div className="jum-account-name">Usada Construction Bot</div>
-                        <div className="jum-account-username">@UsadaKensetsu</div>
-                        <button className="jum-apply-button"><AiOutlineTwitter /> Follow</button>
-                    </div>
-                </div>
+                    To claim your PekoCard, you need to login using twitter, google, or facebook.
+                    After clicking <i>Generate my ID</i>, you will revoke your authentication permission
+                    to this website and we won't be able to access your details anymore
+                </div> 
             </ModalBody>
 
             <ModalFooter style={{justifyContent: 'space-between'}}>
                 {!user ?
                     !isAuthenticating ? 
-                    <button onClick={authenticateTwitter} className="jum-sign-in-button">
-                        <img src={process.env.PUBLIC_URL + '/sign-in-with-twitter-link.png.img.fullhd.medium.png'} alt="twitter-login" />
-                    </button>
+                    <div>
+                        Sign in:
+                        <button onClick={() => openAuthPopup('google')} className="jum-sign-in-button"><FcGoogle /></button>
+                        <button onClick={() => openAuthPopup('twitter')} className="jum-sign-in-button sign-in-twitter"><AiOutlineTwitter /></button>
+                        <button onClick={() => openAuthPopup('facebook')} className="jum-sign-in-button sign-in-facebook"><AiFillFacebook /></button>
+                    </div>
                     :
                     <div className="jum-authenticating">
                         <Spinner />
@@ -141,10 +125,8 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
                     <div className="jum-signed-in-header">Signed in as:</div>
                     <div className="jum-si-acc-wrapper">
                         <img src={user.photo} alt="" className="jum-sia-thumbnail"/>
-                        <div className="jum-acc-tag">@{user.username}</div>
-                        (<button className="jum-sia-logout-button" onClick={logoutUser}>
-                            Logout
-                        </button>)
+                        <div className="jum-acc-tag">{user.provide === 'twitter' ? `@${user.username}` : user.name}</div> (
+                        <button className="jum-sia-logout-button" onClick={() => logoutUser()}>Logout</button>)
                     </div>
                 </div>
                 }

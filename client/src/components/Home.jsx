@@ -55,6 +55,12 @@ const Home = () => {
 
     return (
         <div className={classNames("home-wrapper", { mobile: isMobile })}>
+            <Helmet>
+                <title>Home - Usada Constructions🥕</title>
+                <meta property="og:title" content={"Home - Usada Constructions🥕"} />
+                <meta property="twitter:title" content={"Home - Usada Constructions🥕"} />
+            </Helmet>
+
             <JoinUsModal 
                 isModalOpen={isJoinUsModalOpen} 
                 toggleModal={toggleJoinUsModal} 
@@ -65,12 +71,6 @@ const Home = () => {
             {user &&
                 <GeneratePekoCardModal isModalOpen={isPekoCardModalOpen} toggleModal={togglePekoCardModal} loggedInUser={user} />
             }
-
-            <Helmet>
-                <title>Home - Usada Constructions🥕</title>
-                <meta property="og:title" content={"Home - Usada Constructions🥕"} />
-                <meta property="twitter:title" content={"Home - Usada Constructions🥕"} />
-            </Helmet>
 
             <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg"/>
             <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg"/>

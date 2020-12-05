@@ -6,10 +6,26 @@ import SideMenu from './components/SideMenu'
 import Routes from './components/Routes'
 import 'semantic-ui-css/semantic.min.css'
 import './App.css'
+import { useEffect, useState } from 'react'
+import { Spinner } from 'reactstrap'
 
 const App = () => {
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        fetch(`/wake-up`).then(res => {
+            if (res.ok) {
+                setLoading(false)
+            }
+        })
+    }, [])
+
     return (
         <Router>
+            {loading ?
+            <Spinner />
+            :
+            <>
             <Mobile>
                 <SideMenu>
                     <Routes></Routes>
@@ -19,7 +35,8 @@ const App = () => {
                 <Header />
                 <Routes></Routes>
             </Desktop>
-
+            </>
+            }
         </Router>
     )
 }

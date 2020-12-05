@@ -1,7 +1,6 @@
 let io;
 
 var Twitter = require('twit');
-var TWITTER_KEY = require('../twitter_api.json');
 
 const startSocket = (ioInstance) => {
   console.log('Initialized twitter socket')

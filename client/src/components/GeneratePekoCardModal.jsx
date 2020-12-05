@@ -47,8 +47,7 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
             <ModalBody className="generated-body-wrapper">
                 <div className="generated-description">
                     Please print the PekoCard below before and wear before entering PekoLand office premises. Tampering with
-                    the ID will not be tolerated and will be subject to PekoPunishments. You can check Employees screen to check
-                    if you appear under Nousagi employees section.
+                    the ID will not be tolerated and will be subject to PekoPunishments.
                 </div>
 
                 <div className="generated-wrapper">
@@ -60,7 +59,7 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
 
                 <div className="generated-note">
                     This ID is for entertainment purposes only and should not be used for transactions or identification in 
-                    real life. Let's not trouble Pekora-sama and only have fun shall we?
+                    real life.
                 </div>
 
                 <div className="generated-footer-buttons">
@@ -68,7 +67,7 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
                     <button onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> Download image</button>
 
                     <CopyToClipboard text={pekoCardLink} onCopy={() => setIsCopied(true)}>
-                        <button id="copyPekocardLink" onMouseLeave={() => setIsCopied(false)}><FiLink /> Copy vCard Link</button>
+                        <button id="copyPekocardLink" onMouseLeave={() => setIsCopied(false)}><FiLink /> Copy PekoCard Link</button>
                     </CopyToClipboard>
                     
                     {isCopied &&

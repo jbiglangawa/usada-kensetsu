@@ -3,17 +3,17 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
-
-
-// Routes
+const enforce = require('express-sslify');
+const passport = require('passport');
+const session = require('express-session');
+const initializePassport = require('./passport.init');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const projectsRouter = require('./routes/projects');
 const employeesRouter = require('./routes/employees');
 const youtubeRouter = require('./routes/youtube');
-const twitterRouter = require('./routes/twitter');
+const authRouter = require('./routes/auth');
 
 
 const app = express();
@@ -29,7 +29,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(enforce.HTTPS());
+app.use(session({ 
+  secret: process.env.SESSION_SECRET,
+  key: 'sid',
+  saveUninitialized: true,
+}));
 
+initializePassport()
+
+
+// Catch a start up request so that a sleepy Heroku instance can  
+// be responsive as soon as possible
+app.get('/wake-up', (req, res) => res.send('👍'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -37,12 +50,13 @@ app.use('/login', loginRouter);
 app.use('/projects', projectsRouter);
 app.use('/employees', employeesRouter);
 app.use('/youtube', youtubeRouter);
-app.use('/twitter', twitterRouter);
+app.use('/auth', authRouter);
 
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,13 +74,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-
-
-
 const startSocket = (io) => {
+  app.set('io', io)
   require('./controllers/youtube').startSocket(io);
-  require('./controllers/twitter').startSocket(io);
 }
 
 module.exports = { app, startSocket };
