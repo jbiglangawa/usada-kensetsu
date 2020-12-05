@@ -4,10 +4,16 @@ import {FiEye, FiEyeOff, FiInfo} from 'react-icons/fi'
 import Iframe from 'react-iframe'
 import ExternalLink from './ExternalLink'
 import '../css/CubicalSegment.css'
+import classNames from 'classnames';
+import { useMediaQuery } from 'react-responsive';
+import { mobileBreakPoint } from '../helpers/responsive';
+import { AiFillCloseCircle, AiOutlineCloseCircle, AiOutlineExpand } from 'react-icons/ai';
 
 const CubicalSegment = ({data, showByDefault}) => {
+    const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
     const [hiddenCubicalInd, setHiddenCubicalInd] = useState(showByDefault ? !(showByDefault === 'true') : true)
     const [cubicalLoadingInd, setCubicalLoadingInd] = useState(false)
+    const [fullscreen, toggleFullscreen] = useState(false);
     const dataParsed = JSON.parse(data)
     
     const onShowCubical = () => {
@@ -36,9 +42,10 @@ const CubicalSegment = ({data, showByDefault}) => {
                     </UncontrolledTooltip>
                     </>
                 :
-                    <div className="hide-cubical-wrapper" onClick={onHideCubical}>
-                        <FiEyeOff />
-                        <div className="hide-cubical-label">Hide Cubical</div>
+                    <div className="hide-cubical-wrapper">
+                        <div className="hide-cubical-label" onClick={onHideCubical}>  Hide Cubical <FiEyeOff /></div>
+                        <div className="hide-cubical-label" onClick={() => isMobile ? toggleFullscreen(true) : window.open(dataParsed.link)}> Go Fullscreen <AiOutlineExpand/></div>
+                        
                         {cubicalLoadingInd ? 
                             <Spinner color="secondary" className="cubical-spinner"/> 
                         : 
@@ -50,8 +57,9 @@ const CubicalSegment = ({data, showByDefault}) => {
 
             {!hiddenCubicalInd &&
                 <>
-                <div className="iframe-container">
-                    <Iframe url={dataParsed.link} className="cubical-container" onLoad={() => setCubicalLoadingInd(false)}/>
+                {fullscreen && <div onClick={() => toggleFullscreen(false)} className="close-button"><AiFillCloseCircle size={30}></AiFillCloseCircle></div>}
+                <div className={classNames("iframe-container", {fullscreen})}>
+                    <Iframe allowFullScreen={true} url={dataParsed.link} className="cubical-container" onLoad={() => setCubicalLoadingInd(false)}/>
                 </div>
                 <div><i>Model imitated by <ExternalLink href={dataParsed.creator_source} style={{color: '#787878'}}>Saaya</ExternalLink></i></div>
                 </>
