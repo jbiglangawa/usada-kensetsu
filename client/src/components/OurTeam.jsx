@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner } from 'reactstrap'
 import { Helmet } from 'react-helmet'
 import Employee from './Employee'
 import '../css/OurTeam.css'
+import LoadingScreen from './LoadingScreen'
 
 const OurTeam = props => {
     const [teamList, setTeamList] = useState()
 
     useEffect(() => {
-        if(!teamList) {
+        if (!teamList) {
             fetch(`/employees/getEmployeesList`)
                 .then(response => response.json())
                 .then(data => {
@@ -29,12 +29,11 @@ const OurTeam = props => {
             </div>
 
             <div className="ourteam-body">
-                {teamList ? 
+                {teamList ?
                     teamList.map(employee => <Employee data={JSON.stringify(employee)} />)
-                :
-                    <div className="loading">
-                        <Spinner color="secondary" />
-                        <div className="loading-text">Loading...</div>
+                    :
+                    <div className="w-100">
+                        <LoadingScreen />
                     </div>
                 }
             </div>

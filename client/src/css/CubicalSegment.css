@@ -44,3 +44,8 @@
 .header-tools-wrapper {
     display: flex;
 }
+
+.iframe-container {
+    width: 80vw;
+    height: 50vh;
+}

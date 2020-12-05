@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Spinner } from 'reactstrap';
 import { BiArrowBack } from 'react-icons/bi'
 import { Helmet } from 'react-helmet'
 import CubicalSegment from './CubicalSegment'
 import Source from './Source'
-import '../css/Project.css'
+import '../css/Project.scss'
+import classNames from 'classnames';
+import { useMediaQuery } from 'react-responsive';
+import { mobileBreakPoint } from '../helpers/responsive'
+import LoadingScreen from './LoadingScreen';
 
-
-const Project = props => {
+const Project = () => {
     const {projectId, showByDefault} = useParams()
     const [projectData, setProjectData] = useState()
     const [noProjectInd, setNoProjectInd] = useState(false)
-    
+    const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
+
     useEffect(() => {
         if(projectId && !projectData) {
             fetch(`/projects/getProject/${projectId}`)
@@ -28,7 +31,7 @@ const Project = props => {
     }, [projectId, projectData])
     
     return (
-        <div className="project-page">
+        <div className={classNames("project-page", {mobile: isMobile})}>
             {projectId && projectData ?
                 <div className="project-page-wrapper">
                     <Helmet>
@@ -109,12 +112,8 @@ const Project = props => {
                 <div className="project-not-found">
                     Project not found
                 </div>
-
             :
-                <div className="loading">
-                    <Spinner color="secondary" />
-                    <div className="loading-text">Loading...</div>
-                </div>
+            <LoadingScreen />
             }
         </div>
     )

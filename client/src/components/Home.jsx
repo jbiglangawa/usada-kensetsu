@@ -8,10 +8,14 @@ import LiveSubscribersCount from './LiveSubscribersCount'
 import ElementTooltip from './ElementTooltip'
 import ExternalLink from './ExternalLink'
 import JoinUsModal from './JoinUsModal'
-import socketIOClient from "socket.io-client";
+import socketIOClient from "socket.io-client"
 import GeneratePekoCardModal from './GeneratePekoCardModal'
 import { Helmet } from 'react-helmet'
-import '../css/Home.css'
+import { mobileBreakPoint } from '../helpers/responsive'
+import { useMediaQuery } from 'react-responsive'
+import '../css/Home.scss'
+import classNames from 'classnames'
+
 
 const Home = () => {
     const [isBelowFold, setIsBelowFold] = useState(false)
@@ -20,6 +24,7 @@ const Home = () => {
     const [user, setUser] = useState()
     const [socket, setSocket] = useState()
     const scrollYPosition = useScrollPosition(60)
+    const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
 
     const joinUs = useSpring(isBelowFold ? 
         {padding: '1em 1.1em', bottom: '10%', right: '5%', fontSize: '1.3em'} : 
@@ -49,7 +54,7 @@ const Home = () => {
       
 
     return (
-        <div className="home-wrapper">
+        <div className={classNames("home-wrapper", { mobile: isMobile })}>
             <JoinUsModal 
                 isModalOpen={isJoinUsModalOpen} 
                 toggleModal={toggleJoinUsModal} 
@@ -72,7 +77,7 @@ const Home = () => {
             <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg"/>
             
             <div className="front-page-wrapper">
-                <ElementTooltip id="PekoraFrontPage" style={{zIndex: 2}} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
+                <ElementTooltip id="PekoraFrontPage" style={{ zIndex: 2 }} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
                     <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
                 </ElementTooltip>
 
@@ -97,7 +102,9 @@ const Home = () => {
                     <img src={process.env.PUBLIC_URL + "/services-header.svg"} alt="services-header" className="services-header-svg" />
 
                     <div className="services-header-pekora">
-                        <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" className="usada-front" />
+                        <div className="usada-front">
+                            <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" />
+                        </div>
 
                         <div className="services-title">SERVICES</div>
                     </div>
@@ -184,7 +191,7 @@ const Home = () => {
                 </div>
 
                 <div className="right">
-                    <Youtube videoId={'DETMkvZ0G_Q'} containerClassName={'history-player'} />
+                    <Youtube videoId={'DETMkvZ0G_Q'} containerClassName='history-player' className="history-video"/>
                 </div>
             </div>
 
