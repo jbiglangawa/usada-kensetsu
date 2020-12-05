@@ -101,7 +101,7 @@ const LiveSubscribersCount = () => {
 
             <animated.div style={useSlideAnimationOnScroll(0)} className="row-4">
                 <div  className="subscribe-button">
-                    <span className="subscribe-text">{t(Subscribe)}</span>
+                    <span className="subscribe-text">{t("Subscribe")}</span>
                     {/* <img src={Carrot} className="carrot"></img> */}
                 </div>
                 <div className="rabbit-shape">
