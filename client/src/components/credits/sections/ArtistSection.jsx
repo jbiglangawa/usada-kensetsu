@@ -8,7 +8,7 @@ const ArtistSection = () => {
         <>
             <SubsectionHeader
                 title="Artists"
-                subtitle="Thank you for the following artists who have given me permission to use their art. Please do give them a visit"
+                subtitle="The following people has contributed to making the website beautiful. Thank you very much for your participation!"
             />
             <ContributorCardList
                 contributors={artists}

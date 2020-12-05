@@ -1,16 +1,18 @@
 export const artists = [
     {
+        avatar_url: "https://pbs.twimg.com/profile_images/1135813716862095360/3LDxJBgR_400x400.jpg",
         name: "Skynetrailgun",
-        mainSocialUsername: "@skynetrailgun",
-        mainSocialLink: "https://www.deviantart.com/skynetrailgun",
+        mainSocialUsername: "@skyrail_illust",
+        mainSocialLink: "https://twitter.com/skyrail_illust",
         specialThanks: (
             <span>
-                Thank you for the <a rel="noreferrer" href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336" class="text-decoration-none" target="_blank">
-                    Pekora Art
-                </a>
+                Thank you for the wonderful <a rel="noreferrer" href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336" class="text-decoration-none" target="_blank">
+                    Usada Pekora in her Work clothing
+                </a> art!
             </span>
         ),
         links: {
+            twitter: "https://twitter.com/skyrail_illust",
             deviantart: "https://www.deviantart.com/skynetrailgun"
         }
     },
@@ -21,9 +23,9 @@ export const artists = [
         mainSocialLink: "https://twitter.com/okeyneto1",
         specialThanks: (
             <span>
-                Thank you for the <a rel="noreferrer" href="https://www.reddit.com/r/Hololive/comments/jfzqus/i_redesigned_usada_kensetsu_logo_and_added/" class="text-decoration-none" target="_blank">
-                    Art Logo
-                </a>
+                Contributed the <a rel="noreferrer" href="https://www.reddit.com/r/Hololive/comments/jfzqus/i_redesigned_usada_kensetsu_logo_and_added/" class="text-decoration-none" target="_blank">
+                    logo of the website
+                </a>.
             </span>
         ),
         links: {
@@ -38,9 +40,9 @@ export const artists = [
         mainSocialLink: "https://twitter.com/kuchikuchi99",
         specialThanks: (
             <span>
-                Thank you for the <a rel="noreferrer" href="https://www.pixiv.net/en/artworks/85356859" class="text-decoration-none" target="_blank">
-                    Pekora Art
-                </a>
+                Thanks for the wonderful <a rel="noreferrer" href="https://www.pixiv.net/en/artworks/85356859" class="text-decoration-none" target="_blank">
+                    Gaming Usada Pekora
+                </a> art!
             </span>
         ),
         links: {
@@ -55,11 +57,10 @@ export const artists = [
         mainSocialLink: "https://twitter.com/inHaze",
         specialThanks: (
             <span>
-                Thanks to InHaze for letting me add the Cubical as an iFrame to the Projects corner. Please visit
+                Thanks for letting us add the Cubical as an iFrame to the Projects corner. You can visit
                 <a rel="noreferrer" href="https://cubical.xyz" class="text-decoration-none" target="_blank">
                     {" cubical.xyz "}
-                </a>
-                to display your Minecraft creations on the web
+                </a>to display your Minecraft creations on the web
             </span>
         ),
         links: {
@@ -71,7 +72,7 @@ export const artists = [
         name: "Saaya",
         mainSocialUsername: "@RASaaya",
         mainSocialLink: "https://twitter.com/RASaaya/status/1318946785604194304",
-        specialThanks: "Thanks to Saaya for giving me a copy of their world to get the PekoDam copy she made by watching Pekora-sama's PekoDam stream step by step. If you haven't seen it yet, please give the PekoDam a visit!",
+        specialThanks: "She contributed the imitation of the PekoDam by giving me her Minecraft world, Thanks!",
         links: {
             twitter: "https://twitter.com/RASaaya",
         }
@@ -84,34 +85,32 @@ export const developers = [
         name: "SwingSpringer",
         mainSocialUsername: "@SwingSpringer",
         mainSocialLink: "https://twitter.com/SwingSpringer",
+        specialThanks: "Concept design artist and initial developer of first version of website",
         links: {
             twitter: "https://twitter.com/SwingSpringer",
+            discord: "https://discordapp.com/users/784457454775828519"
         }
     },
     {
-        name: "SwingSpringer",
-        mainSocialUsername: "@SwingSpringer",
-        mainSocialLink: "#",
+        avatar_url: "https://pbs.twimg.com/profile_images/1334531842431705088/7o5umrWc_400x400.jpg",
+        name: "Mael",
+        mainSocialUsername: "@_healthyburgers",
+        mainSocialLink: "https://twitter.com/_healthyburgers",
+        specialThanks: "Developer on Mobile Responsiveness and Live subscription count",
         links: {
-            twitter: "#",
-            youtube: "#",
-            pixiv: "#",
-            discord: "#",
-            facebook: "#",
-            deviantart: "#"
+            twitter: "https://twitter.com/_healthyburgers",
+            discord: "https://discordapp.com/users/784457074099617833"
         }
     },
     {
-        name: "SwingSpringer",
-        mainSocialUsername: "@SwingSpringer",
-        mainSocialLink: "#",
+        avatar_url: "https://pbs.twimg.com/profile_images/1334426113574010880/ntp8mrnr_400x400.jpg",
+        name: "MaruRin",
+        mainSocialUsername: "@_Maru_Rin_",
+        mainSocialLink: "https://twitter.com/_Maru_Rin_",
+        specialThanks: "Developer in charged of internationalization to the code",
         links: {
-            twitter: "#",
-            youtube: "#",
-            pixiv: "#",
-            discord: "#",
-            facebook: "#",
-            deviantart: "#"
+            twitter: "https://twitter.com/_Maru_Rin_",
+            discord: "https://discordapp.com/users/655694510919254026"
         }
     },
     {
@@ -119,6 +118,7 @@ export const developers = [
         name: "Nathanael",
         mainSocialUsername: "@L__NathanaeL",
         mainSocialLink: "https://twitter.com/l__nathanael",
+        specialThanks: "Credits revamp and Vlog menu designer and developer",
         links: {
             twitter: "https://twitter.com/l__nathanael",
             discord: "https://discordapp.com/users/348736896450428928",
@@ -129,51 +129,34 @@ export const developers = [
 
 export const translators = [
     {
-        avatar_url: "https://pbs.twimg.com/profile_images/1323560517739241473/h0pYXMfC_400x400.jpg",
-        name: "SwingSpringer",
-        mainSocialUsername: "@SwingSpringer",
-        mainSocialLink: "https://twitter.com/SwingSpringer",
+        avatar_url: "https://pbs.twimg.com/profile_images/1279983244503478273/IGJcj9a7_400x400.jpg",
+        name: "Kanamea",
+        mainSocialUsername: "@kanamea_",
+        mainSocialLink: "https://twitter.com/kanamea_",
+        specialThanks: "Initial Japanese Translator",
         links: {
-            twitter: "https://twitter.com/SwingSpringer",
+            twitter: "https://twitter.com/kanamea_"
         }
     },
     {
-        name: "SwingSpringer",
-        mainSocialUsername: "@SwingSpringer",
-        mainSocialLink: "#",
+        avatar_url: "https://pbs.twimg.com/profile_images/1334266701546807296/OcHaFBy6_400x400.jpg",
+        name: "MomijiLoop",
+        mainSocialUsername: "@MomijiLoop",
+        mainSocialLink: "https://twitter.com/MomijiLoop",
+        specialThanks: "Second Japanese Translator",
         links: {
-            twitter: "#",
-            youtube: "#",
-            pixiv: "#",
-            discord: "#",
-            facebook: "#",
-            deviantart: "#"
+            twitter: "https://twitter.com/MomijiLoop"
         }
     },
     {
-        name: "SwingSpringer",
-        mainSocialUsername: "@SwingSpringer",
-        mainSocialLink: "#",
+        avatar_url: "https://pbs.twimg.com/profile_images/1334531842431705088/7o5umrWc_400x400.jpg",
+        name: "Mael",
+        mainSocialUsername: "@MomijiLoop",
+        mainSocialLink: "https://twitter.com/_healthyburgers",
+        specialThanks: "Translated the website to Spanish",
         links: {
-            twitter: "#",
-            youtube: "#",
-            pixiv: "#",
-            discord: "#",
-            facebook: "#",
-            deviantart: "#"
-        }
-    },
-    {
-        name: "SwingSpringer",
-        mainSocialUsername: "@SwingSpringer",
-        mainSocialLink: "#",
-        links: {
-            twitter: "#",
-            youtube: "#",
-            pixiv: "#",
-            discord: "#",
-            facebook: "#",
-            deviantart: "#"
+            twitter: "https://twitter.com/_healthyburgers",
+            discord: "https://discordapp.com/users/784457074099617833"
         }
     },
     {
@@ -181,6 +164,7 @@ export const translators = [
         name: "Nathanael",
         mainSocialUsername: "@L__NathanaeL",
         mainSocialLink: "https://twitter.com/l__nathanael",
+        specialThanks: "Translated the website to Indonesian",
         links: {
             twitter: "https://twitter.com/l__nathanael",
             discord: "https://discordapp.com/users/348736896450428928",
@@ -227,11 +211,11 @@ export const assets = [
                 url: "https://static.miraheze.org/hololivewiki/4/4c/Usada_Pekora_-_3D_Model_01-2.png"
             },
             {
-                name: "Moona avatar",
+                name: "Moona's avatar",
                 url: "https://static.wikia.nocookie.net/virtualyoutuber/images/9/94/Moona_Hoshinova_Portrait.jpg/revision/latest/scale-to-width-down/310?cb=20200411161426"
             },
             {
-                name: "Yagoo avatar",
+                name: "Yagoo's avatar",
                 url: "https://pbs.twimg.com/profile_images/1186979284319006720/gH6xdlYB_400x400.jpg"
             },
             {
@@ -253,17 +237,17 @@ export const assets = [
         ]
     },
     {
-        assetType: "Informations",
+        assetType: "Information",
         assetList: [
             {
                 name: (
-                    <span>Usada Pekora description in <b>Our Team</b></span>
+                    <span>Usada Pekora's description in <b>Our Team</b></span>
                 ),
                 url: "https://virtualyoutuber.fandom.com/wiki/Usada_Pekora"
             },
             {
                 name: (
-                    <span>Moona Hoshinova description in <b>Our Team</b></span>
+                    <span>Moona Hoshinova's description in <b>Our Team</b></span>
                 ),
                 url: "https://virtualyoutuber.fandom.com/wiki/Moona_Hoshinova"
             },
