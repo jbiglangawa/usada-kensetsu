@@ -37,14 +37,18 @@
     max-width: 90vw;
 }
 
+.cor-message-body {
+    font-size: 1.2em;
+}
+
 .credits-thumbnail-wrapper {
     flex: 1;
-    margin: 0 5%;
+    margin-left: 5%;
     text-align: center;
 }
 
 .usada-credits {
-    max-height: 65vh;
+    max-height: 75vh;
     width: auto;
     max-width: 100vw;
 }
@@ -75,4 +79,27 @@
 
 .credits-body a svg {
     font-size: 1.5em;
+}
+
+@media screen and (max-width: 767px) {
+    .credits-opening-remarks {
+        margin-top: 30px;
+    }
+
+    .cor-message-body {
+        font-size: 1em;
+    }
+
+    .cor-message-header {
+        font-size: 2em;
+        margin-bottom: 3%;
+    }
+    
+    .credits-thumbnail-wrapper {
+        margin: 0;
+    }
+
+    .usada-credits {
+        max-height: none;
+    }
 }

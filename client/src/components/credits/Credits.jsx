@@ -26,13 +26,13 @@ const Credits = () => {
                 <div className="cor-message">
                     <div className="cor-message-header">Thank you for helping out peko~!</div>
                     <div className="cor-message-body">
-                        Hi, this is SwingSpringer, the creator of this fan-made website. Thank you for the people who
-                        helped me build this website. I do not own any of the art I have used in this website, but I
-                        got permission from all of the artists. I listed down all of the people that helped me and the
-                        sources of each image that I used. For people who visited this website, you can visit the artists
-                        that I will list down below and give them a follow or a comment.
+                        Hi, everyone, welcome to the website! I hope you had fun visiting!
+                        Thanks to the people who joined the team after the launch of 
+                        the first version of the website. 
                         <br /><br />
-                        In case you're looking at this Usada Pekora, please enjoy this website.
+                        Thank you for the people who 
+                        helped build this website. We listed down all of the 
+                        contributors and references below.
                     </div>
                 </div>
 
@@ -43,8 +43,8 @@ const Credits = () => {
                 </div>
 
                 <SectionSeparator title="Contributors" />
-                <ArtistSection />
                 <DevelopersSection />
+                <ArtistSection />
                 <TranslatorsSection />
                 <SectionSeparator title="References" />
                 <AssetsSection />

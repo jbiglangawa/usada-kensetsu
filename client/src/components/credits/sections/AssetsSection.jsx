@@ -9,7 +9,7 @@ const AssetsSection = () => {
         <>
             <SubsectionHeader
                 title="Assets and Resources"
-                subtitle="Please refer to this corner for all of the assets I've acquired from the internet:"
+                subtitle="Please refer to this corner for all of the assets used in this website:"
             />
             <AssetCardList
                 assets={assets}
