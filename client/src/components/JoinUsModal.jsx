@@ -125,7 +125,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
                     <div className="jum-signed-in-header">Signed in as:</div>
                     <div className="jum-si-acc-wrapper">
                         <img src={user.photo} alt="" className="jum-sia-thumbnail"/>
-                        <div className="jum-acc-tag">{user.provide === 'twitter' ? `@${user.username}` : user.name}</div> (
+                        <div className="jum-acc-tag">{user.provider === 'twitter' ? `@${user.username}` : user.name}</div> (
                         <button className="jum-sia-logout-button" onClick={() => logoutUser()}>Logout</button>)
                     </div>
                 </div>

@@ -44,7 +44,7 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
 
                 <div className={`${classNamePrefix}-footer-wrapper`}>
                     <img src={`${currentLocation}rabbit-icon.svg`} alt="" className={`${classNamePrefix}-rabbit-icon`} onLoad={() => setRabbitIconLoaded(true)} />
-                    <div className={`${classNamePrefix}-username`}>@{user.username}</div>
+                    <div className={`${classNamePrefix}-username`}>{user.provider === 'twitter' && `@${user.username}`}</div>
                 </div>
             </>
             }
