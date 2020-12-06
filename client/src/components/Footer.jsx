@@ -5,6 +5,7 @@ import {Modal, ModalHeader, ModalBody} from 'reactstrap'
 import {TwitterTimelineEmbed} from 'react-twitter-embed'
 import '../css/Footer.css'
 import ExternalLink from './ExternalLink'
+import { headerLogo } from '../helpers/images'
 
 const Footer = props => {
     const [modal, setModal] = useState(false)
@@ -20,7 +21,7 @@ const Footer = props => {
                 <div className="footer-left">
                     <img
                         alt="footer-logo" 
-                        src={process.env.PUBLIC_URL + "/header-logo.png"} 
+                        src={headerLogo} 
                         className="footer-logo" />
                     <div className="footer-text">
                         Usada Construction provides quality content and will give you ultimate

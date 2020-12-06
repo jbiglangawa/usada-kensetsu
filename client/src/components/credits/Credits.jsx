@@ -7,7 +7,7 @@ import ArtistSection from './sections/ArtistSection'
 import DevelopersSection from './sections/DevelopersSection'
 import TranslatorsSection from './sections/TranslatorsSection'
 import AssetsSection from './sections/AssetsSection'
-
+import { getBackground, creditsHeader } from '../../helpers/images'
 import '../../css/Credits.css'
 
 const Credits = () => {
@@ -18,7 +18,7 @@ const Credits = () => {
                 <meta property="og:title" content={"Credits - Usada Constructions🥕"} />
                 <meta property="twitter:title" content={"Credits - Usada Constructions🥕"} />
             </Helmet>
-            <div className="credits-header">
+            <div className="credits-header" style={getBackground(creditsHeader)}>
                 <div className="credits-title">CREDITS</div>
             </div>
 
