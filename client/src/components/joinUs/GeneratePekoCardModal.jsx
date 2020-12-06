@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Alert, Modal, ModalBody, ModalHeader, Tooltip } from 'reactstrap'
-import PekoCard from './PekoCard'
 import NewWindow from 'react-new-window'
 import { FiPrinter, FiDownload, FiLink} from 'react-icons/fi'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import PekoCard from './PekoCard'
 import PDFPekocardGenerator from './PDFPekocardGenerator'
 import ImagePekocardGenerator from './ImagePekocardGenerator'
-import '../css/GeneratePekoCardModal.css'
+import '../../css/GeneratePekoCardModal.css'
 
 const ACTION_NONE = null
 const ACTION_PRINT = 1

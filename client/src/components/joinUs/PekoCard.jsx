@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import emoji from 'react-easy-emoji'
-import '../css/PekoCard.css'
+import '../../css/PekoCard.css'
 
 const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref) => {
     const [profileImageLoaded, setProfileImageLoaded] = useState(false)
@@ -17,7 +17,7 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
     useEffect(() => {
         // Add newline to name if the name is more than 25 characters
         user.name = longNameInd ? user.name.substring(0, 25) + "\n" + user.name.substring(26, user.name.length - 1) : user.name
-    }, [])
+    }, [longNameInd, user])
 
     useEffect(() => {
         if(onLoad && front && profileImageLoaded && rabbitIconLoaded) {

@@ -4,7 +4,7 @@ import { exportComponentAsJPEG } from 'react-component-export-image'
 import { Spinner } from 'reactstrap'
 import html2canvas from 'html2canvas'
 import PekoCard from './PekoCard'
-import '../css/ImagePekocardGenerator.css'
+import '../../css/ImagePekocardGenerator.css'
 
 const ImagePekocardGenerator = ({userStr, onDownloadSuccess, getImageURL}) => {
     const [frontPekoCardLoaded, setFrontPekoCardLoaded] = useState(false)

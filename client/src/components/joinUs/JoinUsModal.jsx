@@ -3,7 +3,7 @@ import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
 import { Modal, ModalBody, ModalHeader, ModalFooter, Spinner, Alert } from 'reactstrap'
 import NewWindow from 'react-new-window'
-import '../css/JoinUsModal.css'
+import '../../css/JoinUsModal.css'
 
 
 const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, setLoggedInUser}) => {
