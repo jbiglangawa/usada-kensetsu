@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const enforce = require('express-sslify');
 const passport = require('passport');
 const session = require('express-session');
 const initializePassport = require('./passport.init');
@@ -30,7 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
-app.use(enforce.HTTPS());
 app.use(session({ 
   secret: process.env.SESSION_SECRET,
   key: 'sid',
