@@ -26,7 +26,7 @@ const Home = () => {
     const scrollYPosition = useScrollPosition(60)
     const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
 
-    const joinUs = useSpring(isBelowFold ? 
+    const joinUs = useSpring(isMobile || isBelowFold ? 
         {padding: '1em 1.1em', bottom: '10%', right: '5%', fontSize: '1.3em'} : 
         {padding: '1em 3em', bottom: '18%', right: '14%', fontSize: '1.5em'})
 
@@ -92,7 +92,7 @@ const Home = () => {
                     <div className="fp-idol">Idol Bunny Head Engineer</div>
 
                     <animated.div className="fp-join-us-wrapper" style={joinUs} onClick={toggleJoinUsModal}>
-                        <button className="fp-join-us-button">{isBelowFold ? <>JOIN</> : <>JOIN US</>}</button>
+                        <button className="fp-join-us-button">{isBelowFold || isMobile ? <>JOIN</> : <>JOIN US</>}</button>
                     </animated.div>
                 </div>
             </div>
