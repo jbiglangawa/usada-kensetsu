@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Modal, ModalBody, ModalHeader, Tooltip } from 'reactstrap'
+import { Alert, Modal, ModalBody, ModalHeader, Tooltip } from 'reactstrap'
 import PekoCard from './PekoCard'
 import NewWindow from 'react-new-window'
 import { FiPrinter, FiDownload, FiLink} from 'react-icons/fi'
@@ -19,21 +19,15 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
 
     const [isCopied, setIsCopied] = useState(false)
     const pekoCardLink = `${currentLocation}pekoCard/${user.id}`
-
-
-    const onUnloadPopup = () => {
-        setAction(ACTION_NONE)
-    }
-
-    const onBlockPopup = () => {
-
-    }
+    const [isPopupBlocked, setIsPopupBlocked] = useState(false)
 
     const onDownloadSuccess = () => {
         setAction(ACTION_NONE)
     }
 
     const toggleIsCopied = () => setIsCopied(!isCopied)
+
+    const toggleBlockedPopup = () => setIsPopupBlocked(!isPopupBlocked)
 
 
     return (
@@ -62,6 +56,10 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
                     real life.
                 </div>
 
+                <Alert color="danger" isOpen={isPopupBlocked} toggle={toggleBlockedPopup}>
+                    The Browser blocked the sign in popup😭. Please allow the popup to proceed with signing in
+                </Alert>
+
                 <div className="generated-footer-buttons">
                     <button onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> Print</button>
                     <button onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> Download image</button>
@@ -80,7 +78,7 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
         </Modal>
 
         {action &&
-            <NewWindow features={{ width: 1920, height: 1080 }} onUnload={onUnloadPopup} onBlock={onBlockPopup}>
+            <NewWindow features={{ width: 1920, height: 1080 }} onUnload={() => setAction(ACTION_NONE)} onBlock={toggleBlockedPopup}>
                 {action === ACTION_DOWNLOAD ?
                     <ImagePekocardGenerator userStr={loggedInUser} onDownloadSuccess={onDownloadSuccess} />
                 :

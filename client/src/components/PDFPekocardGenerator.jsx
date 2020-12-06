@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Page, View, Document, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer'
-import { useReactToPrint } from 'react-to-print'
 import ImagePekocardGenerator from './ImagePekocardGenerator'
 
 const styles = StyleSheet.create({
@@ -28,9 +27,6 @@ const PDFPekocardGenerator = ({userStr}) => {
     const [sourceFront, setSourceFront] = useState()
     const [sourceBack, setSourceBack] = useState()
     const pageRef = useRef()
-    const printA4 = useReactToPrint({
-        content: () => pageRef.current
-    })
 
     const getImageURL = (frontImageURL, backImageURL) => {
         setSourceFront(frontImageURL)

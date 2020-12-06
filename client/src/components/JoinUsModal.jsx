@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
-import { Modal, ModalBody, ModalHeader, ModalFooter, Spinner } from 'reactstrap'
+import { Modal, ModalBody, ModalHeader, ModalFooter, Spinner, Alert } from 'reactstrap'
 import NewWindow from 'react-new-window'
 import '../css/JoinUsModal.css'
 
@@ -10,6 +10,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
     const [user, setUser] = useState()
     const [isAuthenticating, setIsAuthenticating] = useState(false)
     const [url, setURL] = useState()
+    const [isPopupBlocked, setIsPopupBlocked] = useState(false)
 
     // Twitter window popup features
     const features = {
@@ -35,13 +36,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
         }
     }
 
-    const onUnloadAuthPopup = () => {
-        closeAuthPopup()
-    }
-
-    const onBlockAuthPopup = () => {
-        closeAuthPopup()
-    }
+    const toggleBlockedPopup = () => setIsPopupBlocked(!isPopupBlocked)
 
     const closeAuthPopup = () => {
         setURL(null)
@@ -90,12 +85,17 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
     }, [isModalOpen, socket])
 
     return (
+        <>
         <Modal isOpen={isModalOpen} toggle={toggleModal} centered>
             <ModalHeader toggle={toggleModal}>
                 <div className="ju-modal-header">Join Us and receive your <b>PekoCard</b></div>
             </ModalHeader>
 
             <ModalBody>
+                <Alert color="danger" isOpen={isPopupBlocked} toggle={toggleBlockedPopup}>
+                    The Browser blocked the sign in popup😭. Please allow the popup to proceed with signing in
+                </Alert>
+
                 <div className="jum-description">
                     To claim your PekoCard, you need to login using twitter, google, or facebook.
                     After clicking <i>Generate my ID</i>, you will revoke your authentication permission
@@ -131,10 +131,10 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
             </ModalFooter>
 
             {url &&
-                <NewWindow url={url} features={features} onUnload={onUnloadAuthPopup} onBlock={onBlockAuthPopup} />
+                <NewWindow url={url} features={features} onUnload={closeAuthPopup} onBlock={() => setIsPopupBlocked(true)} />
             }
         </Modal>
-        
+        </>
     )
 }
 
