@@ -31,7 +31,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
         if(!isAuthenticating) {
             setIsAuthenticating(true)
             const API_URL = process.env.REACT_APP_API_URL || window.location.href
-            setURL(`${API_URL}/auth/${api}Auth?socketId=${socket.id}`)
+            setURL(`${API_URL}auth/${api}Auth?socketId=${socket.id}`)
         }
     }
 
