@@ -9,7 +9,7 @@ const TranslatorsSection = () => {
         <>
             <SubsectionHeader
                 title="Translators"
-                subtitle="{{ General Translators Description Here }}"
+                subtitle="People who translated the website to each of their language. Thank you very much for your participation!"
             />
             <ContributorCardList
                 contributors={translators}

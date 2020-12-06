@@ -9,7 +9,7 @@ const DevelopersSection = () => {
         <>
             <SubsectionHeader
                 title="Developers"
-                subtitle="{{ General Developer Description Here }}"
+                subtitle="The following people has committed their free time to improve this website. Thank you very much for your participation!"
             />
             <ContributorCardList
                 contributors={developers}
