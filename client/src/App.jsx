@@ -7,7 +7,7 @@ import Routes from './components/Routes'
 import 'semantic-ui-css/semantic.min.css'
 import './App.css'
 import { useEffect, useState } from 'react'
-import { Spinner } from 'reactstrap'
+import LoadingScreen from './components/LoadingScreen'
 
 const App = () => {
     const [loading, setLoading] = useState(true)
@@ -23,7 +23,9 @@ const App = () => {
     return (
         <Router>
             {loading ?
-            <Spinner />
+            <div className="screen-wrapper">
+                <LoadingScreen />
+            </div>
             :
             <>
             <Mobile>

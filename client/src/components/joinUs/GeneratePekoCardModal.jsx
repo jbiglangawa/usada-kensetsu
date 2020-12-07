@@ -6,6 +6,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import PekoCard from './PekoCard'
 import PDFPekocardGenerator from './PDFPekocardGenerator'
 import ImagePekocardGenerator from './ImagePekocardGenerator'
+import { useMediaQuery } from 'react-responsive'
+import { mobileBreakPoint } from '../../helpers/responsive'
 import '../../css/GeneratePekoCardModal.css'
 
 const ACTION_NONE = null
@@ -20,6 +22,7 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
     const [isCopied, setIsCopied] = useState(false)
     const pekoCardLink = `${currentLocation}pekoCard/${user.id}`
     const [isPopupBlocked, setIsPopupBlocked] = useState(false)
+    const isMobile = useMediaQuery({ maxDeviceWidth: mobileBreakPoint });
 
     const onDownloadSuccess = () => {
         setAction(ACTION_NONE)
@@ -61,7 +64,7 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
                 </Alert>
 
                 <div className="generated-footer-buttons">
-                    <button onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> Print</button>
+                    {!isMobile && <button onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> Print</button>}
                     <button onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> Download image</button>
 
                     <CopyToClipboard text={pekoCardLink} onCopy={() => setIsCopied(true)}>

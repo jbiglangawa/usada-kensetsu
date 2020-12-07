@@ -68,3 +68,21 @@
 .generated-footer-buttons button:hover {
     color: #54B7E9;
 }
+
+@media screen and (max-width: 767px) {
+    .generated-wrapper {
+        flex-direction: column;
+    }
+
+    .generated-wrapper div {
+        margin-bottom: 10px;
+    }
+
+    .generated-footer-buttons {
+        flex-direction: column;
+    }
+
+    .generated-footer-buttons button {
+        padding-bottom: 10px;
+    }
+} 

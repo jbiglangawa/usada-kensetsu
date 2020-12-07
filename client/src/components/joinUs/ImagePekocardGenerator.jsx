@@ -4,6 +4,7 @@ import { exportComponentAsJPEG } from 'react-component-export-image'
 import { Spinner } from 'reactstrap'
 import html2canvas from 'html2canvas'
 import PekoCard from './PekoCard'
+import LoadingScreen from '../LoadingScreen'
 import '../../css/ImagePekocardGenerator.css'
 
 const ImagePekocardGenerator = ({userStr, onDownloadSuccess, getImageURL}) => {
@@ -61,8 +62,7 @@ const ImagePekocardGenerator = ({userStr, onDownloadSuccess, getImageURL}) => {
     return (
         <div className="generate-download-wrapper">
             <div className="generate-mask">
-                <span>Generating your PekoCard</span>
-                <Spinner />
+                <LoadingScreen loadingMessage="Generating your PekoCard" />
             </div>
             <PekoCard front large userStr={JSON.stringify(user)} ref={frontPekoCardRef} onLoad={() => setFrontPekoCardLoaded(true)}/>
             <PekoCard back large userStr={JSON.stringify(user)} ref={backPekoCardRef} onLoad={() => setBackPekoCardLoaded(true)}/>

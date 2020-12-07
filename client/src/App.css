@@ -33,3 +33,13 @@
   .pushable:not(body) > .pusher:after {
     position: fixed;
   }
+
+
+.screen-wrapper {
+  height: 100vh;
+  width: 100%;
+  background-color: #fbe08b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

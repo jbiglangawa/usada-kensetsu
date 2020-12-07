@@ -37,7 +37,7 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
             <>
                 <div className={`${classNamePrefix}-wrapper`}>
                     <img src={user.photo} alt="" className={`${classNamePrefix}-card-photo`} onLoad={() => setProfileImageLoaded(true)}/>
-                    <div className={`${classNamePrefix}-name`} style={{fontSize: longNameInd && large ? '70px' : '20px'}}>{emoji(user.name)}</div>
+                    <div className={`${classNamePrefix}-name`} style={{fontSize: longNameInd || large ? '70px' : '20px'}}>{emoji(user.name)}</div>
                     <div className={`${classNamePrefix}-role`}>Nousagi employee</div>
                     <div className={`${classNamePrefix}-id`}><span>ID: </span>{user.id}</div>
                 </div>
