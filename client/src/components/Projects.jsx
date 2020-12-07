@@ -18,7 +18,7 @@ const Projects = () => {
                         if (data.ProjectsList.length > 0) {
                             setProjectsList(data.ProjectsList.map((data, index) => <ProjectCell data={JSON.stringify(data)} key={index} />))
                         } else {
-                            setProjectsList(<div>t(No projects at the moment)</div>)
+                            setProjectsList(<div>{t("No projects at the moment")}</div>)
                         }
                     }
                 })

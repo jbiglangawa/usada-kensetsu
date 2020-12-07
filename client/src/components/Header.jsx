@@ -38,11 +38,11 @@ const Header = () => {
         }
     }, [scrollYPosition, routePath])
 
-    const [t, i18n] = useTranslation(["header"])
+    const [t, i18n] = useTranslation("header")
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng)
+        i18n.changeLanguage(lng);
     }
 
     return (
@@ -64,14 +64,22 @@ const Header = () => {
                         <li><Link to="/credits">{t("CREDITS")}</Link></li>
                         <li>
                             <div>
-                                {t("LANGUAGE:")}
                                 <ButtonDropdown isOpen={isOpen} toggle={toggle}>
                                     <DropdownToggle caret size="sm">
-                                        {i18n.language === "en" ? "ENGLISH" : "日本人"}
+                                        {t("LANGUAGE")}
                                     </DropdownToggle>
                                     <DropdownMenu>
-                                        <DropdownItem value="en" onClick={(e) => changeLanguage(e.target.value)}>ENGLISH</DropdownItem>
-                                        <DropdownItem value="jp" onClick={(e) => changeLanguage(e.target.value)}>日本人</DropdownItem>
+                                        {[{value: "en", name: "ENGLISH"},
+                                        {value:"jp", name: "日本人"}, 
+                                        {value:"id", name: "INDONESIA"}].map(language => 
+                                            <DropdownItem 
+                                                value={language.value} 
+                                                onClick={(e) => changeLanguage(e.target.value)}
+                                                active={i18n.language === language.value ? true : false}
+                                                >
+                                                    {language.name}
+                                            </DropdownItem>
+                                        )}
                                     </DropdownMenu>
                                 </ButtonDropdown>
                             </div>

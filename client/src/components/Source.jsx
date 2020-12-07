@@ -56,7 +56,7 @@ const Source = props => {
                                 placeholder={
                                     <div className="twitter-placeholder">
                                         <Spinner />
-                                        <div className="tweet-loading-text">t("Loading tweet")...</div>
+                                        <div className="tweet-loading-text">{t("Loading Tweet")}...</div>
                                     </div>
                                 }
                                 options={{

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import { SiPixiv } from 'react-icons/si'
 import { FaDiscord, FaDeviantart, FaFacebook, FaYoutube } from 'react-icons/fa'
@@ -8,6 +9,7 @@ import ExternalLink from '../../ExternalLink';
 import classes from '../Credits.module.css';
 
 const ContributorCard = (props) => {
+    const [t] = useTranslation("credits")
 
     // Change this if necessary
     const avatar_placeholder_url = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png";
@@ -35,7 +37,9 @@ const ContributorCard = (props) => {
                     {props.specialThanks &&
                         <div className={classes.specialThanksContainer}>
                             <p>
-                                {props.specialThanks}
+                                <Trans t={t}>
+                                    {props.specialThanks}
+                                </Trans>
                             </p>
                         </div>
                     }

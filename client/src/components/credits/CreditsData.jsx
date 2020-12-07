@@ -151,7 +151,7 @@ export const translators = [
     {
         avatar_url: "https://pbs.twimg.com/profile_images/1334531842431705088/7o5umrWc_400x400.jpg",
         name: "Mael",
-        mainSocialUsername: "@MomijiLoop",
+        mainSocialUsername: "@_healthyburgers",
         mainSocialLink: "https://twitter.com/_healthyburgers",
         specialThanks: "Translated the website to Spanish",
         links: {

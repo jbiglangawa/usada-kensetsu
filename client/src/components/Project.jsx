@@ -19,7 +19,6 @@ const Project = () => {
     const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
     const currentLanguage = i18n.language
     
-    console.log("PROJECT", currentLanguage)
     useEffect(() => {
         if(projectId && !projectData) {
             fetch(`/projects/getProject/${projectId}`)

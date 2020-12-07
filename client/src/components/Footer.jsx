@@ -16,8 +16,8 @@ const Footer = props => {
         <div className="footer-wrapper">
             <div className="contact-us">
                 <div className="contact-us-message">
-                    <Trans>
-                        We'd love to hear from you regarding potential projects, collaborations, <br></br>
+                    <Trans t={t}>
+                        We'd love to hear from you regarding potential projects, collaborations, <br />
                         or to join our team
                     </Trans></div>
                 <button className="contact-us-button" onClick={() => setModal(true)}>{t("CONTACT US")}</button>

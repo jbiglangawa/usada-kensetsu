@@ -34,9 +34,13 @@ const Home = () => {
 
                 <div className="front-page-title">
                     <div className="front-page-quote-wrapper">
-                        <div className="fpq-we">"We&nbsp;<div className="fpq-build">build</div></div>
-                        <div className="fpq-tomm">tomorrow</div>
-                        <div className="fpq-peko">for you peko"</div>
+                        "
+                        <Trans t={t}>
+                            <div className="fpq-we">We&nbsp;<div className="fpq-build">build</div></div>
+                            <div className="fpq-tomm">tomorrow</div>
+                            <div className="fpq-peko">for you peko</div>
+                        </Trans>
+                        "
                     </div>
                     <div className="fp-usada">{t("Usada Pekora")}</div>
                     <div className="fp-ceo">{t("Usada Constructions CEO")}</div>
@@ -114,7 +118,7 @@ const Home = () => {
             <div className="featured">
                 <div className="featured-wrapper">
                     <div className="featured-header-text">
-                        <Trans i18nKey="home:featured pekodam">
+                        <Trans t={t}>
                             WITNESS THE <br />PEKODAM<br />IN ACTION
                         </Trans>
                     </div>
@@ -130,11 +134,10 @@ const Home = () => {
                     <div className="history-title">{t("OUR HISTORY")}</div>
                     <div className="history-subtitle">{t("USADA CONSTRUCTION WAS FOUNDED THIS 2019...")}</div>
                     <div className="history-desc">
-                        <Trans t={t}>
-                            which is very recent but ever since Usada Cannon T3 MK II we have been getting
-                            non-stop requests from our clients as time passes. We were able to annihilate a
-                            whole base of pillagers and managed to be known as the the first Construction
-                            company in Hololive. Please take a look at the first ever creation of Usada Construction    
+                        <Trans t={t} >
+                            which is very recent but ever since Usada Cannon T3 MK II we have been getting non-stop requests from our clients as time passes. 
+                            We were able to annihilate a whole base of pillagers and managed to be known as the the first Construction company in Hololive. 
+                            Please take a look at the first ever creation of Usada Construction
                         </Trans>
                     </div>
                 </div>
