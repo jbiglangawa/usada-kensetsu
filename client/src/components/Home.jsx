@@ -34,13 +34,11 @@ const Home = () => {
 
                 <div className="front-page-title">
                     <div className="front-page-quote-wrapper">
-                        "
                         <Trans t={t}>
                             <div className="fpq-we">We&nbsp;<div className="fpq-build">build</div></div>
                             <div className="fpq-tomm">tomorrow</div>
                             <div className="fpq-peko">for you peko</div>
                         </Trans>
-                        "
                     </div>
                     <div className="fp-usada">{t("Usada Pekora")}</div>
                     <div className="fp-ceo">{t("Usada Constructions CEO")}</div>

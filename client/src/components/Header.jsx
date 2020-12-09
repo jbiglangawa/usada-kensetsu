@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import useScrollPosition from '@react-hook/window-scroll'
 import { useSpring, animated } from 'react-spring'
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { useTranslation } from 'react-i18next';
+import LanguageOptions from './LanguageOptions.jsx';
 import '../css/Header.css'
 
 const Header = () => {
@@ -38,12 +38,7 @@ const Header = () => {
         }
     }, [scrollYPosition, routePath])
 
-    const [t, i18n] = useTranslation("header")
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-    }
+    const [t] = useTranslation("header")
 
     return (
         <div className="header-wrapper" style={isBelowFold ? { height: '10vh', zIndex: "3" } : { height: '0', zIndex: "1" }}>
@@ -63,26 +58,7 @@ const Header = () => {
                         <li><Link to="/our-team">{t("OUR TEAM")}</Link></li>
                         <li><Link to="/credits">{t("CREDITS")}</Link></li>
                         <li>
-                            <div>
-                                <ButtonDropdown isOpen={isOpen} toggle={toggle}>
-                                    <DropdownToggle caret size="sm">
-                                        {t("LANGUAGE")}
-                                    </DropdownToggle>
-                                    <DropdownMenu>
-                                        {[{value: "en", name: "ENGLISH"},
-                                        {value:"jp", name: "日本人"}, 
-                                        {value:"id", name: "INDONESIA"}].map(language => 
-                                            <DropdownItem 
-                                                value={language.value} 
-                                                onClick={(e) => changeLanguage(e.target.value)}
-                                                active={i18n.language === language.value ? true : false}
-                                                >
-                                                    {language.name}
-                                            </DropdownItem>
-                                        )}
-                                    </DropdownMenu>
-                                </ButtonDropdown>
-                            </div>
+                            <LanguageOptions />
                         </li>
                     </ul>
                 </animated.nav>

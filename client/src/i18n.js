@@ -7,8 +7,8 @@ i18n.use(LanguageDetector)
     .use(BackEnd)
     .use(initReactI18next)
     .init({
-      fallbackLng: false,
-      debug: true,
+      fallbackLng: "en",
+      debug: false,
       saveMissing: true,
       saveMissingTo: 'current',
       keySeparator:false,
@@ -23,9 +23,7 @@ i18n.use(LanguageDetector)
       },
 
       react: {
-        hashTransKey: function(defaultValue) {
-          return defaultValue
-        },
+        hashTransKey: (defaultValue) => defaultValue,
         transSupportBasicHtmlNodes: true,
         transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p']
       },
