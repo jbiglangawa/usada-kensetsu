@@ -1,0 +1,76 @@
+.edit-modal {
+    min-width: 800px;
+}
+
+.edit-header {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 2em;
+    text-align: left;
+}
+
+.edit-editor {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+#name {
+    margin-bottom: 10px;
+}
+
+.edit-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.edit-wrapper button {
+    background-color: #FFF;
+    border: none;
+    color: #41ACE1;
+}
+
+.edit-wrapper button:hover {
+    text-decoration: underline;
+}
+
+
+.edit-footer button {
+    border-style: none;
+    background-color: #D5F6FF;
+    outline: none;
+    border-radius: 100px;
+    padding: 0.3em 1em;
+    color: #41ACE1;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 1.2em;
+    white-space: nowrap;
+}
+
+.edit-footer button svg {
+    color: #49CAEE;
+}
+
+.edit-footer button:hover {
+    background-color: #E2F9FF;
+}
+
+.edit-footer button:disabled {
+    background-color: #E4F1F5;
+    color: #B6C1C6;
+}
+
+.edit-footer button:disabled svg {
+    color: #B6C1C6;
+}
+
+.error-photo-editor {
+    border-color: red !important;
+}
+
+@media screen and (max-width: 991px) {
+    .edit-modal {
+        min-width: auto;
+    }
+}

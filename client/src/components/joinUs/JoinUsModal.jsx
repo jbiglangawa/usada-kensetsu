@@ -3,14 +3,16 @@ import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
 import { Modal, ModalBody, ModalHeader, ModalFooter, Spinner, Alert } from 'reactstrap'
 import NewWindow from 'react-new-window'
+import PekoCardEditModal from './PekoCardEditModal'
 import '../../css/JoinUsModal.css'
 
 
 const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, setLoggedInUser}) => {
     const [user, setUser] = useState()
-    const [isAuthenticating, setIsAuthenticating] = useState(false)
     const [url, setURL] = useState()
+    const [isAuthenticating, setIsAuthenticating] = useState(false)
     const [isPopupBlocked, setIsPopupBlocked] = useState(false)
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false)
 
     // Twitter window popup features
     const features = {
@@ -38,34 +40,46 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
 
     const toggleBlockedPopup = () => setIsPopupBlocked(!isPopupBlocked)
 
+    const toggleEditModal = () => setIsEditModalOpen(!isEditModalOpen)
+
     const closeAuthPopup = () => {
         setURL(null)
         setIsAuthenticating(false)
     }
 
-    const logoutUser = callback => {
-        fetch(`/auth/logoutUser`)
-            .then(response => {
-                if (response.ok) {
-                    if(callback) {
-                        callback()
-                    }else {
-                        setUser(null)
-                    }
-                }
-            })
+    const logoutUser = () => {
+        const requestOptions = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        }
+        if(user) {
+            fetch(`/auth/logoutUser`, requestOptions)
+                .then(() => setUser(null))
+        }
     }
     
     const generateIdCallback = () => {
         delete user.$$_4CCSST
         delete user.$_Aces_TOEe3t
+        delete user.id
+
         setLoggedInUser(JSON.stringify(user))
+        setUser(null)
+        toggleEditModal()
         togglePekoCardModal()
         toggleModal()
     }
     
-    const generateIdOnClick = () => {
-        logoutUser(generateIdCallback)
+    const generateIdOnClick = (modifiedUser) => {
+        setUser(modifiedUser)
+        const requestOptions = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        }
+        fetch(`/auth/logoutUser`, requestOptions)
+            .then(() => generateIdCallback())
     }
 
     useEffect(() => {
@@ -73,6 +87,9 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
             // Upon unmount, logout user to revoke Access token
             logoutUser()
         }
+    
+    // Remove ESLint warning here
+    // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
@@ -105,13 +122,15 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
 
             <ModalFooter style={{justifyContent: 'space-between'}}>
                 {!user ?
-                    !isAuthenticating ? 
-                    <div>
-                        Sign in:
-                        <button onClick={() => openAuthPopup('google')} className="jum-sign-in-button"><FcGoogle /></button>
-                        <button onClick={() => openAuthPopup('twitter')} className="jum-sign-in-button sign-in-twitter"><AiOutlineTwitter /></button>
-                        <button onClick={() => openAuthPopup('facebook')} className="jum-sign-in-button sign-in-facebook"><AiFillFacebook /></button>
-                    </div>
+                    !isAuthenticating ?
+                        <div className="jum-signin-buttons"> 
+                            <span>Sign in:</span>
+                            <div>
+                                <button onClick={() => openAuthPopup('google')} className="jum-sign-in-button"><FcGoogle /></button>
+                                <button onClick={() => openAuthPopup('twitter')} className="jum-sign-in-button sign-in-twitter"><AiOutlineTwitter /></button>
+                                <button onClick={() => openAuthPopup('facebook')} className="jum-sign-in-button sign-in-facebook"><AiFillFacebook /></button>
+                            </div>
+                        </div>
                     :
                     <div className="jum-authenticating">
                         <Spinner />
@@ -127,13 +146,20 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
                     </div>
                 </div>
                 }
-                <button disabled={!user} onClick={generateIdOnClick} className="jum-generate-button">Generate my ID</button>
+
+                <div className="join-modal-buttons">
+                    <button disabled={!user} onClick={() => setIsEditModalOpen(true)} className="jum-preview-button">Preview</button>
+                </div>
             </ModalFooter>
 
             {url &&
                 <NewWindow url={url} features={features} onUnload={closeAuthPopup} onBlock={() => setIsPopupBlocked(true)} />
             }
         </Modal>
+
+        {user && isEditModalOpen &&
+            <PekoCardEditModal isOpen={isEditModalOpen} toggle={toggleEditModal} userStr={JSON.stringify(user)} modifyUser={setUser} generate={generateIdOnClick} />
+        }
         </>
     )
 }

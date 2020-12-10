@@ -25,6 +25,35 @@
     text-align: justify;
 }
 
+.jum-preview-button {
+    border-style: none;
+    background-color: #D5F6FF;
+    outline: none;
+    border-radius: 100px;
+    padding: 0.3em 1em;
+    color: #8ED9FF;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 1.2em;
+    white-space: nowrap;
+}
+
+.jum-preview-button svg {
+    color: #49CAEE;
+}
+
+.jum-preview-button:hover {
+    background-color: #E2F9FF;
+}
+
+.jum-preview-button:disabled {
+    background-color: #E4F1F5;
+    color: #B6C1C6;
+}
+
+.jum-preview-button:disabled svg {
+    color: #B6C1C6;
+}
+
 .jum-generate-button {
     border-style: none;
     background-color: #D5F6FF;
@@ -136,4 +165,42 @@
 
 .sign-in-facebook {
     color: #3b5998;
+}
+
+.jum-signin-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.join-modal-buttons button {
+    margin: 0 10px;
+}
+
+
+@media screen and (max-device-width: 1024px) {
+    .jum-signin-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .join-modal-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    
+    .jum-signin-buttons span {
+        font-family: 'AutoBusBold', 'Segoe UI';
+        text-decoration: underline;
+        align-self: flex-start;
+    }
+
+    .jum-signin-buttons div {
+        margin-bottom: 10px;
+    }
+
+    .jum-signin-buttons div button {
+        font-size: 2em;
+    }
 }

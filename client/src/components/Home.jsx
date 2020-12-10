@@ -68,7 +68,7 @@ const Home = () => {
                 socket={socket} 
                 setLoggedInUser={setLoggedInUser} />
             
-            {user &&
+            {user && isPekoCardModalOpen &&
                 <GeneratePekoCardModal isModalOpen={isPekoCardModalOpen} toggleModal={togglePekoCardModal} loggedInUser={user} />
             }
 

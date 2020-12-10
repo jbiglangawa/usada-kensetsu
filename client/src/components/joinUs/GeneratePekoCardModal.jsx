@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import ReactDOM from 'react-dom';
 import { Alert, Modal, ModalBody, ModalHeader, Tooltip } from 'reactstrap'
 import NewWindow from 'react-new-window'
 import { FiPrinter, FiDownload, FiLink} from 'react-icons/fi'
@@ -9,29 +10,52 @@ import ImagePekocardGenerator from './ImagePekocardGenerator'
 import { useMediaQuery } from 'react-responsive'
 import { mobileBreakPoint } from '../../helpers/responsive'
 import '../../css/GeneratePekoCardModal.css'
+import html2canvas from 'html2canvas'
 
 const ACTION_NONE = null
 const ACTION_PRINT = 1
 const ACTION_DOWNLOAD = 2
 
 const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
-    const user = JSON.parse(loggedInUser)
+    const [user, setUser] = useState(JSON.parse(loggedInUser))
     const [action, setAction] = useState(ACTION_NONE)
-    const currentLocation = window.location.href
-
     const [isCopied, setIsCopied] = useState(false)
-    const pekoCardLink = `${currentLocation}pekoCard/${user.id}`
     const [isPopupBlocked, setIsPopupBlocked] = useState(false)
-    const isMobile = useMediaQuery({ maxDeviceWidth: mobileBreakPoint });
+    const [frontPekoCardLoaded, setFrontPekoCardLoaded] = useState(false)
+    const [backPekoCardLoaded, setBackPekoCardLoaded] = useState(false)
 
-    const onDownloadSuccess = () => {
-        setAction(ACTION_NONE)
-    }
+    const frontPekoCardRef = useRef()
+    const currentLocation = window.location.href
+    const pekoCardLink = `${currentLocation}pekoCard/${user.secret}`
+    const isMobile = useMediaQuery({ maxDeviceWidth: mobileBreakPoint })
+    const isCardsLoaded = frontPekoCardLoaded && backPekoCardLoaded
+
+    const onDownloadSuccess = () => setAction(ACTION_NONE)
 
     const toggleIsCopied = () => setIsCopied(!isCopied)
 
     const toggleBlockedPopup = () => setIsPopupBlocked(!isPopupBlocked)
 
+    const generateImageURI = (node) => {
+        const element = ReactDOM.findDOMNode(node.current);
+        return html2canvas(element, { scrollY: -window.scrollY, useCORS: true})
+    }
+
+    useEffect(() => {
+        if(user && frontPekoCardLoaded && !user.secret ) {
+            generateImageURI(frontPekoCardRef)
+                .then(canvas => canvas.toDataURL('image/png', 1.0))
+                .then(uri => fetch(`/auth/generatePekoCard`, {
+                    method: 'post',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({imageUri: uri, user: user})
+                }))
+                .then(response => response.json())
+                .then(data => {
+                    setUser({...user, secret: data.generatedID})
+                })
+        }
+    }, [frontPekoCardLoaded, user])
 
     return (
         <>
@@ -48,8 +72,8 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
                 </div>
 
                 <div className="generated-wrapper">
-                    <PekoCard front userStr={loggedInUser} />
-                    <PekoCard back userStr={loggedInUser} />
+                    <PekoCard front ref={frontPekoCardRef} userStr={loggedInUser} onLoad={() => setFrontPekoCardLoaded(true)}/>
+                    <PekoCard back userStr={JSON.stringify(user)} onLoad={() => setBackPekoCardLoaded(true)}/>
                 </div>
                 
                 <div className="generated-rec-size">The recommended print size is: 3.38" x 2.36"</div>
@@ -64,11 +88,12 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
                 </Alert>
 
                 <div className="generated-footer-buttons">
-                    {!isMobile && <button onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> Print</button>}
-                    <button onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> Download image</button>
+                    {!isMobile && 
+                    <button disabled={!isCardsLoaded} onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> Print</button>}
+                    <button disabled={!isCardsLoaded} onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> Download image</button>
 
                     <CopyToClipboard text={pekoCardLink} onCopy={() => setIsCopied(true)}>
-                        <button id="copyPekocardLink" onMouseLeave={() => setIsCopied(false)}><FiLink /> Copy PekoCard Link</button>
+                        <button disabled={!isCardsLoaded} id="copyPekocardLink" onMouseLeave={() => setIsCopied(false)}><FiLink /> Copy PekoCard Link</button>
                     </CopyToClipboard>
                     
                     {isCopied &&
@@ -76,17 +101,16 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
                     }
                 </div>
 
-                
             </ModalBody>
         </Modal>
 
         {action &&
             <NewWindow features={{ width: 1920, height: 1080 }} onUnload={() => setAction(ACTION_NONE)} onBlock={toggleBlockedPopup}>
                 {action === ACTION_DOWNLOAD ?
-                    <ImagePekocardGenerator userStr={loggedInUser} onDownloadSuccess={onDownloadSuccess} />
+                    <ImagePekocardGenerator userStr={JSON.stringify(user)} onDownloadSuccess={onDownloadSuccess} />
                 :
                  action === ACTION_PRINT &&
-                    <PDFPekocardGenerator userStr={loggedInUser} />
+                    <PDFPekocardGenerator userStr={JSON.stringify(user)} />
                 }
             </NewWindow>
         }

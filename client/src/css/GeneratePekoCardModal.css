@@ -69,6 +69,10 @@
     color: #54B7E9;
 }
 
+.generated-footer-buttons button:disabled {
+    color: #C7C7C7;
+}
+
 @media screen and (max-width: 767px) {
     .generated-wrapper {
         flex-direction: column;

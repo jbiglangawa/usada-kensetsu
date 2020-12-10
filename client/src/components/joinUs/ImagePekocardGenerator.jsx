@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { exportComponentAsJPEG } from 'react-component-export-image'
-import { Spinner } from 'reactstrap'
 import html2canvas from 'html2canvas'
 import PekoCard from './PekoCard'
 import LoadingScreen from '../LoadingScreen'
@@ -35,11 +34,11 @@ const ImagePekocardGenerator = ({userStr, onDownloadSuccess, getImageURL}) => {
                 setIsFrontDownloaded(false)
                 setIsBackDownloaded(false)
             }else {
-                exportComponentAsJPEG(frontPekoCardRef, {fileName: `Front ID_${user.id}.jpg`}).then(() => setIsFrontDownloaded(true))
-                exportComponentAsJPEG(backPekoCardRef, {fileName: `Back ID_${user.id}.jpg`}).then(() => setIsBackDownloaded(true))
+                exportComponentAsJPEG(frontPekoCardRef, {fileName: `Front ID_${user.employeeID}.jpg`}).then(() => setIsFrontDownloaded(true))
+                exportComponentAsJPEG(backPekoCardRef, {fileName: `Back ID_${user.employeeID}.jpg`}).then(() => setIsBackDownloaded(true))
             }
         }
-    }, [frontPekoCardLoaded, backPekoCardLoaded, user.id, setIsFrontDownloaded, setIsBackDownloaded, getImageURL])
+    }, [frontPekoCardLoaded, backPekoCardLoaded, user.employeeID, setIsFrontDownloaded, setIsBackDownloaded, getImageURL])
 
     useEffect(() => {
         if(isFrontDownloaded && isBackDownloaded) {

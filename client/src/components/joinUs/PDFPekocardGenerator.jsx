@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Page, View, Document, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer'
 import ImagePekocardGenerator from './ImagePekocardGenerator'
 
@@ -34,10 +34,6 @@ const PDFPekocardGenerator = ({userStr}) => {
         setIsGenerated(true)
     }
     
-    useEffect(() => {
-        
-    })
-
     return (
         <div>
             {isGenerated ? 

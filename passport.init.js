@@ -7,37 +7,38 @@ const { TWITTER_CONFIG, GOOGLE_CONFIG, FACEBOOK_CONFIG } = require('./config');
 
 const cryptr = new Cryptr(process.env.AES_SECRET);
 const fetch = require('node-fetch');
+const randomatic = require('randomatic');
+
+const generateEmployeeId = () => randomatic('0', 10)
+
+const generateUser = (profile, accessToken, refreshToken) => ({
+  provider: profile.provider,
+  id: profile.id,
+  name: profile.displayName,
+  photo: profile.photo,
+  username: profile.username,
+  $_Aces_TOEe3t: refreshToken && cryptr.encrypt(refreshToken),
+  $$_4CCSST: cryptr.encrypt(accessToken),
+  employeeID: generateEmployeeId()
+})
 
 module.exports = () => {  
   passport.serializeUser((user, cb) => cb(null, user))
   passport.deserializeUser((obj, cb) => cb(null, obj))
   
   passport.use(new TwitterStrategy(TWITTER_CONFIG, (accessToken, refreshToken, profile, callback) => {
-    const user = {
-      provider: 'twitter',
-      id: profile.id,
-      name: profile.displayName,
-      photo: profile.photos[0].value.replace(/_normal/, ''),
-      username: profile.username,
-      $_Aces_TOEe3t: cryptr.encrypt(refreshToken),
-      $$_4CCSST: cryptr.encrypt(accessToken)
-    }
-
-    callback(null, user)
+    callback(null, generateUser({
+      ...profile,
+      photo: profile.photos[0].value.replace(/_normal/, '')
+    }, accessToken, refreshToken))
   }))
 
   passport.use(new GoogleStrategy(GOOGLE_CONFIG, (accessToken, refreshToken, profile, callback) => {
-    const user = {
-      provider: 'google',
-      id: profile.id,
-      name: profile.displayName,
+    callback(null, generateUser({
+      ...profile,
       photo: profile.photos[0].value.replace(/sz=50/gi, 'sz=250'),
-      username: profile.emails[0].value.replace('@gmail.com', ''),
-      $_Aces_TOEe3t: null,
-      $$_4CCSST: cryptr.encrypt(accessToken)
-    }
-
-    callback(null, user)
+      username: null
+    }, accessToken))
   }))
 
   passport.use(new FacebookStrategy(FACEBOOK_CONFIG, (accessToken, refreshToken, profile, callback) => {
@@ -46,16 +47,11 @@ module.exports = () => {
       const buffer = await image.buffer();
       const base64data = buffer.toString('base64');
       
-      const user = {
-        provider: 'facebook',
-        id: profile.id,
-        name: profile.displayName,
+      callback(null, generateUser({
+        ...profile,
         photo: `data:image/png;base64, ${base64data}`,
-        username: null,
-        $_Aces_TOEe3t: null,
-        $$_4CCSST: cryptr.encrypt(accessToken)
-      }
-      callback(null, user)
+        username: null
+      }, accessToken))
     }
 
     trigger()
