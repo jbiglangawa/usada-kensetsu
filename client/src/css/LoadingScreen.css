@@ -1,16 +1,17 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css);
 .loading-grid {
-    background: #fbe08b;
-    padding: 2%;
-    min-height: 50vh;
-    max-height: 100vh;
+    background: #f0f0f0;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .loading-source-link {
-    color: #484848;
+    color: #787878;
 }
 
 .loadingScreenBase {
@@ -60,10 +61,10 @@
 .rabbit {
     width: 5em;
     height: 3em;
-    background: #ffffff;
+    background: #ade5ff;
     border-radius: 70% 90% 60% 50%;
     position: relative;
-    box-shadow: -0.2em 1em 0 -0.75em #54B7E9;
+    box-shadow: -0.2em 1em 0 -0.75em #dfdfdf;
     -moz-transform: rotate(0deg) translate(-2em, 0);
     -ms-transform: rotate(0deg) translate(-2em, 0);
     -webkit-transform: rotate(0deg) translate(-2em, 0);
@@ -81,11 +82,11 @@
     position: absolute;
     width: 1em;
     height: 1em;
-    background: white;
+    background: #ade5ff;
     border-radius: 100%;
     top: 0.5em;
     left: -0.3em;
-    box-shadow: 4em 0.4em 0 -0.35em #54B7E9, 0.5em 1em 0 white, 4em 1em 0 -0.3em white, 4em 1em 0 -0.3em white, 4em 1em 0 -0.4em white;
+    box-shadow: 4em 0.4em 0 -0.35em #07bb3d, 0.5em 1em 0 #ade5ff, 4em 1em 0 -0.3em #ade5ff, 4em 1em 0 -0.3em #ade5ff, 4em 1em 0 -0.4em #ade5ff;
     animation: kick 1s infinite linear;
 }
 
@@ -94,7 +95,7 @@
     position: absolute;
     width: .75em;
     height: 2em;
-    background: white;
+    background: #ade5ff;
     border-radius: 50% 100% 0 0;
     -moz-transform: rotate(-30deg);
     -ms-transform: rotate(-30deg);
@@ -104,11 +105,11 @@
     top: -1em;
     border-top: 1px solid #f7f5f4;
     border-left: 1px solid #f7f5f4;
-    box-shadow: -0.5em 0em 0 -0.1em white;
+    box-shadow: -0.5em 0em 0 -0.1em #ade5ff;
 }
 
 .clouds {
-    background: white;
+    background: #F8CC3D;
     width: 2em;
     height: 2em;
     border-radius: 100% 100% 0 0;
@@ -121,21 +122,21 @@
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
     animation: cloudy 1s infinite linear forwards;
-    box-shadow: 5em 2em 0 -0.3em white, -2em 2em 0 0 white;
+    box-shadow: 5em 2em 0 -0.3em #F8CC3D, -2em 2em 0 0 #F8CC3D;
 }
 
 .clouds:before,
 .clouds:after {
     content: '';
     position: absolute;
-    box-shadow: 5em 2em 0 -0.3em white, -2em 2em 0 white;
+    box-shadow: 5em 2em 0 -0.3em #F8CC3D, -2em 2em 0 #F8CC3D;
 }
 
 .clouds:before {
     width: 1.25em;
     height: 1.25em;
     border-radius: 100% 100% 0 100%;
-    background: white;
+    background: #F8CC3D;
     left: -30%;
     bottom: 0;
 }
@@ -144,14 +145,14 @@
     width: 1.5em;
     height: 1.5em;
     border-radius: 100% 100% 100% 0;
-    background: white;
+    background: #F8CC3D;
     right: -30%;
     bottom: 0;
 }
 
 .loading-text-animation-label {
     margin-top: 10px;
-    color: #484848;
+    color: #787878;
     font-size: large;
     font-weight: bold;
 }
@@ -162,14 +163,14 @@
         -ms-transform: rotate(-10deg) translate(1em, -2em);
         -webkit-transform: rotate(-10deg) translate(1em, -2em);
         transform: rotate(-10deg) translate(1em, -2em);
-        box-shadow: -0.2em 3em 0 -1em #54B7E9;
+        box-shadow: -0.2em 3em 0 -1em #dfdfdf;
     }
     40% {
         -moz-transform: rotate(10deg) translate(3em, -4em);
         -ms-transform: rotate(10deg) translate(3em, -4em);
         -webkit-transform: rotate(10deg) translate(3em, -4em);
         transform: rotate(10deg) translate(3em, -4em);
-        box-shadow: -0.2em 3.25em 0 -1.1em #54B7E9;
+        box-shadow: -0.2em 3.25em 0 -1.1em #dfdfdf;
     }
     60%,
     75% {
@@ -177,17 +178,17 @@
         -ms-transform: rotate(0) translate(4em, 0);
         -webkit-transform: rotate(0) translate(4em, 0);
         transform: rotate(0) translate(4em, 0);
-        box-shadow: -0.2em 1em 0 -0.75em #54B7E9;
+        box-shadow: -0.2em 1em 0 -0.75em #dfdfdf;
     }
 }
 
 @keyframes kick {
     20%,
     50% {
-        box-shadow: 4em 0.4em 0 -0.35em #54B7E9, 0.5em 1.5em 0 white, 4em 1.75em 0 -0.3em white, 4em 1.75em 0 -0.3em white, 4em 1.9em 0 -0.4em white;
+        box-shadow: 4em 0.4em 0 -0.35em #07bb3d, 0.5em 1.5em 0 #ade5ff, 4em 1.75em 0 -0.3em #ade5ff, 4em 1.75em 0 -0.3em #ade5ff, 4em 1.9em 0 -0.4em #ade5ff;
     }
     40% {
-        box-shadow: 4em 0.4em 0 -0.35em #54B7E9, 0.5em 2em 0 white, 4em 1.75em 0 -0.3em white, 4.2em 1.75em 0 -0.2em white, 4.4em 1.9em 0 -0.2em white;
+        box-shadow: 4em 0.4em 0 -0.35em #07bb3d, 0.5em 2em 0 #ade5ff, 4em 1.75em 0 -0.3em #ade5ff, 4.2em 1.75em 0 -0.2em #ade5ff, 4.4em 1.9em 0 -0.2em #ade5ff;
     }
 }
 

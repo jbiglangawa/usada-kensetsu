@@ -13,19 +13,22 @@ const App = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`/wake-up`).then(res => {
-            if (res.ok) {
-                setLoading(false)
-            }
-        })
+        // Every 3 seconds check if the Sleepy Heroku instance is up already
+        const interval = setInterval(async () => {
+            fetch(`/wake-up`).then(res => {
+                if (res.ok) {
+                    setLoading(false)
+                    clearInterval(interval)
+                }
+            })
+
+        }, 3000)
     }, [])
 
     return (
         <Router>
             {loading ?
-            <div className="screen-wrapper">
-                <LoadingScreen />
-            </div>
+            <LoadingScreen />
             :
             <>
             <Mobile>
