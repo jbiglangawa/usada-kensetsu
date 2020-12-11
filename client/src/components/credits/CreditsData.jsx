@@ -82,7 +82,7 @@ export const artists = [
         name: "Kurgknyank",
         mainSocialUsername: "@kurgknyank",
         mainSocialLink: "https://twitter.com/kurgknyank",
-        specialThanks: "Contributed multiple minecraft creations of Pekora",
+        specialThanks: "Contributed multiple Minecraft creations of Pekora",
         links: {
             twitter: "https://twitter.com/kurgknyank",
             youtube: "https://www.youtube.com/user/kurgknyank"
@@ -93,7 +93,7 @@ export const artists = [
         name: "Drweam 💾 Zombie Dev",
         mainSocialUsername: "@drweamnetwork",
         mainSocialLink: "https://twitter.com/drweamnetwork",
-        specialThanks: "The Paper Please Peko Still Image used in Privacy Policy is wonderful! Thank you for giving permission",
+        specialThanks: "The \"Papers, Please\" Peko Still Image used in Privacy Policy is wonderful! Thank you for giving permission",
         links: {
             twitter: "https://twitter.com/drweamnetwork"
         }
