@@ -88,6 +88,16 @@ export const artists = [
             youtube: "https://www.youtube.com/user/kurgknyank"
         }
     },
+    {
+        avatar_url: "https://pbs.twimg.com/profile_images/1335222656220610560/JxqjVPg8_400x400.png",
+        name: "Drweam 💾 Zombie Dev",
+        mainSocialUsername: "@drweamnetwork",
+        mainSocialLink: "https://twitter.com/drweamnetwork",
+        specialThanks: "The Paper Please Peko Still Image used in Privacy Policy is wonderful! Thank you for giving permission",
+        links: {
+            twitter: "https://twitter.com/drweamnetwork"
+        }
+    },
 ]
 
 export const developers = [

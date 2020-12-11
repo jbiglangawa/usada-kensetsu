@@ -7,6 +7,7 @@ import OurTeam from './OurTeam'
 import Credits from './credits/Credits'
 import Project from './Project'
 import Footer from "./Footer";
+import PrivacyPolicy from './PrivacyPolicy'
 
 const Routes = () => {
     return (
@@ -38,9 +39,10 @@ const Routes = () => {
                         <div style={{ height: "300vh" }}>
                         </div>
                     </Route>
+                    <Route path="/privacy-policy">
+                        <PrivacyPolicy />
+                    </Route>
                 </ScrollToTop>
-
-
             </Switch>
             <Footer />
         </>
