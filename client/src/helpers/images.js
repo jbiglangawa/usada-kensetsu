@@ -24,6 +24,7 @@ module.exports = {
     usadaCredits: API_URL + "usada-credits.jpg?alt=media&token=821dc133-d411-4056-a5c2-b646ca17771c",
     usadaFrontPage: API_URL + "usada-front-page.png?alt=media&token=52ca13ed-f4f2-400f-992f-58e2e87a154d",
     usadaFront: API_URL + "usada-front.png?alt=media&token=375599a7-1dbd-40b0-ac4d-5104f2283703",
+    usadaPrivacyPolicy: API_URL + "usada-privacy-policy.png?alt=media&token=8215df29-68ec-46aa-8150-7df2055a4914",
 
     getBackground: (image) => ({backgroundImage: `url(${image})`})
 }
