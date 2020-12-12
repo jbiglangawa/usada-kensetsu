@@ -8,7 +8,7 @@ import ArtistSection from './sections/ArtistSection'
 import DevelopersSection from './sections/DevelopersSection'
 import TranslatorsSection from './sections/TranslatorsSection'
 import AssetsSection from './sections/AssetsSection'
-import { getBackground, creditsHeader } from '../../helpers/images'
+import { getBackground, creditsHeader, usadaCredits } from '../../helpers/images'
 import '../../css/Credits.css'
 
 const Credits = () => {
@@ -44,7 +44,7 @@ const Credits = () => {
 
                 <div className="credits-thumbnail-wrapper">
                     <ElementTooltip id="PekoraUsadaCredits" tooltipChildren={<ExternalLink href="https://www.pixiv.net/en/artworks/85356859">https://www.pixiv.net/en/artworks/85356859</ExternalLink>}>
-                        <img src={process.env.PUBLIC_URL + "/usada-credits.jpg"} alt="usada-credits" className="usada-credits" />
+                        <img src={usadaCredits} alt="usada-credits" className="usada-credits" />
                     </ElementTooltip>
                 </div>
             </div>
