@@ -47,15 +47,14 @@ const Credits = () => {
                         <img src={process.env.PUBLIC_URL + "/usada-credits.jpg"} alt="usada-credits" className="usada-credits" />
                     </ElementTooltip>
                 </div>
-
-                <SectionSeparator title="Contributors" />
-                <DevelopersSection />
-                <ArtistSection />
-                <TranslatorsSection />
-                <SectionSeparator title="References" />
-                <AssetsSection />
-
             </div>
+
+            <SectionSeparator title="Contributors" />
+            <DevelopersSection />
+            <ArtistSection />
+            <TranslatorsSection />
+            <SectionSeparator title="References" />
+            <AssetsSection />
         </div>
     )
 }

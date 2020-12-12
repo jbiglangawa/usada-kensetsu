@@ -16,7 +16,7 @@ const Project = () => {
     const [projectData, setProjectData] = useState()
     const [noProjectInd, setNoProjectInd] = useState(false)
     const [t, i18n] = useTranslation(["projects", "header", "commons"])
-    const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
+    const isMobile = useMediaQuery({ maxDeviceWidth: mobileBreakPoint });
     const currentLanguage = i18n.language
     
     useEffect(() => {
