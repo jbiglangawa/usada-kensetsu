@@ -39,7 +39,7 @@ const DisplayPekoCard = () => {
                 body: JSON.stringify({pekoCardId})
             }
 
-            fetch('/auth/getUserDetails', requestOptions)
+            fetch(`${process.env.REACT_APP_API_URL}auth/getUserDetails`, requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     if(data.success) {

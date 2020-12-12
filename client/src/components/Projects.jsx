@@ -12,7 +12,7 @@ const Projects = () => {
 
     useEffect(() => {
         if (!projectsList) {
-            fetch(`/projects/getProjectsList`)
+            fetch(`${process.env.REACT_APP_API_URL}projects/getProjectsList`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {

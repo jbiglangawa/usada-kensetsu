@@ -30,7 +30,7 @@ const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
         setIsGenerating(true)
         generateImageURI(frontPekoCardRef)
             .then(canvas => canvas.toDataURL('image/png', 1.0))
-            .then(uri => fetch(`/auth/generatePekoCard`, {
+            .then(uri => fetch(`${process.env.REACT_APP_API_URL}auth/generatePekoCard`, {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({imageUri: uri, user: user})

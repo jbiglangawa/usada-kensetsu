@@ -15,7 +15,7 @@ const App = () => {
     useEffect(() => {
         // Every 3 seconds check if the Sleepy Heroku instance is up already
         const interval = setInterval(async () => {
-            fetch(`/wake-up`).then(res => {
+            fetch(`${process.env.REACT_APP_API_URL}wake-up`).then(res => {
                 if (res.ok) {
                     setLoading(false)
                     clearInterval(interval)
