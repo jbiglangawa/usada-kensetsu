@@ -3,6 +3,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link, useLocation } from 'react-router-dom';
 import { ButtonToggle } from 'reactstrap';
 import { Sidebar, Menu, Ref, Segment } from 'semantic-ui-react';
+import { headerLogo } from '../helpers/images'
 import '../css/SideMenu.css';
 
 const MenuItemStyle = {
@@ -30,7 +31,7 @@ const SideMenu = ({ children }) => {
                     <img
                         alt="header-logo"
                         className="mobile-header-logo"
-                        src={process.env.PUBLIC_URL + "/header-logo.png"}
+                        src={headerLogo}
                     />
                 </div>
             </div>
