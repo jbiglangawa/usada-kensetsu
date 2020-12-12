@@ -28,7 +28,7 @@ const Routes = () => {
                     <Route path="/project/:projectId/showByDefault/:showByDefault">
                         <Project />
                     </Route>
-                    <Route path="/project/:projectId">
+                    <Route exact path="/project/:projectId">
                         <Project />
                     </Route>
                     {/* <Route path="/admin">
