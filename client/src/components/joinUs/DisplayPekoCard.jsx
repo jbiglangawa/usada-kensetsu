@@ -11,6 +11,7 @@ import { FiDownload, FiLink, FiPrinter } from 'react-icons/fi'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import LoadingScreen from '../LoadingScreen';
 import ShareButton from './ShareButton';
+import { Trans, useTranslation } from 'react-i18next'
 import '../../css/DisplayPekoCard.css'
 
 const ACTION_NONE = null
@@ -23,6 +24,7 @@ const DisplayPekoCard = () => {
     const [error, setError] = useState(false)
     const [isCopied, setIsCopied] = useState(false)
     const [isPopupBlocked, setIsPopupBlocked] = useState(false)
+    const [t] = useTranslation("join_us")
 
     const [action, setAction] = useState(ACTION_NONE)
     const isMobile = useMediaQuery({ maxDeviceWidth: mobileBreakPoint })
@@ -59,34 +61,39 @@ const DisplayPekoCard = () => {
                 </div>
 
                 <div className="employee-details">
-                    <h1>PekoCard</h1>
-                    <h5><span>Employee Name:</span> {user.name}</h5>
-                    <h5 className="mb-4"><span>Employee ID:</span> {user.employeeID}</h5>
+                    <h1>{t("PekoCard")}</h1>
+                    <h5><span>{t("Employee Name")}:</span> {user.name}</h5>
+                    <h5 className="mb-4"><span>{t("Employee ID")}:</span> {user.employeeID}</h5>
                     <p>
-                        Please print the PekoCard below before and wear before entering PekoLand office premises. Tampering with
-                        the ID will not be tolerated and will be subject to PekoPunishments. You can check Employees screen to check
-                        if you appear under Nousagi employees section.
+                        <Trans t={t}>
+                            Please print the PekoCard below before and wear before entering Pekoland office premises. Tampering with the ID will not be tolerated and will be subject to PekoPunishments.
+                        </Trans>
+                        <Trans t={t}>You can check Employees screen to check if you appear under Nousagi employees section.</Trans>
                     </p>
 
                     <p className="mb-5">
-                        This ID is for entertainment purposes only and should not be used for transactions or identification in real life.
+                        <Trans t={t}>
+                            This ID is for entertainment purposes only and should not be used for transactions or identification in real life.
+                        </Trans>
                     </p>
 
                     <Alert color="danger" isOpen={isPopupBlocked} toggle={toggleBlockedPopup}>
-                        The Browser blocked the sign in popup😭. Please allow the popup to proceed with signing in
+                        <Trans t={t}>
+                            The Browser blocked the sign in popup😭. Please allow the popup to proceed with signing in
+                        </Trans>
                     </Alert>
                     
                     <div className="display-footer">
                         {!isMobile && 
-                        <button onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> Print</button>}
-                        <button onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> Download image</button>
+                        <button onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> {t("PRINT")}</button>}
+                        <button onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> {t("DOWNLOAD IMAGE")}</button>
 
                         <CopyToClipboard text={`${process.env.REACT_APP_API_URL}pekoCard/${user.secret}`} onCopy={() => setIsCopied(true)}>
-                            <button id="copyPekocardLink" onMouseLeave={() => setIsCopied(false)}><FiLink /> Copy PekoCard Link</button>
+                            <button id="copyPekocardLink" onMouseLeave={() => setIsCopied(false)}><FiLink /> {t("COPY PEKOCARD LINK")}</button>
                         </CopyToClipboard>
                         
                         {isCopied &&
-                            <Tooltip placement="top" target="copyPekocardLink" isOpen={isCopied} toggle={() => setIsCopied(!isCopied)}>Successfully copied to clipboard!</Tooltip>
+                            <Tooltip placement="top" target="copyPekocardLink" isOpen={isCopied} toggle={() => setIsCopied(!isCopied)}>{t("Successfully copied to clipboard!")}</Tooltip>
                         }
 
                         <ShareButton secret={user.secret} />
