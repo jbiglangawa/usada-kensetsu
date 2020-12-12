@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import { Container, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap'
+import React, { useRef, useState } from 'react'
+import { Container, Modal, ModalBody, ModalFooter, ModalHeader, Row, Spinner } from 'reactstrap'
 import { Label, Input, Form, TextArea } from 'semantic-ui-react'
 import PekoCard from './PekoCard'
 import isImageUrl from 'is-image-url'
 import classNames from 'classnames'
 import '../../css/PekoCardEditModal.css'
-import { useSpring } from 'react-spring'
+import html2canvas from 'html2canvas'
+import ReactDOM from 'react-dom';
 
 const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
     const [user, setUser] = useState(JSON.parse(userStr))
@@ -14,9 +15,31 @@ const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
     const [nameError, setNameError] = useState()
     const [urlError, setURLError] = useState(false)
     const [editMode, setEditMode] = useState(false)
+    const [isGenerating, setIsGenerating] = useState(false)
+
+    const frontPekoCardRef = useRef()
+
+    const generateImageURI = (node) => {
+        const element = ReactDOM.findDOMNode(node.current);
+        return html2canvas(element, { scrollY: -window.scrollY, useCORS: true})
+    }
 
     const pekoCardOnGenerate = () => {
-        generate(user)
+        setIsGenerating(true)
+        generateImageURI(frontPekoCardRef)
+            .then(canvas => canvas.toDataURL('image/png', 1.0))
+            .then(uri => fetch(`/auth/generatePekoCard`, {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({imageUri: uri, user: user})
+            }))
+            .then(response => response.json())
+            .then(data => {
+                setIsGenerating(false)
+                const userWithSecret = {...user, secret: data.generatedID}
+                setUser(userWithSecret)
+                generate(userWithSecret)
+            })
     }
 
     const onNameChange = (event, data) => {
@@ -69,7 +92,7 @@ const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
                     </div>
                     <Row>
                         <div className={classNames("edit-wrapper col-md-12", editMode && 'col-lg-6')}>
-                            <PekoCard front userStr={JSON.stringify(user)} />
+                            <PekoCard front ref={frontPekoCardRef} userStr={JSON.stringify(user)} />
                             
                             <div>
                                 <button onClick={() => setEditMode(!editMode)}>{editMode ? 'Cancel' : 'Edit'}</button>
@@ -106,7 +129,9 @@ const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
             </ModalBody>
 
             <ModalFooter className="edit-footer">
-                <button disabled={editMode} onClick={pekoCardOnGenerate}>Generate my ID➡</button>
+                <button disabled={editMode || isGenerating} onClick={pekoCardOnGenerate}>
+                    Generate my ID{isGenerating ? <Spinner size="sm" className="ml-2" /> : '➡'}
+                </button>
             </ModalFooter>
         </Modal>
     )

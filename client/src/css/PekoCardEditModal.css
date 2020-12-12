@@ -46,6 +46,8 @@
     font-family: 'AutoBusBold', 'Segoe UI';
     font-size: 1.2em;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
 }
 
 .edit-footer button svg {

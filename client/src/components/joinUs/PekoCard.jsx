@@ -9,8 +9,8 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
     const [rabbitIconLoaded, setRabbitIconLoaded] = useState(false)
     const [qrCodeAPILink, setQRCodeAPILink] = useState()
 
-    const currentLocation = window.location.href
-    const sourceImg = front ? `${currentLocation}front-template.svg` : back && `${currentLocation}back-template.svg`
+    const currentLocation = window.location.origin
+    const sourceImg = front ? `${currentLocation}/front-template.svg` : back && `${currentLocation}/back-template.svg`
     const classNamePrefix = large ? 'large' : 'peko'
     const user = userStr && JSON.parse(userStr)
     const employeeId = front && user.employeeID
@@ -30,7 +30,7 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
 
     useEffect(() => {
         if(back && user.secret) {
-            const qrLink = `https://api.qrserver.com/v1/create-qr-code/?data=${currentLocation}pekoCard/${user.secret}&amp;size=10000x10000`
+            const qrLink = `https://api.qrserver.com/v1/create-qr-code/?data=${currentLocation}/pekoCard/${user.secret}&amp;size=10000x10000`
             setQRCodeAPILink(qrLink)
         }
     }, [back, currentLocation, user])
@@ -48,7 +48,7 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
                 </div>
 
                 <div className={`${classNamePrefix}-footer-wrapper`}>
-                    <img src={`${currentLocation}rabbit-icon.svg`} alt="" className={`${classNamePrefix}-rabbit-icon`} onLoad={() => setRabbitIconLoaded(true)} />
+                    <img src={`${currentLocation}/rabbit-icon.svg`} alt="" className={`${classNamePrefix}-rabbit-icon`} onLoad={() => setRabbitIconLoaded(true)} />
                     <div className={`${classNamePrefix}-username`}>{user.provider === 'twitter' && `@${user.username}`}</div>
                 </div>
             </>
@@ -59,7 +59,7 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
                     {qrCodeAPILink &&
                         <>
                         <img src={qrCodeAPILink} 
-                            className={qrCodeLoaded && `${classNamePrefix}-qr-code`} alt="" onLoad={() => setQRCodeLoaded(true)} />
+                            className={qrCodeLoaded ? `${classNamePrefix}-qr-code` : undefined} alt="" onLoad={() => setQRCodeLoaded(true)} />
                         </>
                     }
                     {!qrCodeLoaded &&

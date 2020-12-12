@@ -6,13 +6,12 @@ const logger = require('morgan');
 const passport = require('passport');
 const session = require('express-session');
 const initializePassport = require('./passport.init');
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const projectsRouter = require('./routes/projects');
 const employeesRouter = require('./routes/employees');
 const youtubeRouter = require('./routes/youtube');
 const authRouter = require('./routes/auth');
+const pekocardRouter = require('./routes/pekocard');
 
 
 const app = express();
@@ -42,8 +41,7 @@ initializePassport()
 // be responsive as soon as possible
 app.get('/wake-up', (req, res) => res.send('👍'));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/pekocard', pekocardRouter);
 app.use('/login', loginRouter);
 app.use('/projects', projectsRouter);
 app.use('/employees', employeesRouter);

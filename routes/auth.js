@@ -6,7 +6,7 @@ const cryptr = new Cryptr(process.env.AES_SECRET);
 const Twitter = require('twit');
 const { URLSearchParams } = require('url');
 const { default: fetch } = require('node-fetch');
-const { uploadImage } = require('../controllers/imgur')
+const { uploadImage, getImage } = require('../controllers/imgur')
 
 
 // Setting up the passport middleware for each of the OAuth providers
@@ -105,7 +105,7 @@ router.post('/generatePekoCard', (req, res) => {
   
   const idPromise = uploadImage(imageUri, user);
   idPromise.then(id => {
-    const secret = user.name + '_' + id;
+    const secret = user.name.replace(' ', '-') + '_' + id;
     res.send({generatedID: secret});
   })
 
@@ -116,27 +116,26 @@ router.post('/getUserDetails', (req, res) => {
     if(!req.body.pekoCardId) {
       throw error;
     }
+    
+    const pekoCardIDSplit = req.body.pekoCardId.split('_');
+    const imgurID = pekoCardIDSplit[pekoCardIDSplit.length - 1];
 
-    const pekoCardId = req.body.pekoCardId;
-    // getUser(pekoCardId)
-      // .then(user => {
-      //   console.log(user)
-      //   if(user) {
-      //     res.send({success: true, user: user})
-      //   }else {
-      //     throw error;
-      //   }
-      // })
-      // .catch(error => console.log(error.message))
+    getImage(imgurID)
+    .then(description => {
+      const split = description.split('\n');
+      const employeeName = split[3].replace('Employee Name: ', '');
+      const employeeID = split[4].replace('Employee ID: ', '');
+      const photo = split[5].replace('Photo Source: ', '');
+      const twitterUsername = split.length === 7 ? split[6].replace('Twitter username: @', '') : null;
 
-    // if(userSecret.provider === 'twitter') {
-
-    // } else if(userSecret.provider === 'google') {
-
-    // } else if(userSecret.provider === 'facebook') {
-
-    // }
-
+      res.send({success: true, user: {
+        name: employeeName,
+        employeeID: employeeID,
+        photo: photo,
+        username: twitterUsername,
+        secret: req.body.pekoCardId
+      }})
+    })
 
   } catch(e) {
     // We should keep the error anonymous to prevent

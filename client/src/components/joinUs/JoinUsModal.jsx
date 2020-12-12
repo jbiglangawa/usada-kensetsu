@@ -59,12 +59,12 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
         }
     }
     
-    const generateIdCallback = () => {
-        delete user.$$_4CCSST
-        delete user.$_Aces_TOEe3t
-        delete user.id
+    const generateIdCallback = (modifiedUser) => {
+        delete modifiedUser.$$_4CCSST
+        delete modifiedUser.$_Aces_TOEe3t
+        delete modifiedUser.id
 
-        setLoggedInUser(JSON.stringify(user))
+        setLoggedInUser(JSON.stringify(modifiedUser))
         setUser(null)
         toggleEditModal()
         togglePekoCardModal()
@@ -76,10 +76,10 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
         const requestOptions = {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
+            body: JSON.stringify(modifiedUser)
         }
         fetch(`/auth/logoutUser`, requestOptions)
-            .then(() => generateIdCallback())
+            .then(() => generateIdCallback(modifiedUser))
     }
 
     useEffect(() => {
