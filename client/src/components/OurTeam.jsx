@@ -12,7 +12,7 @@ const OurTeam = props => {
 
     useEffect(() => {
         if (!teamList) {
-            fetch(`/employees/getEmployeesList`)
+            fetch(`${process.env.REACT_APP_API_URL}employees/getEmployeesList`)
                 .then(response => response.json())
                 .then(data => {
                     setTeamList(data.EmployeesList)

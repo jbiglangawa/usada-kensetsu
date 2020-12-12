@@ -21,7 +21,7 @@ const Project = () => {
     
     useEffect(() => {
         if(projectId && !projectData) {
-            fetch(`/projects/getProject/${projectId}`)
+            fetch(`${process.env.REACT_APP_API_URL}projects/getProject/${projectId}`)
                 .then(response => response.json())
                 .then(data => {
                     if(data[0]) {

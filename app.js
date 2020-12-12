@@ -16,6 +16,11 @@ const pekocardRouter = require('./routes/pekocard');
 
 const app = express();
 
+// Accept requests from our client
+app.use(cors({
+  origin: process.env.CLIENT_URL
+}));
+
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // view engine setup

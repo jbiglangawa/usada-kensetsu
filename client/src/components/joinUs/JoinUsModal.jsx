@@ -57,7 +57,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
             body: JSON.stringify(user)
         }
         if(user) {
-            fetch(`/auth/logoutUser`, requestOptions)
+            fetch(`${process.env.REACT_APP_API_URL}/auth/logoutUser`, requestOptions)
                 .then(() => setUser(null))
         }
     }
@@ -81,7 +81,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(modifiedUser)
         }
-        fetch(`/auth/logoutUser`, requestOptions)
+        fetch(`${process.env.REACT_APP_API_URL}auth/logoutUser`, requestOptions)
             .then(() => generateIdCallback(modifiedUser))
     }
 
