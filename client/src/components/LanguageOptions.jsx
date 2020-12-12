@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dropdown, Icon } from 'semantic-ui-react'
 import { useTranslation } from 'react-i18next'
 
@@ -10,6 +10,8 @@ const langOptions = [
 ]
 
 const LanguageOptions = (mobile) => {
+    const [isOpen, setIsOpen] = useState(false)
+    const [onClose, setOnClose] = useState(false)
     const [t, i18n] = useTranslation()
     const pointer = mobile ? "top right" : false
 
@@ -17,18 +19,34 @@ const LanguageOptions = (mobile) => {
         i18n.changeLanguage(value)
     }
 
+    const onClick = () => {
+        if(!onClose) {
+            setIsOpen(true)
+        }else {
+            setOnClose(false)
+        }
+    }
+
+    const onCloseEvent = () => {
+        setIsOpen(false)
+        setOnClose(true)
+    }
+
     return (
-        <>
-        <Icon name="world" />
-        <Dropdown
-            onChange={(e, data) => changeLanguage(e, data)}
-            pointing={pointer}
-            floating
-            labeled
-            options={langOptions}
-            defaultValue={i18n.language}
-        />
-        </>
+        <div style={{padding: '0 15px'}}>
+            <Icon name="world" onClick={onClick} style={{cursor: 'pointer'}} />
+            <Dropdown
+                onChange={(e, data) => changeLanguage(e, data)}
+                pointing={pointer}
+                floating
+                labeled
+                options={langOptions}
+                value={i18n.language}
+                open={isOpen}
+                onOpen={() => setIsOpen(true)}
+                onClose={onCloseEvent}
+            />
+        </div>
     )
 }
 

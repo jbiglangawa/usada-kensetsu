@@ -29,8 +29,9 @@ const Home = () => {
     const [t] = useTranslation(["home", "header"])
 
     const joinUs = useSpring(isMobile || isBelowFold ? 
-        {padding: '1em 1.1em', bottom: '10%', right: '5%', fontSize: '1.3em'} : 
-        {padding: '1em 3em', bottom: '18%', right: '14%', fontSize: '1.5em'})
+        {bottom: '10%', right: '5%', fontSize: '1.3em'} : 
+        {bottom: '18%', right: '14%', fontSize: '1.5em'})
+    const joinUsButton = useSpring(isMobile || isBelowFold ? {padding: '1em 1.1em'} : {padding: '1em 3em'})
 
     const toggleJoinUsModal = () => setIsJoinUsModalOpen(!isJoinUsModalOpen)
     const togglePekoCardModal = () => setIsPekoCardModalOpen(!isPekoCardModalOpen)
@@ -96,7 +97,7 @@ const Home = () => {
                     <div className="fp-idol">{t("Idol Bunny Head Engineer")}</div>
 
                     <animated.div className="fp-join-us-wrapper" style={joinUs} onClick={toggleJoinUsModal}>
-                        <button className="fp-join-us-button">{isBelowFold || isMobile ? t('JOIN') : t('JOIN US')}</button>
+                        <animated.button className="fp-join-us-button" style={joinUsButton}>{isBelowFold || isMobile ? t('JOIN') : t('JOIN US')}</animated.button>
                     </animated.div>
                 </div>
             </div>
