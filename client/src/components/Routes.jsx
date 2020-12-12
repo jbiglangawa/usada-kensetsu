@@ -8,41 +8,37 @@ import Credits from './credits/Credits'
 import Project from './Project'
 import Footer from "./Footer";
 import PrivacyPolicy from './PrivacyPolicy'
+import DisplayPekoCard from './joinUs/DisplayPekoCard';
 
 const Routes = () => {
     return (
         <>
+            <ScrollToTop/>
             <Switch>
-                <ScrollToTop>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/projects">
-                        <Projects />
-                    </Route>
-                    <Route path="/our-team">
-                        <OurTeam />
-                    </Route>
-                    <Route path="/credits">
-                        <Credits />
-                    </Route>
-                    <Route path="/project/:projectId/showByDefault/:showByDefault">
-                        <Project />
-                    </Route>
-                    <Route path="/project/:projectId">
-                        <Project />
-                    </Route>
-                    {/* <Route path="/admin">
-            <Admin />
-        </Route> */}
-                    <Route path="/testingPath">
-                        <div style={{ height: "300vh" }}>
-                        </div>
-                    </Route>
-                    <Route path="/privacy-policy">
-                        <PrivacyPolicy />
-                    </Route>
-                </ScrollToTop>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="/projects">
+                    <Projects />
+                </Route>
+                <Route path="/our-team">
+                    <OurTeam />
+                </Route>
+                <Route path="/credits">
+                    <Credits />
+                </Route>
+                <Route path="/project/:projectId/showByDefault/:showByDefault">
+                    <Project />
+                </Route>
+                <Route exact path="/project/:projectId">
+                    <Project />
+                </Route>
+                <Route path="/pekoCard/:pekoCardId">
+                    <DisplayPekoCard />
+                </Route>
+                <Route path="/privacy-policy">
+                    <PrivacyPolicy />
+                </Route>
             </Switch>
             <Footer />
         </>

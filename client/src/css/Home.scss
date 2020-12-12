@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     padding-top: 5%;
+    
 
     .carrot-bg {
         position: absolute;
@@ -28,7 +29,11 @@
     
     @media (prefers-reduced-motion: no-preference) {
         .rabbit-bg {
-            animation: App-logo-spin infinite 40s linear;
+            animation: App-logo-spin infinite 36s linear;
+        }
+
+        .carrot-bg {
+            animation: App-logo-spin-reverse infinite 40s linear;
         }
     }
       
@@ -38,6 +43,15 @@
         }
         to {
           transform: rotate(360deg);
+        }
+    }
+
+    @keyframes App-logo-spin-reverse {
+        from {
+          transform: rotate(360deg);
+        }
+        to {
+          transform: rotate(0deg);
         }
     }
     
@@ -115,6 +129,27 @@
         & img{
             height: 60vh;
         }
+    }
+
+    .fp-join-us-button {
+        background-color: #F8CC3D;
+        color: #E3A453;
+        border-radius: 100px;
+        padding: inherit;
+        font-size: inherit;
+        border: none;
+    }
+    .fp-join-us-button:hover {
+        background-color: #F6E2A0;
+    }
+    .fp-join-us-wrapper {
+        margin-top: 20px;
+        position: fixed;
+        bottom: 18%;
+        right: 14%;
+    }
+    .fp-join-us-button:focus {
+        outline: none;
     }
     
     .services-title {
@@ -333,6 +368,20 @@
 // Mobile styles
 .home-wrapper.mobile{
     padding-top: 10vh;
+
+    & .carrot-bg, .rabbit-bg{
+        z-index: 0;
+        height: 40vh;
+    }
+
+    & .rabbit-bg{
+        bottom: auto;
+        margin-top: 30vh;
+    }
+
+    & .carrot-bg{
+        margin-top: 10vh;
+    }
     
     & .front-page-usada{
         height: 60vh;

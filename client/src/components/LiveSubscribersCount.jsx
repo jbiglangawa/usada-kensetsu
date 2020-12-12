@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { getSubscribersCount } from '../services/youtube.service';
-import socketIOClient from "socket.io-client";
 import '../css/LiveSubscribersCount.scss';
 import BunnyIcon from '../assets/svg/bunny-icon.svg'
 import Small from '../assets/svg/small.svg';
@@ -12,12 +11,12 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Spring } from 'react-spring/renderprops';
 
 
-const LiveSubscribersCount = () => {
 
-    const [t] = useTranslation("home")
+const LiveSubscribersCount = ({socket}) => {
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [count, setCount] = useState(0);
     const [prevCount, setPrevCount] = useState(0);
+    const [t] = useTranslation("home")
 
     const useSlideAnimationOnScroll = (friction) => {
         return useSpring(shouldAnimate ? {
@@ -46,30 +45,24 @@ const LiveSubscribersCount = () => {
     }, [scrollYPosition])
 
     useEffect(() => {
-
         //Update current count from server's memory
         (async () => {
             const { count } = await getSubscribersCount();
             setCount(count);
         })();
 
-        //Subscribe for live-ish updates
-        const socket = socketIOClient(process.env.PUBLIC_URL);
-
-        socket.on("updateSubscribersCount", data => {
-            setCount(prev => {
-                setPrevCount(prev)
-                return data;
-            }
-            );
-        });
-
-        //Disconnect from socket when component is unmount
-        return () => {
-            socket.disconnect();
+        if(socket) {
+            socket.on("updateSubscribersCount", data => {
+                setCount(prev => {
+                    setPrevCount(prev)
+                    return data;
+                    }
+                );
+            })
         }
-    }, [])
 
+    }, [socket])
+    
 
     return (
         <div ref={elementRef} className="subscribers-count-container">

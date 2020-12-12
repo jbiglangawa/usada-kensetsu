@@ -1,1 +1,1 @@
-export const mobileBreakPoint = 767;
+export const mobileBreakPoint = 1024;

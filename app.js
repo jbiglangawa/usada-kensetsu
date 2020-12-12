@@ -3,13 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const passport = require('passport');
+const session = require('express-session');
+const initializePassport = require('./passport.init');
 const loginRouter = require('./routes/login');
 const projectsRouter = require('./routes/projects');
 const employeesRouter = require('./routes/employees');
-const youtubeRouter = require('./routes/youtube')
+const youtubeRouter = require('./routes/youtube');
+const authRouter = require('./routes/auth');
+const pekocardRouter = require('./routes/pekocard');
+
 
 const app = express();
 
@@ -24,18 +27,32 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(session({ 
+  secret: process.env.SESSION_SECRET,
+  key: 'sid',
+  saveUninitialized: true,
+}));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+initializePassport()
+
+
+// Catch a start up request so that a sleepy Heroku instance can  
+// be responsive as soon as possible
+app.get('/wake-up', (req, res) => res.send('👍'));
+
+app.use('/pekocard', pekocardRouter);
 app.use('/login', loginRouter);
 app.use('/projects', projectsRouter);
-app.use('/employees', employeesRouter)
-app.use('/youtube', youtubeRouter)
+app.use('/employees', employeesRouter);
+app.use('/youtube', youtubeRouter);
+app.use('/auth', authRouter);
 
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -54,6 +71,7 @@ app.use(function(err, req, res, next) {
 });
 
 const startSocket = (io) => {
+  app.set('io', io)
   require('./controllers/youtube').startSocket(io);
 }
 
