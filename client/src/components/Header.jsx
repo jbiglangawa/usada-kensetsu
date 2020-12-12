@@ -8,7 +8,7 @@ import '../css/Header.css'
 
 const Header = () => {
     const [isBelowFold, setIsBelowFold] = useState(false)
-    const scrollYPosition = useScrollPosition(60)
+    const scrollYPosition = useScrollPosition(10)
     const routePath = useLocation()
 
     const headerGradientColor = 'linear-gradient(90deg, rgba(255,203,111,1) 0%, rgba(47,213,150,1) 21%, rgba(12,193,245,1) 54%, rgba(111, 209, 255, 1) 92%)'
@@ -36,12 +36,12 @@ const Header = () => {
                 setIsBelowFold(true)
             }
         }
-    }, [scrollYPosition, routePath])
+    }, [scrollYPosition, routePath, isBelowFold])
 
     const [t] = useTranslation("header")
 
     return (
-        <div className="header-wrapper" style={isBelowFold ? { height: '10vh', zIndex: "3" } : { height: '0', zIndex: "1" }}>
+        <div className="header-wrapper" style={isBelowFold ? { zIndex: "3" } : { zIndex: "1" }}>
             <animated.div className="header" style={headerColor}>
                 <animated.div className="a-logo-wrapper" style={logo}>
                     <Link to="/" className="header-wrapper-img">
