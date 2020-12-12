@@ -44,7 +44,7 @@ const getImage = async (imageString) => {
 const updateImage = (id, deleteHash, user) => {
     const twitterDisplayName = user.provider === 'twitter' ? `\nTwitter username: @${user.username}` : '';
     console.log(twitterDisplayName);
-    const description = `This is an auto-generated PekoCard. To view/download/print the image, visit:\n${process.env.CLIENT_URL + 'pekoCard/' + user.name.replace(' ', '-') + '_' + id}\n\nEmployee Name: ${user.name}\nEmployee ID: ${user.employeeID}\nPhoto Source: ${user.photo}` + twitterDisplayName;
+    const description = `This is an auto-generated PekoCard. To view/download/print the image, visit:\n${process.env.CLIENT_URL + '/pekoCard/' + user.name.replace(' ', '-') + '_' + id}\n\nEmployee Name: ${user.name}\nEmployee ID: ${user.employeeID}\nPhoto Source: ${user.photo}` + twitterDisplayName;
     
     const form = new FormData();
     form.append("description", description);
