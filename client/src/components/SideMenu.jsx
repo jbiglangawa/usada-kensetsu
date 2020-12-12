@@ -3,6 +3,8 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link, useLocation } from 'react-router-dom';
 import { ButtonToggle } from 'reactstrap';
 import { Sidebar, Menu, Ref, Segment } from 'semantic-ui-react';
+import { useTranslation } from 'react-i18next'
+import LanguageOptions from './LanguageOptions'
 import '../css/SideMenu.css';
 
 const MenuItemStyle = {
@@ -15,6 +17,7 @@ const SideMenu = ({ children }) => {
     const segmentRef = useRef();
     const [visible, setVisible] = useState(false);
     const location = useLocation();
+    const [t] = useTranslation("header")
 
 
     const isLocationActive = name => {
@@ -32,7 +35,11 @@ const SideMenu = ({ children }) => {
                         className="mobile-header-logo"
                         src={process.env.PUBLIC_URL + "/header-logo.png"}
                     />
+                    <div className="mobile-language-dropdown">
+                        <LanguageOptions mobile={true}/>
+                    </div>
                 </div>
+                
             </div>
             <Sidebar
                 as={Menu}
@@ -46,16 +53,16 @@ const SideMenu = ({ children }) => {
                 className="sidebar"
             >
                 <Menu.Item as="div" active={isLocationActive('/')} onClick={() => setVisible(false)}>
-                    <Link style={MenuItemStyle} to='/'>HOME</Link>
+                    <Link style={MenuItemStyle} to='/'>{t("HOME")}</Link>
                 </Menu.Item>
                 <Menu.Item as="div" active={isLocationActive('/projects')} onClick={() => setVisible(false)}>
-                    <Link style={MenuItemStyle} to='/projects'>PROJECTS</Link>
+                    <Link style={MenuItemStyle} to='/projects'>{t("PROJECTS")}</Link>
                 </Menu.Item>
                 <Menu.Item as="div" active={isLocationActive('/our-team')} onClick={() => setVisible(false)}>
-                    <Link style={MenuItemStyle} to='/our-team'>OUR TEAM</Link>
+                    <Link style={MenuItemStyle} to='/our-team'>{t("OUR TEAM")}</Link>
                 </Menu.Item>
                 <Menu.Item as="div" active={isLocationActive('/credits')} onClick={() => setVisible(false)}>
-                    <Link style={MenuItemStyle} to='/credits'>CREDITS</Link>
+                    <Link style={MenuItemStyle} to='/credits'>{t("CREDITS")}</Link>
                 </Menu.Item>
 
             </Sidebar>

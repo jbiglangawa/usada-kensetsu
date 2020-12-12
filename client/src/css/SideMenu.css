@@ -45,3 +45,10 @@
   .mobile-menu-button{
       flex: 10%;
   }
+
+  .mobile-language-dropdown{
+    text-align: end;
+    top: 1.5%;
+    right:5%;
+    position: fixed;
+  }

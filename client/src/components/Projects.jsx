@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 import ProjectCell from './ProjectCell'
 import LoadingScreen from './LoadingScreen'
 import { getBackground, projectsHeader } from '../helpers/images'
 import '../css/Projects.css'
 
 const Projects = () => {
-    let [projectsList, setProjectsList] = useState()
+    const [t] = useTranslation(["header", "commons"])
+    const [projectsList, setProjectsList] = useState()
 
     useEffect(() => {
         if (!projectsList) {
@@ -17,7 +19,7 @@ const Projects = () => {
                         if (data.ProjectsList.length > 0) {
                             setProjectsList(data.ProjectsList.map((data, index) => <ProjectCell data={JSON.stringify(data)} key={index} />))
                         } else {
-                            setProjectsList(<div>No projects at the moment</div>)
+                            setProjectsList(<div>{t("No projects at the moment")}</div>)
                         }
                     }
                 })
@@ -27,12 +29,12 @@ const Projects = () => {
     return (
         <div className="projects-wrapper">
             <Helmet>
-                <title>Projects - Usada Constructions🥕</title>
+                <title>{t("PROJECTS")} - {t("Usada Constructions")}🥕</title>
                 <meta property="og:title" content={"Projects - Usada Constructions🥕"} />
                 <meta property="twitter:title" content={"Projects - Usada Constructions🥕"} />
             </Helmet>
             <div className="projects-header" style={getBackground(projectsHeader)}>
-                <div className="ph-title">PROJECTS</div>
+                <div className="ph-title">{t("PROJECTS")}</div>
             </div>
 
             {projectsList ?

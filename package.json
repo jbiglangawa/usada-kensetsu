@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "build": "npm install --only=dev && npm install && cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "npm install --only=dev && npm install && cd client && npm install --only=dev && npm install && npm run build"
   },
   "dependencies": {
     "classnames": "^2.2.6",

@@ -7,12 +7,16 @@ import Large from '../assets/svg/large.svg';
 import Carrot from '../assets/svg/carrot.svg';
 import { useSpring, animated } from 'react-spring'
 import useScrollPosition from '@react-hook/window-scroll'
+import { Trans, useTranslation } from 'react-i18next'
+import { Spring } from 'react-spring/renderprops';
+
 
 
 const LiveSubscribersCount = ({socket}) => {
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const [count, setCount] = useState(0);
     const [prevCount, setPrevCount] = useState(0);
+    const [t] = useTranslation("home")
 
     const useSlideAnimationOnScroll = (friction) => {
         return useSpring(shouldAnimate ? {
@@ -64,7 +68,7 @@ const LiveSubscribersCount = ({socket}) => {
         <div ref={elementRef} className="subscribers-count-container">
             <div className="row-1">
                 <animated.div style={useSlideAnimationOnScroll(150)} className="title">
-                    Current Nousagi <span className="employee-count-text">Employee Count</span>
+                    <Trans t={t}>Current Nousagi <span className="employee-count-text">Employee Count</span></Trans>
                 </animated.div>
                 <animated.div style={useSlideAnimationOnScroll(0)} className="carrot">
                     <img src={Carrot} className="carrot-opaque carrot-small"></img>
@@ -90,7 +94,7 @@ const LiveSubscribersCount = ({socket}) => {
 
             <animated.div style={useSlideAnimationOnScroll(0)} className="row-4">
                 <div  className="subscribe-button">
-                    <span className="subscribe-text">Subscribe</span>
+                    <span className="subscribe-text">{t("Subscribe")}</span>
                     {/* <img src={Carrot} className="carrot"></img> */}
                 </div>
                 <div className="rabbit-shape">

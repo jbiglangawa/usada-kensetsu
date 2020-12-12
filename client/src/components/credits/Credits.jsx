@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { Trans, useTranslation } from 'react-i18next'
 import ExternalLink from '../ExternalLink'
 import ElementTooltip from '../ElementTooltip'
 import SectionSeparator from './components/SectionSeparator'
@@ -11,28 +12,33 @@ import { getBackground, creditsHeader } from '../../helpers/images'
 import '../../css/Credits.css'
 
 const Credits = () => {
+    const [t] = useTranslation("credits", "header")
     return (
         <div className="credits-wrapper">
             <Helmet>
-                <title>Credits - Usada Constructions🥕</title>
+                <title>{t("header:CREDITS")} - {t("header:Usada Constructions")}🥕</title>
                 <meta property="og:title" content={"Credits - Usada Constructions🥕"} />
                 <meta property="twitter:title" content={"Credits - Usada Constructions🥕"} />
             </Helmet>
             <div className="credits-header" style={getBackground(creditsHeader)}>
-                <div className="credits-title">CREDITS</div>
+                <div className="credits-title">{t("header:CREDITS")}</div>
             </div>
 
             <div className="credits-opening-remarks">
                 <div className="cor-message">
-                    <div className="cor-message-header">Thank you for helping out peko~!</div>
+                    <div className="cor-message-header">{t("Thank you for helping out peko~!")}</div>
                     <div className="cor-message-body">
-                        Hi, everyone, welcome to the website! I hope you had fun visiting!
-                        Thanks to the people who joined the team after the launch of 
-                        the first version of the website. 
+                        <Trans t={t}>
+                            Hi, everyone, welcome to the website! I hope you had fun visiting!
+                            Thanks to the people who joined the team after the launch of 
+                            the first version of the website. 
+                        </Trans>
                         <br /><br />
-                        Thank you for the people who 
-                        helped build this website. We listed down all of the 
-                        contributors and references below.
+                        <Trans t={t}>
+                            Thank you for the people who 
+                            helped build this website. We listed down all of the 
+                            contributors and references below.
+                        </Trans>
                     </div>
                 </div>
 

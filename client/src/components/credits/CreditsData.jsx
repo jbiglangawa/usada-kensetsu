@@ -77,6 +77,27 @@ export const artists = [
             twitter: "https://twitter.com/RASaaya",
         }
     },
+    {
+        avatar_url: "https://pbs.twimg.com/profile_images/965014317224509440/XvSi608Q_400x400.jpg",
+        name: "Kurgknyank",
+        mainSocialUsername: "@kurgknyank",
+        mainSocialLink: "https://twitter.com/kurgknyank",
+        specialThanks: "Contributed multiple Minecraft creations of Pekora",
+        links: {
+            twitter: "https://twitter.com/kurgknyank",
+            youtube: "https://www.youtube.com/user/kurgknyank"
+        }
+    },
+    {
+        avatar_url: "https://pbs.twimg.com/profile_images/1335222656220610560/JxqjVPg8_400x400.png",
+        name: "Drweam 💾 Zombie Dev",
+        mainSocialUsername: "@drweamnetwork",
+        mainSocialLink: "https://twitter.com/drweamnetwork",
+        specialThanks: "The \"Papers, Please\" Peko Still Image used in Privacy Policy is wonderful! Thank you for giving permission",
+        links: {
+            twitter: "https://twitter.com/drweamnetwork"
+        }
+    },
 ]
 
 export const developers = [
@@ -151,7 +172,7 @@ export const translators = [
     {
         avatar_url: "https://pbs.twimg.com/profile_images/1334531842431705088/7o5umrWc_400x400.jpg",
         name: "Mael",
-        mainSocialUsername: "@MomijiLoop",
+        mainSocialUsername: "@_healthyburgers",
         mainSocialLink: "https://twitter.com/_healthyburgers",
         specialThanks: "Translated the website to Spanish",
         links: {
@@ -169,6 +190,17 @@ export const translators = [
             twitter: "https://twitter.com/l__nathanael",
             discord: "https://discordapp.com/users/348736896450428928",
             facebook: "https://www.facebook.com/nathanael089503386642/",
+        }
+    },
+    {
+        avatar_url: "https://i.imgur.com/SRmBBts.png",
+        name: "Gao",
+        mainSocialUsername: "@AHHHEYGAO",
+        mainSocialLink: "https://twitter.com/ahhheygao",
+        specialThanks: "JP translations Quality Checker",
+        links: {
+            twitter: "https://twitter.com/ahhheygao",
+            discord: "https://discord.com/users/125151907432890368/",
         }
     },
 ]
