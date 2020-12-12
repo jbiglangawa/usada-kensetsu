@@ -11,9 +11,9 @@ import { mobileBreakPoint } from '../helpers/responsive'
 import LoadingScreen from './LoadingScreen';
 
 const Project = () => {
-    const {projectId, showByDefault} = useParams()
-    const [projectData, setProjectData] = useState()
-    const [noProjectInd, setNoProjectInd] = useState(false)
+    const {projectId, showByDefault} = useParams();
+    const [projectData, setProjectData] = useState();
+    const [noProjectInd, setNoProjectInd] = useState(false);
     const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
 
     useEffect(() => {

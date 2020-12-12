@@ -12,8 +12,8 @@ import DisplayPekoCard from './joinUs/DisplayPekoCard';
 const Routes = () => {
     return (
         <>
+            <ScrollToTop/>
             <Switch>
-                <ScrollToTop>
                     <Route exact path="/">
                         <Home />
                     </Route>
@@ -29,13 +29,12 @@ const Routes = () => {
                     <Route path="/project/:projectId/showByDefault/:showByDefault">
                         <Project />
                     </Route>
-                    <Route path="/project/:projectId">
+                    <Route exact path="/project/:projectId">
                         <Project />
                     </Route>
                     <Route path="/pekoCard/:pekoCardId">
                         <DisplayPekoCard />
                     </Route>
-                </ScrollToTop>
 
 
             </Switch>

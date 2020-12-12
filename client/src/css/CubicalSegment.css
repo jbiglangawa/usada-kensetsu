@@ -27,7 +27,7 @@
     text-decoration: none;
 }
 
-.hide-cubical-wrapper:hover {
+.hide-cubical-label:hover {
     text-decoration: underline;
 }
 
@@ -43,9 +43,26 @@
 
 .header-tools-wrapper {
     display: flex;
+    margin-bottom: 30px;
 }
 
 .iframe-container {
     width: 80vw;
     height: 50vh;
+}
+
+.iframe-container.fullscreen{
+    position: absolute!important;
+    width: 100%!important;
+    height: 100%;
+    bottom: 0!important;
+    left: 0!important;
+}
+
+.close-button{
+    top: 3vh;
+    right: 15px;
+    position: fixed;
+    color: white;
+    z-index: 100;
 }
