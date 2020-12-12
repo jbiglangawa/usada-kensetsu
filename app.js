@@ -12,7 +12,7 @@ const employeesRouter = require('./routes/employees');
 const youtubeRouter = require('./routes/youtube');
 const authRouter = require('./routes/auth');
 const pekocardRouter = require('./routes/pekocard');
-
+const cors = require('cors');
 
 const app = express();
 
