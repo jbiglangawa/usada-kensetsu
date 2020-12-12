@@ -11,8 +11,8 @@ import Footer from "./Footer";
 const Routes = () => {
     return (
         <>
+            <ScrollToTop/>
             <Switch>
-                <ScrollToTop>
                     <Route exact path="/">
                         <Home />
                     </Route>
@@ -38,7 +38,6 @@ const Routes = () => {
                         <div style={{ height: "300vh" }}>
                         </div>
                     </Route>
-                </ScrollToTop>
 
 
             </Switch>
