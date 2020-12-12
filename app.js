@@ -16,7 +16,9 @@ const pekocardRouter = require('./routes/pekocard');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+if(process.env.NODE_ENV === 'development') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
