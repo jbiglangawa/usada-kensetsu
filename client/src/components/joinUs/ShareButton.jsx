@@ -14,18 +14,20 @@ import {
     TwitterIcon,
     FacebookMessengerShareButton
   } from "react-share"
+import { useTranslation } from 'react-i18next'
 import '../../css/ShareButton.css'
 
 const ShareButton = ({secret}) => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const pekocardLink = `${process.env.REACT_APP_API_URL}pekoCard/${secret}`
+    const [t] = useTranslation("join_us")
 
     const toggle = () => setDropdownOpen(!dropdownOpen)
 
     return (
         <button>
             <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle tag="span" data-toggle="dropdown" aria-expanded={dropdownOpen}><FaShare /> Share</DropdownToggle>
+                <DropdownToggle tag="span" data-toggle="dropdown" aria-expanded={dropdownOpen}><FaShare /> {t("SHARE")}</DropdownToggle>
                 <DropdownMenu className="share-dropdown-menu-wrapper">
                     <div className="share-dropdown-menu">
                         <FacebookShareButton url={pekocardLink} hashtag='#usadaKensetsuPekoCard'><FacebookIcon size={28} round /> Facebook</FacebookShareButton>
