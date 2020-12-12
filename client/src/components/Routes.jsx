@@ -7,6 +7,7 @@ import OurTeam from './OurTeam'
 import Credits from './credits/Credits'
 import Project from './Project'
 import Footer from "./Footer";
+import DisplayPekoCard from './joinUs/DisplayPekoCard';
 
 const Routes = () => {
     return (
@@ -31,12 +32,8 @@ const Routes = () => {
                     <Route exact path="/project/:projectId">
                         <Project />
                     </Route>
-                    {/* <Route path="/admin">
-            <Admin />
-        </Route> */}
-                    <Route path="/testingPath">
-                        <div style={{ height: "300vh" }}>
-                        </div>
+                    <Route path="/pekoCard/:pekoCardId">
+                        <DisplayPekoCard />
                     </Route>
 
 

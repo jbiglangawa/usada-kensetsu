@@ -1,27 +1,18 @@
 import '../css/LoadingScreen.css';
-import { FiExternalLink } from 'react-icons/fi'
+import ExternalLink from './ExternalLink';
 
-const LoadingScreen = () => {
+const LoadingScreen = ({loadingMessage}) => {
 
     return (
         <div className="loading-grid">
-            <div className="loading">
-                <div className="loadingScreenBase">
-                    <div className="loadingScreenWrapper">
-                        <div className='rabbit'></div>
-                        <div class='clouds'></div>
-                    </div>
+            <div className="loadingScreenBase">
+                <div className="loadingScreenWrapper">
+                    <div className='rabbit'></div>
+                    <div className='clouds'></div>
                 </div>
-                <div className="loading-text-animation-label">Loading...</div>
             </div>
-            <div>
-                <a href="https://codepen.io/katydecorah/pen/uIEFy" className="text-decoration-none" target="_blank" rel="noreferrer">
-                    Bunny Animation Source
-                    <span className="ml-2">
-                        <FiExternalLink />
-                    </span>
-                </a>
-            </div>
+            <ExternalLink href="https://codepen.io/katydecorah/pen/uIEFy" style={{color: '#484848', marginTop: '10px'}}>Source</ExternalLink>
+            <div className="loading-text-animation-label">{loadingMessage || 'Loading'}...</div>
         </div>
 
     )

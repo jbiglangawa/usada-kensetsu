@@ -1,18 +1,58 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Youtube from 'react-youtube'
 import { AiFillYoutube, AiOutlineRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import '../css/Home.scss'
-import classNames from 'classnames';
-import { mobileBreakPoint } from '../helpers/responsive'
-import { useMediaQuery } from 'react-responsive';
-import { Helmet } from 'react-helmet'
+import useScrollPosition from '@react-hook/window-scroll'
+import { useSpring, animated } from 'react-spring'
 import LiveSubscribersCount from './LiveSubscribersCount'
 import ElementTooltip from './ElementTooltip'
 import ExternalLink from './ExternalLink'
+import JoinUsModal from './joinUs/JoinUsModal'
+import socketIOClient from "socket.io-client"
+import GeneratePekoCardModal from './joinUs/GeneratePekoCardModal'
+import { Helmet } from 'react-helmet'
+import { mobileBreakPoint } from '../helpers/responsive'
+import { useMediaQuery } from 'react-responsive'
+import '../css/Home.scss'
+import classNames from 'classnames'
+
 
 const Home = () => {
+    const [isBelowFold, setIsBelowFold] = useState(false)
+    const [isJoinUsModalOpen, setIsJoinUsModalOpen] = useState(false)
+    const [isPekoCardModalOpen, setIsPekoCardModalOpen] = useState(false)
+    const [user, setUser] = useState()
+    const [socket, setSocket] = useState()
+    const scrollYPosition = useScrollPosition(60)
     const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
+
+    const joinUs = useSpring(isMobile || isBelowFold ? 
+        {padding: '1em 1.1em', bottom: '10%', right: '5%', fontSize: '1.3em'} : 
+        {padding: '1em 3em', bottom: '18%', right: '14%', fontSize: '1.5em'})
+
+    const toggleJoinUsModal = () => setIsJoinUsModalOpen(!isJoinUsModalOpen)
+    const togglePekoCardModal = () => setIsPekoCardModalOpen(!isPekoCardModalOpen)
+    const setLoggedInUser = (loggedIn) => setUser(loggedIn)
+
+    useEffect(() => {
+        if(scrollYPosition > 100) {
+            setIsBelowFold(true)
+        } else {
+            setIsBelowFold(false)
+        }
+    }, [scrollYPosition])
+
+    useEffect(() => {
+        const socketInstance = socketIOClient(process.env.PUBLIC_URL)
+        setSocket(socketInstance)
+
+        //Disconnect from socket when component is unmount
+        return () => {
+            socketInstance.disconnect()
+        }
+    }, [])
+      
+
     return (
         <div className={classNames("home-wrapper", { mobile: isMobile })}>
             <Helmet>
@@ -20,10 +60,22 @@ const Home = () => {
                 <meta property="og:title" content={"Home - Usada Constructions🥕"} />
                 <meta property="twitter:title" content={"Home - Usada Constructions🥕"} />
             </Helmet>
-            <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg" />
-            <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg" />
-            <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg" />
 
+            <JoinUsModal 
+                isModalOpen={isJoinUsModalOpen} 
+                toggleModal={toggleJoinUsModal} 
+                togglePekoCardModal={togglePekoCardModal} 
+                socket={socket} 
+                setLoggedInUser={setLoggedInUser} />
+            
+            {user && isPekoCardModalOpen &&
+                <GeneratePekoCardModal isModalOpen={isPekoCardModalOpen} toggleModal={togglePekoCardModal} loggedInUser={user} />
+            }
+
+            <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg"/>
+            <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg"/>
+            <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg"/>
+            
             <div className="front-page-wrapper">
                 <ElementTooltip id="PekoraFrontPage" style={{ zIndex: 2 }} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
                     <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
@@ -39,10 +91,11 @@ const Home = () => {
                     <div className="fp-ceo">Usada Constructions CEO</div>
                     <div className="fp-idol">Idol Bunny Head Engineer</div>
 
-                    <button className="fp-join-us-button">JOIN US</button>
+                    <animated.div className="fp-join-us-wrapper" style={joinUs} onClick={toggleJoinUsModal}>
+                        <button className="fp-join-us-button">{isBelowFold || isMobile ? <>JOIN</> : <>JOIN US</>}</button>
+                    </animated.div>
                 </div>
             </div>
-
 
             <div className="services-wrapper">
                 <div className="services-header">
@@ -116,9 +169,9 @@ const Home = () => {
                 <div className="featured-wrapper">
                     <div className="featured-header-text">
                         WITNESS THE<br />
-                    PEKODAM<br />
-                    IN ACTION
-                </div><br /><br />
+                        PEKODAM<br />
+                        IN ACTION
+                    </div><br /><br />
                     <Link to="/project/3/showByDefault/true" className="featured-header-link">
                         Visit the PekoDam<AiOutlineRight />
                     </Link>
@@ -144,7 +197,7 @@ const Home = () => {
 
             <div className="news"></div>
 
-            <LiveSubscribersCount />
+            <LiveSubscribersCount socket={socket} />
 
             <div className="thanks">
                 <div className="usada-3d-wrapper">

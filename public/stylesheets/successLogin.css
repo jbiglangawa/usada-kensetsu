@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'AutobusBold';
+    src: local('AutobusBold'), url(../fonts/AutobusBold.ttf) format('truetype');
+}
+
+body {
+    color: #358ada;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'AutoBusBold', 'Segoe UI';
+}
+
+h2 {
+    font-family: 'Segoe UI';
+    font-weight: normal;
+}

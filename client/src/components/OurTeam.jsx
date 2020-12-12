@@ -32,9 +32,7 @@ const OurTeam = props => {
                 {teamList ?
                     teamList.map(employee => <Employee data={JSON.stringify(employee)} />)
                     :
-                    <div className="w-100">
-                        <LoadingScreen />
-                    </div>
+                    <LoadingScreen />
                 }
             </div>
         </div>
