@@ -44,7 +44,12 @@ if(process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") 
 }
 
 
-const io = socketIo(server);
+const io = socketIo(server, {
+  cors: {
+    origin: process.env.CLIENT_URL,
+    methods: ["GET", "POST"]
+  }
+});
 
 startSocket(io);
 

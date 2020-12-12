@@ -47,7 +47,7 @@ const Home = () => {
     }, [scrollYPosition])
 
     useEffect(() => {
-        const socketInstance = socketIOClient(process.env.PUBLIC_URL)
+        const socketInstance = socketIOClient(process.env.REACT_APP_API_URL)
         setSocket(socketInstance)
 
         //Disconnect from socket when component is unmount
