@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { useLocation, withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useSpring } from 'react-spring';
 
-const ScrollToTop = ({ children }) => {
+const ScrollToTop = () => {
   const prevLocation = useRef();
   const location = useLocation();
   const [, setY] = useSpring(() => ({ y: 0 }))
@@ -17,9 +17,9 @@ const ScrollToTop = ({ children }) => {
       });
       prevLocation.current = location.pathname;
     }
-  }, [location]);
+  }, [location, setY]);
 
-  return children;
+  return null;
 };
 
 
