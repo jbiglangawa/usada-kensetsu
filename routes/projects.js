@@ -3,7 +3,7 @@ var router = express.Router();
 var https = require('https');
 
 var projectsList;
-const url = "https://api.npoint.io/75deb24271cd22242a37";
+const url = "https://api.npoint.io/4dfbccfce03551454480";
 const failedResponse = '{"success" : "false", "error" : "unknown"}'
 
 async function getProjectsList() {

@@ -15,6 +15,7 @@ import { mobileBreakPoint } from '../helpers/responsive'
 import { useMediaQuery } from 'react-responsive'
 import '../css/Home.scss'
 import classNames from 'classnames'
+import { Trans, useTranslation } from 'react-i18next'
 
 
 const Home = () => {
@@ -24,11 +25,13 @@ const Home = () => {
     const [user, setUser] = useState()
     const [socket, setSocket] = useState()
     const scrollYPosition = useScrollPosition(60)
-    const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint });
+    const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint })
+    const [t] = useTranslation(["home", "header"])
 
     const joinUs = useSpring(isMobile || isBelowFold ? 
-        {padding: '1em 1.1em', bottom: '10%', right: '5%', fontSize: '1.3em'} : 
-        {padding: '1em 3em', bottom: '18%', right: '14%', fontSize: '1.5em'})
+        {bottom: '10%', right: '5%', fontSize: '1.3em'} : 
+        {bottom: '18%', right: '14%', fontSize: '1.5em'})
+    const joinUsButton = useSpring(isMobile || isBelowFold ? {padding: '1em 1.1em'} : {padding: '1em 3em'})
 
     const toggleJoinUsModal = () => setIsJoinUsModalOpen(!isJoinUsModalOpen)
     const togglePekoCardModal = () => setIsPekoCardModalOpen(!isPekoCardModalOpen)
@@ -56,7 +59,7 @@ const Home = () => {
     return (
         <div className={classNames("home-wrapper", { mobile: isMobile })}>
             <Helmet>
-                <title>Home - Usada Constructions🥕</title>
+                <title>{t("header:HOME")} - {t("header:Usada Constructions")}🥕</title>
                 <meta property="og:title" content={"Home - Usada Constructions🥕"} />
                 <meta property="twitter:title" content={"Home - Usada Constructions🥕"} />
             </Helmet>
@@ -83,16 +86,18 @@ const Home = () => {
 
                 <div className="front-page-title">
                     <div className="front-page-quote-wrapper">
-                        <div className="fpq-we">"We&nbsp;<div className="fpq-build">build</div></div>
-                        <div className="fpq-tomm">tomorrow</div>
-                        <div className="fpq-peko">for you peko"</div>
+                        <Trans t={t}>
+                            <div className="fpq-we">We&nbsp;<div className="fpq-build">build</div></div>
+                            <div className="fpq-tomm">tomorrow</div>
+                            <div className="fpq-peko">for you peko</div>
+                        </Trans>
                     </div>
-                    <div className="fp-usada">Usada Pekora</div>
-                    <div className="fp-ceo">Usada Constructions CEO</div>
-                    <div className="fp-idol">Idol Bunny Head Engineer</div>
+                    <div className="fp-usada">{t("Usada Pekora")}</div>
+                    <div className="fp-ceo">{t("Usada Constructions CEO")}</div>
+                    <div className="fp-idol">{t("Idol Bunny Head Engineer")}</div>
 
                     <animated.div className="fp-join-us-wrapper" style={joinUs} onClick={toggleJoinUsModal}>
-                        <button className="fp-join-us-button">{isBelowFold || isMobile ? <>JOIN</> : <>JOIN US</>}</button>
+                        <animated.button className="fp-join-us-button" style={joinUsButton}>{isBelowFold || isMobile ? t('JOIN') : t('JOIN US')}</animated.button>
                     </animated.div>
                 </div>
             </div>
@@ -106,7 +111,7 @@ const Home = () => {
                             <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" />
                         </div>
 
-                        <div className="services-title">SERVICES</div>
+                        <div className="services-title">{t("SERVICES")}</div>
                     </div>
                 </div>
 
@@ -116,10 +121,9 @@ const Home = () => {
                             <img src={process.env.PUBLIC_URL + "/mc-dia-pickaxe.png"} alt="mc-dia-pickaxe" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
-                            <div className="service-title">QUALITY DESIGNS</div>
+                            <div className="service-title">{t("QUALITY DESIGNS")}</div>
                             <div className="service-desc">
-                                With CEO Pekora, all designs are carefully researched
-                                for reliable, durable and efficient builds
+                                {t("With CEO Pekora, all designs are carefully researched for reliable, durable and efficient builds")}
                             </div>
                         </div>
                     </div>
@@ -129,10 +133,9 @@ const Home = () => {
                             <img src={process.env.PUBLIC_URL + "/mc-dia-boots.png"} alt="mc-dia-boots" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
-                            <div className="service-title">HEYBRID REWARDS</div>
+                            <div className="service-title">{t("HEYBRID REWARDS")}</div>
                             <div className="service-desc">
-                                Low risk but highly rewarding, CEO Pekora will bestow you
-                                legendary Heybrid rewards handmade.
+                                {t("Low risk but highly rewarding, CEO Pekora will bestow you legendary Heybrid rewards handmade")}
                             </div>
                         </div>
                     </div>
@@ -142,10 +145,9 @@ const Home = () => {
                             <img src={process.env.PUBLIC_URL + "/mc-wither.png"} alt="mc-wither" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
-                            <div className="service-title">PEST CONTROL</div>
+                            <div className="service-title">{t("PEST CONTROL")}</div>
                             <div className="service-desc">
-                                CEO Pekora can exterminate monsters lurking to prevent
-                                damages and injuries to everyone near the site
+                                {t("CEO Pekora can exterminate monsters lurking to prevent damages and injuries to everyone near the site")}
                             </div>
                         </div>
                     </div>
@@ -155,10 +157,9 @@ const Home = () => {
                             <img src={process.env.PUBLIC_URL + "/mc-iron-ingot.png"} alt="mc-iron-ingot" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
-                            <div className="service-title">UNLIMITED RESOURCES</div>
+                            <div className="service-title">{t("UNLIMITED RESOURCES")}</div>
                             <div className="service-desc">
-                                Low risk but highly rewarding, CEO Pekora will bestow you
-                                legendary Heybrid rewards handmade
+                                {t("Development of technologies that provide unlimited resources has made the prices of our services lower but with high quality and durability")}
                             </div>
                         </div>
                     </div>
@@ -168,25 +169,27 @@ const Home = () => {
             <div className="featured">
                 <div className="featured-wrapper">
                     <div className="featured-header-text">
-                        WITNESS THE<br />
-                        PEKODAM<br />
-                        IN ACTION
-                    </div><br /><br />
+                        <Trans t={t}>
+                            WITNESS THE <br />PEKODAM<br />IN ACTION
+                        </Trans>
+                    </div>
+                    <br /><br />
                     <Link to="/project/3/showByDefault/true" className="featured-header-link">
-                        Visit the PekoDam<AiOutlineRight />
+                        {t("Visit the PekoDam")}<AiOutlineRight />
                     </Link>
                 </div>
             </div>
 
             <div className="history">
                 <div className="left">
-                    <div className="history-title">OUR HISTORY</div>
-                    <div className="history-subtitle">USADA CONSTRUCTION WAS FOUNDED THIS 2019...</div>
+                    <div className="history-title">{t("OUR HISTORY")}</div>
+                    <div className="history-subtitle">{t("USADA CONSTRUCTION WAS FOUNDED THIS 2019...")}</div>
                     <div className="history-desc">
-                        which is very recent but ever since Usada Cannon T3 MK II we have been getting
-                        non-stop requests from our clients as time passes. We were able to annihilate a
-                        whole base of pillagers and managed to be known as the the first Construction
-                        company in Hololive. Please take a look at the first ever creation of Usada Construction
+                        <Trans t={t} >
+                            which is very recent but ever since Usada Cannon T3 MK II we have been getting non-stop requests from our clients as time passes. 
+                            We were able to annihilate a whole base of pillagers and managed to be known as the the first Construction company in Hololive. 
+                            Please take a look at the first ever creation of Usada Construction
+                        </Trans>
                     </div>
                 </div>
 
@@ -204,19 +207,22 @@ const Home = () => {
                     <img src={process.env.PUBLIC_URL + "/usada-3d.png"} alt="usada-3d" className="usada-3d" />
                 </div>
                 <div className="thanks-message">
-                    <div className="tm-title">Thank you for visiting peko~!</div>
+                    <div className="tm-title">{t("Thank you for visiting peko~!")}</div>
                     <div className="tm-desc">
-                        This is a non-profit fan made website for Usada Pekora. I hope you like it! <br />
-                        Special thanks to Usada Pekora Discord Fan Server and the artists who gave
-                        permission for using their art. Please refer to credits for a complete list
-                        of people who helped me build this website.<br /><br />
-                        Don't forget to subscribe to Pekora-chan!
+                        <Trans t={t}>
+                            This is a non-profit fan made website for Usada Pekora. I hope you like it! <br />
+                            Special thanks to Usada Pekora Discord Fan Server and the artists who gave
+                            permission for using their art. Please refer to credits for a complete list
+                            of people who helped me build this website.
+                        </Trans>
+                        <br /><br />
+                        {t("Don't forget to subscribe to Pekora-chan!")}
                     </div>
 
                     <div className="visit-channel">
                         <a href="https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ">
                             <AiFillYoutube className="youtube-icon" />
-                            Click here to visit her channel
+                            {t("Click here to visit her channel!")}
                         </a>
 
                     </div>

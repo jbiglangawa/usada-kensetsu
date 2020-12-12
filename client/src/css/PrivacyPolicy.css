@@ -1,0 +1,82 @@
+.privacy-policy-wrapper {
+    background-color: white;
+    /* padding-bottom: 3%; */
+    height: 90vh;
+}
+
+.privacy-policy-content-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.privacy-policy-thumbnail-wrapper {
+    margin-top: 5%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.usada-privacy-policy {
+    max-height: 75vh;
+    width: auto;
+    max-width: 35vw;
+}
+
+.pp-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    margin-right: 4%;
+    max-width: 90vw;
+}
+
+.pp-message-body {
+    font-size: 1.2em;
+    max-height: 60vh;
+    text-align: justify;
+    overflow-y: scroll;
+    padding: 2%;
+}
+
+
+.pp-message-header {
+    color: #54B7E9;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    font-size: 4em;
+    margin: 2% 0;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 767px) {
+    .privacy-policy-wrapper {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        height: 100%;
+        
+    }
+
+    .pp-message {
+        max-width: 100vw;
+    }
+    .pp-message-body {
+        font-size: 1em;
+        max-height: none;
+        overflow-y: auto;
+    }
+
+    .pp-message-header {
+        font-size: 2em;
+        margin: 5% 0;
+    }
+    
+    .privacy-policy-thumbnail-wrapper {
+        margin: 0;
+    }
+
+    .usada-privacy-policy {
+        max-height: none;
+        max-width: 100vw;
+    }
+}
