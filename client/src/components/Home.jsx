@@ -25,13 +25,13 @@ const Home = () => {
     const [isPekoCardModalOpen, setIsPekoCardModalOpen] = useState(false)
     const [user, setUser] = useState()
     const [socket, setSocket] = useState()
-    const scrollYPosition = useScrollPosition(60)
+    const scrollYPosition = useScrollPosition(10)
     const isMobile = useMediaQuery({ maxWidth: mobileBreakPoint })
     const [t] = useTranslation(["home", "header"])
 
     const joinUs = useSpring(isMobile || isBelowFold ? 
         {bottom: '10%', right: '5%', fontSize: '1.3em'} : 
-        {bottom: '18%', right: '14%', fontSize: '1.5em'})
+        {bottom: '18%', right: '24%', fontSize: '1.5em'})
     const joinUsButton = useSpring(isMobile || isBelowFold ? {padding: '1em 1.1em'} : {padding: '1em 3em'})
 
     const toggleJoinUsModal = () => setIsJoinUsModalOpen(!isJoinUsModalOpen)

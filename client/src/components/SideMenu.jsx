@@ -30,11 +30,13 @@ const SideMenu = ({ children }) => {
                 <ButtonToggle className="mobile-menu-button" color='white' onClick={() => setVisible(prev => !prev)}><GiHamburgerMenu size="1.5em"></GiHamburgerMenu></ButtonToggle>
                 <div className="mobile-header-logo-container">
 
-                    <img
-                        alt="header-logo"
-                        className="mobile-header-logo"
-                        src={process.env.PUBLIC_URL + "/header-logo.png"}
-                    />
+                    <Link to='/'>
+                        <img
+                            alt="header-logo"
+                            className="mobile-header-logo"
+                            src={process.env.PUBLIC_URL + "/header-logo.png"}
+                        />
+                    </Link>
                     <div className="mobile-language-dropdown">
                         <LanguageOptions mobile={true}/>
                     </div>

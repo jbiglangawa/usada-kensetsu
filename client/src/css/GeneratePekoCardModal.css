@@ -73,7 +73,7 @@
     color: #C7C7C7;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-device-width: 1024px) {
     .generated-wrapper {
         flex-direction: column;
     }

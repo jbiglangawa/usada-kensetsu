@@ -85,7 +85,7 @@
         color: #43CC96;
         display: flex;
         justify-content: flex-start;
-        font-size: 22px;
+        font-size: 1.3em;
     }
     
     .fpq-build {
@@ -96,22 +96,23 @@
         color: #F8CC3D;
         display: flex;
         justify-content: center;
-        font-size: 45px;
+        font-size: 2.5em;
     }
     
     .fpq-peko {
         color: #0A84F1;
         display: flex;
         justify-content: flex-end;
-        font-size: 30px;
+        font-size: 1.8em;
     }
     
     .fp-usada {
-        font-size: 50px;
+        font-size: 3em;
     }
     
     .fp-ceo {
-        font-size: 20px;
+        margin-top: 5px;
+        font-size: 1.2em;
         color: #C2C2C2;
     }
     
@@ -403,7 +404,33 @@
     & .usada-3d-wrapper{
         & img{
             width: 80vw;
+            max-width: 300px;
         }
+    }
+
+    & .services-header-pekora {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    & .history-title {
+        text-align: center;
+    }
+
+    & .history-subtitle {
+        padding: 0 3%;
+    }
+
+    & .history-desc {
+        padding: 0 3%;
+    }
+
+    & .left {
+        padding-bottom: 0;
+    }
+
+    & .thanks {
+        flex-direction: column-reverse;
     }
 
 }
