@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import useScrollPosition from '@react-hook/window-scroll'
 import { useSpring, animated } from 'react-spring'
 import '../css/Header.css'
+import { headerLogo } from '../helpers/images'
 
 const Header = () => {
     const [isBelowFold, setIsBelowFold] = useState(false)
@@ -43,7 +44,7 @@ const Header = () => {
                     <Link to="/" className="header-wrapper-img">
                         <img
                             alt="header-logo"
-                            src={process.env.PUBLIC_URL + "/header-logo.png"}
+                            src={headerLogo}
                             className="header-logo" />
                     </Link>
                 </animated.div>

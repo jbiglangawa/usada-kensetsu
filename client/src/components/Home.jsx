@@ -15,6 +15,7 @@ import { mobileBreakPoint } from '../helpers/responsive'
 import { useMediaQuery } from 'react-responsive'
 import '../css/Home.scss'
 import classNames from 'classnames'
+import Images from '../helpers/images'
 
 
 const Home = () => {
@@ -61,6 +62,10 @@ const Home = () => {
                 <meta property="twitter:title" content={"Home - Usada Constructions🥕"} />
             </Helmet>
 
+            <img src={Images.carrotBG} alt="carrot-bg" className="carrot-bg" />
+            <img src={Images.ellipsisBG} alt="ellipsis-bg" className="ellipsis-bg" />
+            <img src={Images.rabbitBG} alt="rabbit-bg" className="rabbit-bg" />
+
             <JoinUsModal 
                 isModalOpen={isJoinUsModalOpen} 
                 toggleModal={toggleJoinUsModal} 
@@ -72,13 +77,9 @@ const Home = () => {
                 <GeneratePekoCardModal isModalOpen={isPekoCardModalOpen} toggleModal={togglePekoCardModal} loggedInUser={user} />
             }
 
-            <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg"/>
-            <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg"/>
-            <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg"/>
-            
             <div className="front-page-wrapper">
                 <ElementTooltip id="PekoraFrontPage" style={{ zIndex: 2 }} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
-                    <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
+                    <img src={Images.usadaFrontPage} alt="usada-pekora-construction" className="front-page-usada" />
                 </ElementTooltip>
 
                 <div className="front-page-title">
@@ -99,11 +100,11 @@ const Home = () => {
 
             <div className="services-wrapper">
                 <div className="services-header">
-                    <img src={process.env.PUBLIC_URL + "/services-header.svg"} alt="services-header" className="services-header-svg" />
+                    <img src={Images.servicesHeader} alt="services-header" className="services-header-svg" />
 
                     <div className="services-header-pekora">
                         <div className="usada-front">
-                            <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" />
+                            <img src={Images.usadaFront} alt="usada-front" />
                         </div>
 
                         <div className="services-title">SERVICES</div>
@@ -113,7 +114,7 @@ const Home = () => {
                 <div className="services-body">
                     <div className="service">
                         <div className="service-icon">
-                            <img src={process.env.PUBLIC_URL + "/mc-dia-pickaxe.png"} alt="mc-dia-pickaxe" className="service-icon-img" />
+                            <img src={Images.minecraftDiaPickaxe} alt="mc-dia-pickaxe" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
                             <div className="service-title">QUALITY DESIGNS</div>
@@ -126,7 +127,7 @@ const Home = () => {
 
                     <div className="service">
                         <div className="service-icon">
-                            <img src={process.env.PUBLIC_URL + "/mc-dia-boots.png"} alt="mc-dia-boots" className="service-icon-img" />
+                            <img src={Images.minecraftDiaBoots} alt="mc-dia-boots" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
                             <div className="service-title">HEYBRID REWARDS</div>
@@ -139,7 +140,7 @@ const Home = () => {
 
                     <div className="service">
                         <div className="service-icon">
-                            <img src={process.env.PUBLIC_URL + "/mc-wither.png"} alt="mc-wither" className="service-icon-img" />
+                            <img src={Images.minecraftWither} alt="mc-wither" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
                             <div className="service-title">PEST CONTROL</div>
@@ -152,7 +153,7 @@ const Home = () => {
 
                     <div className="service">
                         <div className="service-icon">
-                            <img src={process.env.PUBLIC_URL + "/mc-iron-ingot.png"} alt="mc-iron-ingot" className="service-icon-img" />
+                            <img src={Images.minecraftIronIngot} alt="mc-iron-ingot" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
                             <div className="service-title">UNLIMITED RESOURCES</div>
@@ -166,7 +167,7 @@ const Home = () => {
             </div>
 
             <div className="featured">
-                <div className="featured-wrapper">
+                <div className="featured-wrapper" style={Images.getBackground(Images.pekodamCover)}>
                     <div className="featured-header-text">
                         WITNESS THE<br />
                         PEKODAM<br />
@@ -201,7 +202,7 @@ const Home = () => {
 
             <div className="thanks">
                 <div className="usada-3d-wrapper">
-                    <img src={process.env.PUBLIC_URL + "/usada-3d.png"} alt="usada-3d" className="usada-3d" />
+                    <img src={Images.usada3D} alt="usada-3d" className="usada-3d" />
                 </div>
                 <div className="thanks-message">
                     <div className="tm-title">Thank you for visiting peko~!</div>

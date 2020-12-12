@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import Employee from './Employee'
 import '../css/OurTeam.css'
 import LoadingScreen from './LoadingScreen'
+import { getBackground, ourTeamHeader } from '../helpers/images'
 
 const OurTeam = props => {
     const [teamList, setTeamList] = useState()
@@ -24,7 +25,7 @@ const OurTeam = props => {
                 <meta property="og:title" content={"Our Team - Usada Constructions🥕"} />
                 <meta property="twitter:title" content={"Our Team - Usada Constructions🥕"} />
             </Helmet>
-            <div className="ourteam-header">
+            <div className="ourteam-header" style={getBackground(ourTeamHeader)}>
                 <div className="ot-title">OUR TEAM</div>
             </div>
 

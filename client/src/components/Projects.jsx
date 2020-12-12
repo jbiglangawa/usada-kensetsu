@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import ProjectCell from './ProjectCell'
 import LoadingScreen from './LoadingScreen'
+import { getBackground, projectsHeader } from '../helpers/images'
 import '../css/Projects.css'
 
 const Projects = () => {
@@ -30,7 +31,7 @@ const Projects = () => {
                 <meta property="og:title" content={"Projects - Usada Constructions🥕"} />
                 <meta property="twitter:title" content={"Projects - Usada Constructions🥕"} />
             </Helmet>
-            <div className="projects-header">
+            <div className="projects-header" style={getBackground(projectsHeader)}>
                 <div className="ph-title">PROJECTS</div>
             </div>
 
