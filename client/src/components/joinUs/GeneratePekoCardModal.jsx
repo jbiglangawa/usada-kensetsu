@@ -8,6 +8,7 @@ import PDFPekocardGenerator from './PDFPekocardGenerator'
 import ImagePekocardGenerator from './ImagePekocardGenerator'
 import { useMediaQuery } from 'react-responsive'
 import { mobileBreakPoint } from '../../helpers/responsive'
+import { Trans, useTranslation } from 'react-i18next'
 import ShareButton from './ShareButton'
 import '../../css/GeneratePekoCardModal.css'
 
@@ -22,6 +23,7 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
     const [isPopupBlocked, setIsPopupBlocked] = useState(false)
     const [frontPekoCardLoaded, setFrontPekoCardLoaded] = useState(false)
     const [backPekoCardLoaded, setBackPekoCardLoaded] = useState(false)
+    const [t] = useTranslation("join_us")
 
     const pekoCardLink = `${process.env.REACT_APP_API_URL}pekoCard/${user.secret}`
     const isMobile = useMediaQuery({ maxDeviceWidth: mobileBreakPoint })
@@ -33,14 +35,15 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
         <>
         <Modal isOpen={isModalOpen} className="generated-modal-wrapper">
             <ModalHeader toggle={toggleModal} style={{borderBottom: 'none', justifyContent: 'center', paddingBottom: '0'}}>
-                <div className="generated-congratulations">CONGRATULATIONS!</div>
-                <div className="generated-header">Welcome to Usada Construction</div>
+                <div className="generated-congratulations">{t("CONGRATULATIONS!")}</div>
+                <div className="generated-header">{t("Welcome to Usada Construction")}</div>
             </ModalHeader>
             
             <ModalBody className="generated-body-wrapper">
                 <div className="generated-description">
-                    Please print the PekoCard below before and wear before entering PekoLand office premises. Tampering with
-                    the ID will not be tolerated and will be subject to PekoPunishments.
+                    <Trans t={t}>
+                        Please print the PekoCard below before and wear before entering PekoLand office premises. Tampering with the ID will not be tolerated and will be subject to PekoPunishments.
+                    </Trans>
                 </div>
 
                 <div className="generated-wrapper">
@@ -48,28 +51,32 @@ const GeneratePekoCardModal = ({isModalOpen, toggleModal, loggedInUser}) => {
                     <PekoCard back userStr={loggedInUser} onLoad={() => setBackPekoCardLoaded(true)}/>
                 </div>
                 
-                <div className="generated-rec-size">The recommended print size is: 3.38" x 2.36"</div>
+                <div className="generated-rec-size">{t("The recommended print size is 3.38\" x 2.36\"")}</div>
 
                 <div className="generated-note">
-                    This ID is for entertainment purposes only and should not be used for transactions or identification in 
-                    real life.
+                    <Trans t={t}>
+                        This ID is for entertainment purposes only and should not be used for transactions or identification in 
+                        real life.
+                    </Trans>
                 </div>
 
                 <Alert color="danger" isOpen={isPopupBlocked} toggle={toggleBlockedPopup}>
-                    The Browser blocked the sign in popup😭. Please allow the popup to proceed with signing in
+                    <Trans t={t}>
+                        The Browser blocked the sign in popup😭. Please allow the popup to proceed with signing in
+                    </Trans>
                 </Alert>
 
                 <div className="generated-footer-buttons">
                     {!isMobile && 
-                    <button disabled={!isCardsLoaded} onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> Print</button>}
-                    <button disabled={!isCardsLoaded} onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> Download image</button>
+                    <button disabled={!isCardsLoaded} onClick={() => setAction(ACTION_PRINT)}><FiPrinter /> {t("PRINT")}</button>}
+                    <button disabled={!isCardsLoaded} onClick={() => setAction(ACTION_DOWNLOAD)}><FiDownload /> {t("DOWNLOAD IMAGE")}</button>
 
                     <CopyToClipboard text={pekoCardLink} onCopy={() => setIsCopied(true)}>
-                        <button disabled={!isCardsLoaded} id="copyPekocardLink" onMouseLeave={() => setIsCopied(false)}><FiLink /> Copy PekoCard Link</button>
+                        <button disabled={!isCardsLoaded} id="copyPekocardLink" onMouseLeave={() => setIsCopied(false)}><FiLink /> {t("COPY PEKOCARD LINK")}</button>
                     </CopyToClipboard>
                     
                     {isCopied &&
-                        <Tooltip placement="top" target="copyPekocardLink" isOpen={isCopied} toggle={() => setIsCopied(!isCopied)}>Successfully copied to clipboard!</Tooltip>
+                        <Tooltip placement="top" target="copyPekocardLink" isOpen={isCopied} toggle={() => setIsCopied(!isCopied)}>{t("Successfully copied to clipboard!")}</Tooltip>
                     }
                     
                     <ShareButton secret={user.secret} />

@@ -4,6 +4,8 @@ import { FcGoogle } from 'react-icons/fc'
 import { Modal, ModalBody, ModalHeader, ModalFooter, Spinner, Alert } from 'reactstrap'
 import NewWindow from 'react-new-window'
 import PekoCardEditModal from './PekoCardEditModal'
+import { Trans, useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import '../../css/JoinUsModal.css'
 
 
@@ -13,6 +15,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
     const [isAuthenticating, setIsAuthenticating] = useState(false)
     const [isPopupBlocked, setIsPopupBlocked] = useState(false)
     const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+    const [t] = useTranslation("join_us")
 
     // Twitter window popup features
     const features = {
@@ -105,18 +108,20 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
         <>
         <Modal isOpen={isModalOpen} toggle={toggleModal} centered>
             <ModalHeader toggle={toggleModal}>
-                <div className="ju-modal-header">Join Us and receive your <b>PekoCard</b></div>
+                <div className="ju-modal-header"><Trans t={t}>Join Us and receive your <b>PekoCard</b></Trans></div>
             </ModalHeader>
 
             <ModalBody>
                 <Alert color="danger" isOpen={isPopupBlocked} toggle={toggleBlockedPopup}>
-                    The Browser blocked the sign in popup😭. Please allow the popup to proceed with signing in
+                    <Trans t={t}>
+                        The Browser blocked the sign in popup😭. Please allow the popup to proceed with signing in
+                    </Trans>
                 </Alert>
 
                 <div className="jum-description">
-                    To claim your PekoCard, you need to login using twitter, google, or facebook.
-                    After clicking <i>Generate my ID</i>, you will revoke your authentication permission
-                    to this website and we won't be able to access your details anymore
+                    <Trans t={t}>
+                        To claim your PekoCard, you need to login using Twitter, Google, or Facebook. You can click here to view our <Link to="/privacy-policy">Privacy Policy</Link>
+                    </Trans>
                 </div> 
             </ModalBody>
 
@@ -124,7 +129,7 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
                 {!user ?
                     !isAuthenticating ?
                         <div className="jum-signin-buttons"> 
-                            <span>Sign in:</span>
+                            <span>{t("Sign in")}:</span>
                             <div>
                                 <button onClick={() => openAuthPopup('google')} className="jum-sign-in-button"><FcGoogle /></button>
                                 <button onClick={() => openAuthPopup('twitter')} className="jum-sign-in-button sign-in-twitter"><AiOutlineTwitter /></button>
@@ -134,21 +139,21 @@ const JoinUsModal = ({isModalOpen, toggleModal, socket, togglePekoCardModal, set
                     :
                     <div className="jum-authenticating">
                         <Spinner />
-                        <i>Authenticating...</i>
+                        <i>{t("Authenticating")}...</i>
                     </div>
                 :
                 <div className="jum-signed-in-wrapper">
-                    <div className="jum-signed-in-header">Signed in as:</div>
+                    <div className="jum-signed-in-header">{t("Signed in as")}:</div>
                     <div className="jum-si-acc-wrapper">
                         <img src={user.photo} alt="" className="jum-sia-thumbnail"/>
                         <div className="jum-acc-tag">{user.provider === 'twitter' ? `@${user.username}` : user.name}</div> (
-                        <button className="jum-sia-logout-button" onClick={() => logoutUser()}>Logout</button>)
+                        <button className="jum-sia-logout-button" onClick={() => logoutUser()}>{t("Logout")}</button>)
                     </div>
                 </div>
                 }
 
                 <div className="join-modal-buttons">
-                    <button disabled={!user} onClick={() => setIsEditModalOpen(true)} className="jum-preview-button">Preview</button>
+                    <button disabled={!user} onClick={() => setIsEditModalOpen(true)} className="jum-preview-button">{t("Preview")}</button>
                 </div>
             </ModalFooter>
 

@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useState } from 'react'
 import emoji from 'react-easy-emoji'
 import { Spinner } from 'reactstrap'
+import { useTranslation } from 'react-i18next'
 import '../../css/PekoCard.css'
 
 const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref) => {
@@ -8,6 +9,7 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
     const [qrCodeLoaded, setQRCodeLoaded] = useState(false)
     const [rabbitIconLoaded, setRabbitIconLoaded] = useState(false)
     const [qrCodeAPILink, setQRCodeAPILink] = useState()
+    const [t] = useTranslation("join_us")
 
     const currentLocation = window.location.origin
     const sourceImg = front ? `${currentLocation}/front-template.svg` : back && `${currentLocation}/back-template.svg`
@@ -43,8 +45,8 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
                 <div className={`${classNamePrefix}-wrapper`}>
                     <img src={user.photo} alt="" className={`${classNamePrefix}-card-photo`} onLoad={() => setProfileImageLoaded(true)}/>
                     <div className={`${classNamePrefix}-name`}>{emoji(user.name)}</div>
-                    <div className={`${classNamePrefix}-role`}>Nousagi employee</div>
-                    <div className={`${classNamePrefix}-id`}><span>ID: </span>{employeeId}</div>
+                    <div className={`${classNamePrefix}-role`}>{t("Nousagi employee")}</div>
+                    <div className={`${classNamePrefix}-id`}><span>ID#: </span>{employeeId}</div>
                 </div>
 
                 <div className={`${classNamePrefix}-footer-wrapper`}>

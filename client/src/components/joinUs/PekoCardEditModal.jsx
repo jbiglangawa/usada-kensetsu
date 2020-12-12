@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import '../../css/PekoCardEditModal.css'
 import html2canvas from 'html2canvas'
 import ReactDOM from 'react-dom';
+import { Trans, useTranslation } from 'react-i18next'
 
 const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
     const [user, setUser] = useState(JSON.parse(userStr))
@@ -16,6 +17,7 @@ const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
     const [urlError, setURLError] = useState(false)
     const [editMode, setEditMode] = useState(false)
     const [isGenerating, setIsGenerating] = useState(false)
+    const [t] = useTranslation("join_us")
 
     const frontPekoCardRef = useRef()
 
@@ -82,25 +84,27 @@ const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
     return (
         <Modal isOpen={isOpen} className={classNames(editMode && "edit-modal")}>
             <ModalHeader toggle={toggle}>
-                <div className="edit-header">PekoCard {editMode ? 'Edit' : 'Preview'}</div>
+                <div className="edit-header">{t("PekoCard")} {editMode ? t('Edit') : t('Preview')}</div>
             </ModalHeader>
             <ModalBody>
                 <Container>
                     <div className="mb-3">
-                        This is how your PekoCard would look like. You can edit it by clicking the Edit button. After generating your PekoCard, you can share
-                        your PekoCard to other people by giving them the PekoCard link
+                        <Trans t={t}>
+                            This is how your PekoCard would look like. You can edit it by clicking the Edit button. After generating your PekoCard, you can share
+                            your PekoCard to other people by giving them the PekoCard link
+                        </Trans>
                     </div>
                     <Row>
                         <div className={classNames("edit-wrapper col-md-12", editMode && 'col-lg-6')}>
                             <PekoCard front ref={frontPekoCardRef} userStr={JSON.stringify(user)} />
                             
                             <div>
-                                <button onClick={() => setEditMode(!editMode)}>{editMode ? 'Cancel' : 'Edit'}</button>
+                                <button onClick={() => setEditMode(!editMode)}>{editMode ? t('Cancel') : t('Edit')}</button>
                                 
                                 {editMode &&
                                 <>
-                                    <button onClick={resetHandler}>Reset</button>
-                                    <button onClick={saveHandler}>Save</button>
+                                    <button onClick={resetHandler}>{t("Reset")}</button>
+                                    <button onClick={saveHandler}>{t("Save")}</button>
                                 </>
                                 }
                             </div>
@@ -108,18 +112,18 @@ const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
 
                         {editMode &&
                         <div className="edit-editor col-md-12 col-lg-6">
-                            <label for="name">Name: </label>
+                            <label for="name">{t("Name")}: </label>
                             <Input error={nameError != null} placeholder='Name' id="name" value={name} onChange={onNameChange} />
                             {nameError &&
                                 <Label basic color='red' pointing className="w-100" style={{height: '7%'}}>{nameError}</Label>
                             }
                             
-                            <label for="photo-url">Photo URL (<i>Suggested upload is 380px x 380px</i>): </label>
+                            <label for="photo-url"><Trans t={t}>Photo URL (<i>Suggested upload is 380px x 380px</i>)</Trans>: </label>
                             <Form>
                                 <TextArea placeholder="Photo url" id="photo-url" value={photoValue} onChange={onPhotoChange} rows="5" 
                                     className={urlError ? "error-photo-editor" : ""} />
                                 {urlError &&
-                                    <Label basic color='red' pointing className="h-100 w-100">Please enter a correct image URL</Label>
+                                    <Label basic color='red' pointing className="h-100 w-100">{t("Please enter a correct image URL")}</Label>
                                 }
                             </Form>
                         </div>
@@ -130,7 +134,7 @@ const PekoCardEditModal = ({isOpen, toggle, userStr, modifyUser, generate}) => {
 
             <ModalFooter className="edit-footer">
                 <button disabled={editMode || isGenerating} onClick={pekoCardOnGenerate}>
-                    Generate my ID{isGenerating ? <Spinner size="sm" className="ml-2" /> : '➡'}
+                    {t("Generate my ID")}{isGenerating ? <Spinner size="sm" className="ml-2" /> : '➡'}
                 </button>
             </ModalFooter>
         </Modal>
