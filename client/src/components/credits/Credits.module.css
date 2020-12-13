@@ -68,7 +68,7 @@
     font-size: x-large;
 }
 
-@media only screen and (max-width: 522px) {
+@media only screen and (max-device-width: 1024px) {
     .specialThanksContainer {
         height: unset;
     }

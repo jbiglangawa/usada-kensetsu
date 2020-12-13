@@ -2,6 +2,7 @@ import React from 'react'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
 import Youtube from 'react-youtube'
 import { Spinner } from 'reactstrap'
+import { useTranslation } from 'react-i18next'
 import '../css/Source.css'
 
 const YOUTUBE = 1, TWITTER = 2
@@ -34,6 +35,7 @@ const getTwitterID = url => {
 }
 
 const Source = props => {
+    const [t] = useTranslation("commons")
     const { url } = props
     const sourceType = getSourceType(url)
 
@@ -47,23 +49,23 @@ const Source = props => {
                                 className="source-player"
                                 containerClassName={'source-player'} />
                         </div>
-                        : sourceType === TWITTER ?
-                            <div className="twitter-wrapper">
-                                <TwitterTweetEmbed
-                                    tweetId={getTwitterID(url)}
-                                    placeholder={
-                                        <div className="twitter-placeholder">
-                                            <Spinner />
-                                            <div className="tweet-loading-text">Loading tweet...</div>
-                                        </div>
-                                    }
-                                    options={{
-                                        align: 'center'
-                                    }}
-                                />
-                            </div>
-                            :
-                            null
+                    : sourceType === TWITTER ?
+                        <div className="twitter-wrapper">
+                            <TwitterTweetEmbed
+                                tweetId={getTwitterID(url)}
+                                placeholder={
+                                    <div className="twitter-placeholder">
+                                        <Spinner />
+                                        <div className="tweet-loading-text">{t("Loading Tweet")}...</div>
+                                    </div>
+                                }
+                                options={{
+                                    align: 'center'
+                                }}
+                            />
+                        </div>
+                        :
+                        null
                     }
                 </>
                 :

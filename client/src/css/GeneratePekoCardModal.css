@@ -1,0 +1,92 @@
+.generated-modal-wrapper {
+    max-width: 800px !important;
+}
+
+.generated-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.generated-rec-size {
+    font-style: italic;
+    margin-bottom: 1em;
+}
+
+.generated-congratulations {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    color: #E3A453;
+    font-size: 1.2em;
+}
+
+.generated-body-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3%
+}
+
+.modal-content {
+    padding: 4%;
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+}
+
+.generated-header {
+    font-size: 2em;
+    font-family: 'AutoBusBold', 'Segoe UI';
+    color: #54B7E9;
+}
+
+.generated-description {
+    text-align: justify;
+}
+
+.generated-note {
+    color: #D1D1D1;
+    width: 80%;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.generated-footer-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.generated-footer-buttons button {
+    background: none;
+    border: none;
+    color: #787878;
+}
+
+.generated-footer-buttons button:hover {
+    color: #54B7E9;
+}
+
+.generated-footer-buttons button:disabled {
+    color: #C7C7C7;
+}
+
+@media screen and (max-device-width: 1024px) {
+    .generated-wrapper {
+        flex-direction: column;
+    }
+
+    .generated-wrapper div {
+        margin-bottom: 10px;
+    }
+
+    .generated-footer-buttons {
+        flex-direction: column;
+    }
+
+    .generated-footer-buttons button {
+        padding-bottom: 10px;
+    }
+} 

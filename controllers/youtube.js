@@ -1,26 +1,18 @@
 const fetch = require('node-fetch');
-const apiKey = require('../youtube.config.json').apiKey;
 let io;
 let currentCount = 0;
 let pekoraMinecraftVideoList;
 let pekoraAllVideoList;
 
-
-const getSubscribersCount = async() => {
-    console.log("Refreshing Pekora's subscribers count...")
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC1DCedRgGHBdm81E1llLhOQ&key=${apiKey}`);
-    return response.json();
-}
-
 const fetchPekoraMinecraftVideoList = async() => {
     console.log("Refreshing Pekora's Minecraft Video List...")
-    const response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UC1DCedRgGHBdm81E1llLhOQ&maxResults=10&q=Minecraft&type=video&key=${apiKey}`);
+    const response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UC1DCedRgGHBdm81E1llLhOQ&maxResults=10&q=Minecraft&type=video&key=${process.env.YOUTUBE_API_KEY}`);
     return response.json();
 }
 
 const fetchPekoraAllVideoList = async() => {
     console.log("Refreshing Pekora's All Video List...")
-    const response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UC1DCedRgGHBdm81E1llLhOQ&maxResults=50&type=video&key=${apiKey}`);
+    const response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UC1DCedRgGHBdm81E1llLhOQ&maxResults=50&type=video&key=${process.env.YOUTUBE_API_KEY}`);
     return response.json();
 }
 
@@ -32,6 +24,12 @@ const updateCount = async() => {
 const updatePekoraMinecraftVideoList = async() => {
     const data = await fetchPekoraMinecraftVideoList();
     return data.items;
+}
+
+const getSubscribersCount = async () => {
+  console.log("Refreshing Pekora's subscribers count...")
+  const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC1DCedRgGHBdm81E1llLhOQ&key=${process.env.YOUTUBE_API_KEY}`);
+  return response.json();
 }
 
 const updatePekoraAllVideoList = async() => {

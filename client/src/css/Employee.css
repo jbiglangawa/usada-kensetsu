@@ -1,6 +1,5 @@
 .employee-wrapper {
     display: flex;
-    flex-flow: row wrap;
     align-items: center;
     margin: 3% 10%;
 }
@@ -11,13 +10,13 @@
     flex: 75%;
 }
 
-.thumbnail-wrapper{
+.thumbnail-wrapper {
     text-align: center;
     flex: 25%;
 }
 
-.employee-thumbnail{
-    max-width: 75vw;
+.employee-thumbnail {
+    max-width: 30vw;
 }
 
 .employee-details a {
@@ -34,4 +33,10 @@
 .e-role {
     font-family: 'AutoBusBold', 'Segoe UI';
     font-size: 1.5em;
+}
+
+@media screen and (max-width: 1024px) {
+    .employee-wrapper {
+        flex-flow: row wrap;
+    }
 }
