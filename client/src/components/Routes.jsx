@@ -6,6 +6,7 @@ import Projects from './Projects'
 import OurTeam from './OurTeam'
 import Credits from './credits/Credits'
 import Project from './Project'
+import Vlog from './vlog/Vlog'
 import Footer from "./Footer";
 
 const Routes = () => {
@@ -30,6 +31,9 @@ const Routes = () => {
                     </Route>
                     <Route path="/project/:projectId">
                         <Project />
+                    </Route>
+                    <Route path="/vlog">
+                        <Vlog />
                     </Route>
                     {/* <Route path="/admin">
             <Admin />
