@@ -121,11 +121,11 @@ emmitAllPekoraVideoList();
 
 setInterval(async() => {
     emmitPekoraMinecraftVideo();
-}, 10000);
+}, 3600000);
 
 setInterval(async() => {
     emmitAllPekoraVideoList();
-}, 10000);
+}, 3600000);
 
 const startSocket = (ioInstance) => {
     io = ioInstance;
