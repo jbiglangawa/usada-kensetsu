@@ -18,11 +18,14 @@ const fetchPekoraAllVideoList = async() => {
 
 const updateCount = async() => {
     const data = await getSubscribersCount();
-    return parseInt(data.items[0].statistics.subscriberCount);
+    const subCount = parseInt(data.items[0].statistics.subscriberCount);
+    console.log("Pekora's Subcount: " + subCount);
+    return subCount;
 }
 
 const updatePekoraMinecraftVideoList = async() => {
     const data = await fetchPekoraMinecraftVideoList();
+    pekoraMinecraftVideoList = data.items;
     return data.items;
 }
 
@@ -34,6 +37,7 @@ const getSubscribersCount = async () => {
 
 const updatePekoraAllVideoList = async() => {
     const data = await fetchPekoraAllVideoList();
+    pekoraAllVideoList = data.items;
     return data.items;
 }
 
@@ -113,9 +117,6 @@ const emmitAllPekoraVideoList = async() => {
         console.log("Socket is not connected yet");
     }
 }
-
-emmitPekoraMinecraftVideo();
-emmitAllPekoraVideoList();
 
 setInterval(async() => {
     emmitPekoraMinecraftVideo();

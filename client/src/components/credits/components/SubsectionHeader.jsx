@@ -7,7 +7,7 @@ const SubsectionHeader = (props) => {
     const [t] = useTranslation("credits")
     return (
         <div className="container">
-            <div className="pt-5 pb-5 d-flex justify-content-center align-items-center flex-column">
+            <div className="pt-5 d-flex justify-content-center align-items-center flex-column">
                 <h2 className={classes.subsectionTitle}>
                     <Trans t={t}>
                         {props.title}
