@@ -17,11 +17,12 @@ const cors = require('cors');
 const app = express();
 
 // Accept requests from our client
+console.log("App will now use CLIENT_URL ", process.env.CLIENT_URL, " as the origin for CORS")
 app.use(cors({
   origin: process.env.CLIENT_URL
 }));
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, 'client/build'))); // Commented out as the server is only required for Heroku
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
