@@ -46,7 +46,8 @@ const Home = () => {
     }, [scrollYPosition])
 
     useEffect(() => {
-        const socketInstance = socketIOClient(process.env.PUBLIC_URL)
+        console.log("SOCKET CONNECTED")
+        const socketInstance = socketIOClient(process.env.REACT_APP_API_URL)
         setSocket(socketInstance)
 
         //Disconnect from socket when component is unmount
@@ -75,13 +76,13 @@ const Home = () => {
                 <GeneratePekoCardModal isModalOpen={isPekoCardModalOpen} toggleModal={togglePekoCardModal} loggedInUser={user} />
             }
 
-            <img src={process.env.PUBLIC_URL + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg"/>
-            <img src={process.env.PUBLIC_URL + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg"/>
-            <img src={process.env.PUBLIC_URL + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg"/>
+            <img src={process.env.REACT_APP_API_URL + "images" + "/carrot-bg.svg"} alt="carrot-bg" className="carrot-bg"/>
+            <img src={process.env.REACT_APP_API_URL + "images" + "/ellipsis-bg.svg"} alt="ellipsis-bg" className="ellipsis-bg"/>
+            <img src={process.env.REACT_APP_API_URL + "images" + "/rabbit-bg.svg"} alt="rabbit-bg" className="rabbit-bg"/>
             
             <div className="front-page-wrapper">
                 <ElementTooltip id="PekoraFrontPage" style={{ zIndex: 2 }} tooltipChildren={<ExternalLink href="https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336">https://www.deviantart.com/skynetrailgun/art/Usada-Construction-EN-856918336</ExternalLink>}>
-                    <img src={process.env.PUBLIC_URL + "/usada-front-page.png"} alt="usada-pekora-construction" className="front-page-usada" />
+                    <img src={"https://imgur.com/bLE7wRL.png"} alt="usada-pekora-construction" className="front-page-usada" />
                 </ElementTooltip>
 
                 <div className="front-page-title">
@@ -104,11 +105,11 @@ const Home = () => {
 
             <div className="services-wrapper">
                 <div className="services-header">
-                    <img src={process.env.PUBLIC_URL + "/services-header.svg"} alt="services-header" className="services-header-svg" />
+                    <img src={process.env.REACT_APP_API_URL + "images" + "/services-header.svg"} alt="services-header" className="services-header-svg" />
 
                     <div className="services-header-pekora">
                         <div className="usada-front">
-                            <img src={process.env.PUBLIC_URL + "/usada-front.png"} alt="usada-front" />
+                            <img src={"https://imgur.com/HrYt1Hb.png"} alt="usada-front" />
                         </div>
 
                         <div className="services-title">{t("SERVICES")}</div>
@@ -118,7 +119,7 @@ const Home = () => {
                 <div className="services-body">
                     <div className="service">
                         <div className="service-icon">
-                            <img src={process.env.PUBLIC_URL + "/mc-dia-pickaxe.png"} alt="mc-dia-pickaxe" className="service-icon-img" />
+                            <img src={"https://imgur.com/yWuaQcV.png"} alt="mc-dia-pickaxe" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
                             <div className="service-title">{t("QUALITY DESIGNS")}</div>
@@ -130,7 +131,7 @@ const Home = () => {
 
                     <div className="service">
                         <div className="service-icon">
-                            <img src={process.env.PUBLIC_URL + "/mc-dia-boots.png"} alt="mc-dia-boots" className="service-icon-img" />
+                            <img src={"https://imgur.com/pY6Z6FL.png"} alt="mc-dia-boots" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
                             <div className="service-title">{t("HEYBRID REWARDS")}</div>
@@ -142,7 +143,7 @@ const Home = () => {
 
                     <div className="service">
                         <div className="service-icon">
-                            <img src={process.env.PUBLIC_URL + "/mc-wither.png"} alt="mc-wither" className="service-icon-img" />
+                            <img src={"https://imgur.com/yCEJOgu.png"} alt="mc-wither" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
                             <div className="service-title">{t("PEST CONTROL")}</div>
@@ -154,7 +155,7 @@ const Home = () => {
 
                     <div className="service">
                         <div className="service-icon">
-                            <img src={process.env.PUBLIC_URL + "/mc-iron-ingot.png"} alt="mc-iron-ingot" className="service-icon-img" />
+                            <img src={"https://imgur.com/7LSW4Ek.png"} alt="mc-iron-ingot" className="service-icon-img" />
                         </div>
                         <div className="service-desc-body">
                             <div className="service-title">{t("UNLIMITED RESOURCES")}</div>
@@ -204,7 +205,7 @@ const Home = () => {
 
             <div className="thanks">
                 <div className="usada-3d-wrapper">
-                    <img src={process.env.PUBLIC_URL + "/usada-3d.png"} alt="usada-3d" className="usada-3d" />
+                    <img src={"https://imgur.com/EJUtYPP.png"} alt="usada-3d" className="usada-3d" />
                 </div>
                 <div className="thanks-message">
                     <div className="tm-title">{t("Thank you for visiting peko~!")}</div>
