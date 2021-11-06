@@ -11,7 +11,7 @@ const PekoCard = forwardRef(({ userStr, front, back, style, onLoad, large }, ref
     const [qrCodeAPILink, setQRCodeAPILink] = useState()
     const [t] = useTranslation("join_us")
 
-    const currentLocation = window.location.origin
+    const currentLocation = process.env.REACT_APP_PUBLIC_URL + "images"
     const sourceImg = front ? `${currentLocation}/front-template.svg` : back && `${currentLocation}/back-template.svg`
     const classNamePrefix = large ? 'large' : 'peko'
     const user = userStr && JSON.parse(userStr)

@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
                 <div className="privacy-policy-content-wrapper">
                     <div className="privacy-policy-thumbnail-wrapper">
                             <ElementTooltip id="PekoraUsadaPrivacyPolicy" tooltipChildren={<ExternalLink href="https://twitter.com/drweamnetwork/status/1322837056750411776">https://twitter.com/drweamnetwork/status/1322837056750411776</ExternalLink>}>
-                                <img src={process.env.PUBLIC_URL + "/usada-privacy-policy.png"} alt="usada-privacy-policy" className="usada-privacy-policy" /> 
+                                <img src={"https://imgur.com/CpIAz1h.png"} alt="usada-privacy-policy" className="usada-privacy-policy" /> 
                             </ElementTooltip>
                     </div>
 

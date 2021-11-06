@@ -37,7 +37,7 @@ const Vlog = () => {
                 })
         })();
 
-        const socket = socketIOClient(process.env.PUBLIC_URL);
+        const socket = socketIOClient(process.env.REACT_APP_API_URL);
 
         socket.on("updatePekoraMinecraftVideoList", response => {
             if (response && response.VideoList) {

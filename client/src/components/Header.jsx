@@ -47,7 +47,7 @@ const Header = () => {
                     <Link to="/" className="header-wrapper-img">
                         <img
                             alt="header-logo"
-                            src={process.env.PUBLIC_URL + "/header-logo.png"}
+                            src={"https://i.imgur.com/mirkEol.png"}
                             className="header-logo" />
                     </Link>
                 </animated.div>

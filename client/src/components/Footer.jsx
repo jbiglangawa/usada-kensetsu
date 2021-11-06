@@ -26,7 +26,7 @@ const Footer = props => {
                 <div className="footer-left">
                     <img
                         alt="footer-logo" 
-                        src={process.env.PUBLIC_URL + "/header-logo.png"} 
+                        src={"https://i.imgur.com/mirkEol.png"} 
                         className="footer-logo" />
                     <div className="footer-text">
                         <Trans t={t}>

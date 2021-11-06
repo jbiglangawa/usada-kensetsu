@@ -40,7 +40,7 @@ const Project = () => {
                     <Helmet>
                         <title>{projectData.name[currentLanguage]} - {t("header:Usada Constructions")}🥕</title>
                         <meta property="og:title" content={projectData.name[currentLanguage] + " - Usada Constructions🥕"} />
-                        <meta property="og:image" content="%PUBLIC_URL%/meta.png" />
+                        {/* <meta property="og:image" content="%PUBLIC_URL%/meta.png" /> */}
                         <meta property="twitter:title" content={projectData.name[currentLanguage] + " - Usada Constructions🥕"} />
                         <meta property="twitter:image" content={projectData.thumbnail} />
                     </Helmet>

@@ -44,7 +44,7 @@ const Credits = () => {
 
                 <div className="credits-thumbnail-wrapper">
                     <ElementTooltip id="PekoraUsadaCredits" tooltipChildren={<ExternalLink href="https://www.pixiv.net/en/artworks/85356859">https://www.pixiv.net/en/artworks/85356859</ExternalLink>}>
-                        <img src={process.env.PUBLIC_URL + "/usada-credits.jpg"} alt="usada-credits" className="usada-credits" />
+                        <img src={"https://imgur.com/QjVpVDK.jpg"} alt="usada-credits" className="usada-credits" />
                     </ElementTooltip>
                 </div>
             </div>

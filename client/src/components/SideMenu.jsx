@@ -34,7 +34,7 @@ const SideMenu = ({ children }) => {
                         <img
                             alt="header-logo"
                             className="mobile-header-logo"
-                            src={process.env.PUBLIC_URL + "/header-logo.png"}
+                            src={"https://i.imgur.com/mirkEol.png"}
                         />
                     </Link>
                     <div className="mobile-language-dropdown">
