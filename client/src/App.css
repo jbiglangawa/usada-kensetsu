@@ -26,10 +26,48 @@
 .pushable:not(body) {
     transform: none;
     border: none!important;
-  }
+}
   
-  .pushable:not(body) > .ui.sidebar,
-  .pushable:not(body) > .fixed,
-  .pushable:not(body) > .pusher:after {
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
     position: fixed;
-  }
+}
+
+h1 {
+    font-family: 'AutoBusBold', 'Segoe UI';
+    color:  #E3A453;
+    font-size: 3.5rem !important;
+}
+
+.center-wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-wrap {
+    width: 40%;
+    height: 100%;
+}
+
+.message {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.wrap-1 {
+    padding-bottom: 40px;
+}
+

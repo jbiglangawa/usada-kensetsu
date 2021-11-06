@@ -9,11 +9,11 @@ import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <I18nextProvider i18n={i18n}>
-      <Suspense fallback={<LoadingScreen />}>
+    {/* <I18nextProvider i18n={i18n}> */}
+      {/* <Suspense fallback={<LoadingScreen />}> */}
        <App />
-      </Suspense>
-    </I18nextProvider>
+      {/* </Suspense> */}
+    {/* </I18nextProvider> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
