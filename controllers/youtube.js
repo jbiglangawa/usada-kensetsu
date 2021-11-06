@@ -38,7 +38,7 @@ setInterval(async () => {
   } else {
     console.log("Socket is not connected yet");
   }
-}, 10000);
+}, 600000);
 
 const startSocket = (ioInstance) => {
   io = ioInstance;
